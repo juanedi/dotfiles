@@ -114,7 +114,7 @@ map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 """"""""""
 " Misc
 """"""""""
-set guifont=Monaco:h13
+set guifont=Monaco:h12
 
 set ignorecase
 set splitbelow
