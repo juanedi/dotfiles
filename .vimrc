@@ -30,6 +30,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'danro/rename.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/argtextobj.vim'
+Plugin 'tpope/vim-commentary'
 
 " Ruby block text object
 Plugin 'kana/vim-textobj-user'
