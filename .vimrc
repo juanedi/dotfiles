@@ -98,15 +98,12 @@ vnoremap <leader>y "+y
 vnoremap <leader>d "+d
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
-"" search
-nnoremap <leader>s :Ag 
-nnoremap <leader>c :Ag <cword><cr>
 " edit .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " NERDTree
 map <leader>nt :NERDTreeToggle<CR>
-
+" cntrp: recent buffers MRU
 nnoremap <leader>bs :CtrlPMRU<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
