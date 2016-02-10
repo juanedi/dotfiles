@@ -118,4 +118,6 @@ set ignorecase
 set splitbelow
 set splitright
 
+set wildignore+=.git
+let NERDTreeRespectWildIgnore = 1
 
