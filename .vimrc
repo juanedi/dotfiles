@@ -121,3 +121,11 @@ set splitright
 set wildignore+=.git
 let NERDTreeRespectWildIgnore = 1
 
+
+""""""""""""""""""""""""""""""
+" Project specific settings
+""""""""""""""""""""""""""""""
+if filereadable(".vimrc.local")
+   set secure
+   so .vimrc.local
+endif
