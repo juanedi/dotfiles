@@ -1,0 +1,22 @@
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+[alias]
+	co = checkout
+	st = status
+	ci = commit
+	br = branch
+	f = fetch
+  brm = branch --merged
+  brnm = branch --no-merged
+  diffs = diff --staged
+  logr = log --reverse
+  l1 = log -1 -p
+
+[core]
+	excludesfile = ~/.gitignore_global
