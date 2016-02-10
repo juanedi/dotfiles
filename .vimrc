@@ -31,6 +31,7 @@ Plugin 'danro/rename.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'vim-scripts/gitignore'
 
 " Ruby block text object
 Plugin 'kana/vim-textobj-user'
@@ -118,7 +119,7 @@ set ignorecase
 set splitbelow
 set splitright
 
-set wildignore+=.git
+set wildignore+=.git,*.beam
 let NERDTreeRespectWildIgnore = 1
 
 
