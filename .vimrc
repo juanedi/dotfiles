@@ -109,6 +109,7 @@ map <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>bs :CtrlPMRU<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
+nnoremap <leader>rn :set relativenumber!<cr>
 
 """"""""""
 " Misc
