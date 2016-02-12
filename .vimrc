@@ -124,6 +124,7 @@ set splitright
 set wildignore+=.git,*.beam
 let NERDTreeRespectWildIgnore = 1
 
+set guioptions-=L
 
 """"""""""""""""""""""""""""""
 " Project specific settings
