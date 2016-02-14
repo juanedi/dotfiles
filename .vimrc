@@ -97,13 +97,16 @@ nnoremap <leader>v V
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
 " copy and paste from clipboard
-vnoremap <leader>y "+y
-vnoremap <leader>d "+d
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
+" vnoremap <leader>y "+y
+" vnoremap <leader>d "+d
+" nnoremap <leader>p "+p
+" vnoremap <leader>p "+p
+
 " edit .vimrc
+nnoremap <leader>d yygccp
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " NERDTree
 map <leader>nt :NERDTreeToggle<CR>
 " cntrp: recent buffers MRU
@@ -111,6 +114,20 @@ nnoremap <leader>bs :CtrlPMRU<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 nnoremap <leader>rn :set relativenumber!<cr>
+
+" Move lines up/down
+nnoremap <c-j> ddp
+nnoremap <c-k> ddkP
+
+" Duplicate line and comment
+nnoremap <leader>d yy:Commentary<cr>p
+
+" Moving to beginning/end of line
+nnoremap H ^
+nnoremap L $
+
+" Switch to normal mode
+inoremap jk <esc>
 
 """"""""""
 " Misc
