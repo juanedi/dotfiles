@@ -92,8 +92,6 @@ let mapleader = "\<Space>"
 
 " shortcuts
 nnoremap <leader>h :noh<cr>
-" select
-nnoremap <leader>v V
 " I don't know why these two with the <plug> don't work with 'nore'
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
@@ -104,7 +102,6 @@ vmap <c-v> <plug>(expand_region_shrink)
 " vnoremap <leader>p "+p
 
 " edit .vimrc
-nnoremap <leader>d yygccp
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -130,6 +127,12 @@ nnoremap L $
 " Switch to normal mode
 inoremap jk <esc>
 
+" Duplicate and comment
+nnoremap <leader>d yygccp
+
+" Center search results
+nnoremap n nzz
+
 """"""""""
 " Misc
 """"""""""
@@ -143,6 +146,7 @@ set wildignore+=.git,*.beam
 let NERDTreeRespectWildIgnore = 1
 
 set guioptions-=L
+set cursorline
 
 """"""""""""""""""""""""""""""
 " Project specific settings
