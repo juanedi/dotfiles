@@ -33,6 +33,7 @@ Plugin 'danro/rename.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
 Plugin 'vim-scripts/gitignore'
 
 " Ruby block text object
