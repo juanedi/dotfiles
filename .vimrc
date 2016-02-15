@@ -139,6 +139,8 @@ nnoremap n nzz
 set guifont=Monaco:h12
 
 set ignorecase
+set smartcase
+
 set splitbelow
 set splitright
 
@@ -147,6 +149,8 @@ let NERDTreeRespectWildIgnore = 1
 
 set guioptions-=L
 set cursorline
+
+set visualbell
 
 """"""""""""""""""""""""""""""
 " Project specific settings
