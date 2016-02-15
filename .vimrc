@@ -25,6 +25,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'dag/vim2hs'
 Plugin 'lambdatoast/elm.vim'
 
+Plugin 'w0ng/vim-hybrid'
 Plugin 'juanedi/predawn.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-fugitive'
@@ -57,7 +58,7 @@ let g:ctrlp_working_path_mode=0
 " colors configuration options are order specific
 set t_Co=256
 let base16colorspace=256
-colorscheme predawn
+colorscheme hybrid
 set background=dark
 
 " Visual options
