@@ -37,6 +37,7 @@ Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-scripts/gitignore'
+Plugin 'matze/vim-move'
 
 " Ruby block text object
 Plugin 'kana/vim-textobj-user'
@@ -56,6 +57,9 @@ set laststatus=2
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_working_path_mode=0
+
+" vim-move
+let g:move_key_modifier = 'C'
 
 " base16 
 " colors configuration options are order specific
@@ -115,10 +119,6 @@ nnoremap <leader>bs :CtrlPMRU<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 nnoremap <leader>rn :set relativenumber!<cr>
-
-" Move lines up/down
-nnoremap <c-j> ddp
-nnoremap <c-k> ddkP
 
 " Duplicate line and comment
 nnoremap <leader>d yy:Commentary<cr>p
