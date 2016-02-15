@@ -25,9 +25,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'dag/vim2hs'
 Plugin 'lambdatoast/elm.vim'
 
+" Themes
 Plugin 'w0ng/vim-hybrid'
 Plugin 'juanedi/predawn.vim'
 Plugin 'chriskempson/base16-vim'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'danro/rename.vim'
 Plugin 'airblade/vim-gitgutter'
