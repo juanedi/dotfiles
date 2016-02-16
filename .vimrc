@@ -52,6 +52,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " airline
 set laststatus=2
+let g:airline_section_b = '%{fnamemodify(getcwd(), ":t")}'
 
 " ctrlp
 let g:ctrlp_max_files=0
