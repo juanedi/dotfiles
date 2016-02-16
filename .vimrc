@@ -156,6 +156,9 @@ set cursorline
 
 set visualbell
 
+" store .swp files at home directory
+set directory=~/tmp//,.,/var/tmp//,/tmp//
+
 """"""""""""""""""""""""""""""
 " Project specific settings
 """"""""""""""""""""""""""""""
