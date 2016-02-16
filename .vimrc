@@ -137,6 +137,9 @@ nnoremap <leader>d yygccp
 " Center search results
 nnoremap n nzz
 
+" Avoid showing command history for q: (use <c-f> instead)
+nnoremap q: <nop>
+
 """"""""""
 " Misc
 """"""""""
