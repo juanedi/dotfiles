@@ -38,6 +38,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-scripts/gitignore'
 Plugin 'matze/vim-move'
+Plugin 'tpope/vim-surround.git'
 
 " Ruby block text object
 Plugin 'kana/vim-textobj-user'
