@@ -39,6 +39,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'vim-scripts/gitignore'
 Plugin 'matze/vim-move'
 Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-abolish'
 
 " Ruby block text object
 Plugin 'kana/vim-textobj-user'
@@ -115,7 +116,8 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " NERDTree
-map <leader>nt :NERDTreeToggle<CR>
+map <leader>ntt :NERDTreeToggle<CR>
+map <leader>ntf :NERDTreeFind<CR>
 " cntrp: recent buffers MRU
 nnoremap <leader>bs :CtrlPMRU<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
