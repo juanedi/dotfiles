@@ -5,7 +5,7 @@ alias pi-music-down='rsync -rau --progress --delete --exclude=iTunes pi@10.0.1.1
 alias pi-music-up='rsync -rau --progress --exclude=iTunes --perms $HOME/Music/ pi@10.0.1.13:/mnt/PASSPORT/music'
 alias o='open .'
 alias lstcp='lsof -i -n -P | grep TCP | grep LISTEN'
-alias sshconfig='subl $HOME/.ssh/config'
+alias sshconfig="$EDITOR $HOME/.ssh/config"
 
 alias dm='docker-machine'
 alias dc='docker-compose'
