@@ -44,6 +44,7 @@ Plugin 'tpope/vim-abolish'
 " Ruby block text object
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
