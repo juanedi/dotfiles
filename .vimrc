@@ -40,6 +40,7 @@ Plugin 'vim-scripts/gitignore'
 Plugin 'matze/vim-move'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
+Plugin 'padde/jump.vim'
 
 " Ruby block text object
 Plugin 'kana/vim-textobj-user'
