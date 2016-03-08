@@ -46,6 +46,7 @@ Plugin 'padde/jump.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'mattn/emmet-vim'
+Plugin 'tommcdo/vim-exchange'
 
 call vundle#end()
 
