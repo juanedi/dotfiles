@@ -137,9 +137,6 @@ nnoremap L $
 " Switch to normal mode
 inoremap jk <esc>
 
-" Duplicate and comment
-nnoremap <leader>d yygccp
-
 " Center search results
 nnoremap n nzz
 
