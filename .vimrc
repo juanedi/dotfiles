@@ -158,6 +158,7 @@ set wildignore+=.git,*.beam
 let NERDTreeRespectWildIgnore = 1
 
 set guioptions-=L
+set guioptions-=l
 set cursorline
 
 set visualbell
