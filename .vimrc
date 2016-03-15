@@ -24,6 +24,7 @@ Plugin 'burnettk/vim-angular'
 Plugin 'scrooloose/syntastic'
 Plugin 'dag/vim2hs'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'guns/vim-clojure-static'
 
 " Themes
 Plugin 'w0ng/vim-hybrid'
