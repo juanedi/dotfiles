@@ -148,6 +148,9 @@ inoremap jk <esc>
 " Center search results
 nnoremap n nzz
 
+" Keep cursor at current position when searching for current word
+nnoremap * *#
+
 " Avoid showing command history for q: (use <c-f> instead)
 nnoremap q: <nop>
 
