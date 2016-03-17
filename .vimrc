@@ -132,7 +132,7 @@ map <leader>ntf :NERDTreeFind<CR>
 nnoremap <leader>bs :CtrlPMRU<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
-nnoremap <leader>rn :set relativenumber!<cr>
+nnoremap <leader>nn :set relativenumber!<cr>
 
 " Duplicate line and comment
 nnoremap <leader>d yy:Commentary<cr>p
@@ -166,7 +166,9 @@ let NERDTreeRespectWildIgnore = 1
 
 set guioptions-=L
 set guioptions-=l
+
 set cursorline
+set relativenumber
 
 set visualbell
 
