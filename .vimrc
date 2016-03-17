@@ -48,6 +48,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'mattn/emmet-vim'
 Plugin 'tommcdo/vim-exchange'
+Plugin 'vim-scripts/paredit.vim'
 
 call vundle#end()
 
@@ -67,6 +68,9 @@ let g:ctrlp_working_path_mode=0
 
 " vim-move
 let g:move_key_modifier = 'C'
+
+" paredit
+let g:paredit_mode=1
 
 " base16 
 " colors configuration options are order specific
