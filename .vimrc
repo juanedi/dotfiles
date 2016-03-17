@@ -49,6 +49,8 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'mattn/emmet-vim'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 
