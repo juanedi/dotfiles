@@ -124,7 +124,7 @@ vmap <c-v> <plug>(expand_region_shrink)
 
 " edit .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+" nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " NERDTree
 map <leader>ntt :NERDTreeToggle<CR>
@@ -155,11 +155,11 @@ nnoremap * *#
 nnoremap q: <nop>
 
 " Easymotion mappings
+let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-nmap <leader>f <Plug>(easymotion-f)
-nmap <leader>F <Plug>(easymotion-bd-f)
-nmap <leader>w <Plug>(easymotion-w)
-nmap <leader>W <Plug>(easymotion-bd-W)
+nmap <leader>s <Plug>(easymotion-bd-f2)
+nmap <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
