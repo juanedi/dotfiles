@@ -51,6 +51,7 @@ Plugin 'tommcdo/vim-exchange'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 
@@ -149,6 +150,15 @@ nnoremap n nzz
 
 " Avoid showing command history for q: (use <c-f> instead)
 nnoremap q: <nop>
+
+" Easymotion mappings
+let g:EasyMotion_smartcase = 1
+nmap <leader>f <Plug>(easymotion-f)
+nmap <leader>F <Plug>(easymotion-bd-f)
+nmap <leader>w <Plug>(easymotion-w)
+nmap <leader>W <Plug>(easymotion-bd-W)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
 
 """"""""""
 " Misc
