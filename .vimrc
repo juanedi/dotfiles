@@ -88,8 +88,8 @@ let g:EasyMotion_smartcase = 1
 nmap <leader>s <Plug>(easymotion-bd-f2)
 nmap <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
 
 """"""""""""""""
 " Misc settings
