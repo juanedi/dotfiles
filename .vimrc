@@ -1,11 +1,12 @@
 set nocompatible
 filetype off   
 
-" Vundle setup 
+""""""""""""""""
+" Vundle setup
+""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'                  " let Vundle manage Vundle, required
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -14,6 +15,25 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ervandew/supertab'
 Plugin 'terryma/vim-expand-region'
+Plugin 'tpope/vim-fugitive'
+Plugin 'danro/rename.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/argtextobj.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'vim-scripts/gitignore'
+Plugin 'matze/vim-move'
+Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-abolish'
+Plugin 'padde/jump.vim'
+Plugin 'kana/vim-textobj-user'              " ruby block text object
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'mattn/emmet-vim'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'easymotion/vim-easymotion'
 
 " Language support
 Plugin 'tpope/vim-rails'
@@ -31,31 +51,12 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'juanedi/predawn.vim'
 Plugin 'chriskempson/base16-vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'danro/rename.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-scripts/argtextobj.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'vim-scripts/gitignore'
-Plugin 'matze/vim-move'
-Plugin 'tpope/vim-surround.git'
-Plugin 'tpope/vim-abolish'
-Plugin 'padde/jump.vim'
-
-" Ruby block text object
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'mattn/emmet-vim'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'vim-scripts/paredit.vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'easymotion/vim-easymotion'
-
 call vundle#end()
 
-" Plugins
+""""""""""""""""
+" Plugins setup
+""""""""""""""""
+let mapleader = "\<Space>"
 
 " ag binding to ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -68,6 +69,7 @@ let g:airline_section_b = '%{fnamemodify(getcwd(), ":t")}'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_working_path_mode=0
+nnoremap <leader>bs :CtrlPMRU<cr>
 
 " vim-move
 let g:move_key_modifier = 'C'
@@ -75,8 +77,25 @@ let g:move_key_modifier = 'C'
 " paredit
 let g:paredit_mode=1
 
-" base16 
-" colors configuration options are order specific
+" NERDTree
+let NERDTreeRespectWildIgnore = 1
+map <leader>ntt :NERDTreeToggle<CR>
+map <leader>ntf :NERDTreeFind<CR>
+
+" Easymotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap <leader>s <Plug>(easymotion-bd-f2)
+nmap <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+
+""""""""""""""""
+" Misc settings
+""""""""""""""""
+
+" base16 (colors configuration options are order specific)
 set t_Co=256
 let base16colorspace=256
 colorscheme hybrid
@@ -90,6 +109,8 @@ set number
 " Searching
 set hlsearch
 set incsearch
+set ignorecase
+set smartcase
 
 " Filetypes
 filetype on
@@ -105,11 +126,27 @@ set autoread
 " Needed for ruby block text objects
 runtime macros/matchit.vim
 
+set guifont=Monaco:h12
 
-""""""""""
-" Mappings
-""""""""""
-let mapleader = "\<Space>"
+set splitbelow
+set splitright
+
+set wildignore+=.git,*.beam
+
+set guioptions-=L
+set guioptions-=l
+
+set cursorline
+set relativenumber
+
+set visualbell
+
+" store .swp files at home directory
+set directory=~/tmp//,.,/var/tmp//,/tmp//
+
+"""""""""""""""""
+" Misc mappings
+"""""""""""""""""
 
 " shortcuts
 nnoremap <leader>h :noh<cr>
@@ -124,13 +161,7 @@ vmap <c-v> <plug>(expand_region_shrink)
 
 " edit .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
-" nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" NERDTree
-map <leader>ntt :NERDTreeToggle<CR>
-map <leader>ntf :NERDTreeFind<CR>
-" cntrp: recent buffers MRU
-nnoremap <leader>bs :CtrlPMRU<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 nnoremap <leader>nn :set relativenumber!<cr>
@@ -154,49 +185,10 @@ nnoremap * *#
 " Avoid showing command history for q: (use <c-f> instead)
 nnoremap q: <nop>
 
-" Easymotion mappings
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-nmap <leader>s <Plug>(easymotion-bd-f2)
-nmap <leader>f <Plug>(easymotion-bd-f)
-nmap <leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
-
-""""""""""
-" Misc
-""""""""""
-set guifont=Monaco:h12
-
-set ignorecase
-set smartcase
-
-set splitbelow
-set splitright
-
-set wildignore+=.git,*.beam
-let NERDTreeRespectWildIgnore = 1
-
-set guioptions-=L
-set guioptions-=l
-
-set cursorline
-set relativenumber
-
-set visualbell
-
-" store .swp files at home directory
-set directory=~/tmp//,.,/var/tmp//,/tmp//
-
-" customize markdown highlighting
+""""""""""""""""""
+" Theme tunning
+""""""""""""""""""
 hi link markdownBold String
 hi link markdownItalic String
 hi link markdownCode markdownHeadingRule
 
-""""""""""""""""""""""""""""""
-" Project specific settings
-""""""""""""""""""""""""""""""
-if filereadable(".vimrc.local")
-   set secure
-   so .vimrc.local
-endif
