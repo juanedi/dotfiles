@@ -153,11 +153,11 @@ nnoremap <leader>h :noh<cr>
 " I don't know why these two with the <plug> don't work with 'nore'
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
+
 " copy and paste from clipboard
-" vnoremap <leader>y "+y
-" vnoremap <leader>d "+d
-" nnoremap <leader>p "+p
-" vnoremap <leader>p "+p
+vnoremap <leader>y "+y
+vnoremap <leader>d "+d
+nnoremap <leader>p "+p
 
 " edit .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
