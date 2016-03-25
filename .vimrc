@@ -176,6 +176,9 @@ nnoremap L $
 " Switch to normal mode
 inoremap jk <esc>
 
+" Paste in insert mode
+inoremap PP <esc>pa
+
 " Center search results
 nnoremap n nzz
 
