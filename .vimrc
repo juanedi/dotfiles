@@ -58,8 +58,11 @@ call vundle#end()
 """"""""""""""""
 let mapleader = "\<Space>"
 
-" ag binding to ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" ag
+" binding to ack
+let g:ackprg = 'ag --nogroup --nocolor --column' 
+" prevent first jump
+ca Ag Ag!
 
 " airline
 set laststatus=2
