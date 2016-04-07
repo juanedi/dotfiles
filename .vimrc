@@ -184,9 +184,11 @@ inoremap PP <esc>pa
 
 " Center search results
 nnoremap n nzz
+nnoremap N Nzz
+nnoremap G Gzz
 
 " Keep cursor at current position when searching for current word
-nnoremap * *#
+nnoremap * *N
 
 " Avoid showing command history for q: (use <c-f> instead)
 nnoremap q: <nop>
