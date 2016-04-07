@@ -13,3 +13,9 @@ alias dc='docker-compose'
 function dsh {
   docker-compose run $1 /bin/bash
 }
+
+function brium() {
+  bash -c "curl -XPOST https://brium.me/api/messages?access_token=`cat ~/.brium | tr -d '[[:space:]]'` -d '$*'"
+}
+
+alias br=brium
