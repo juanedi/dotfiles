@@ -203,6 +203,10 @@ nnoremap <S-l> <C-w>l
 nnoremap <S-j> <C-w>j
 nnoremap <S-k> <C-w>k
 
+" Toggle background
+nnoremap <leader>bl :set background=light<cr>
+nnoremap <leader>bd :set background=dark<cr>
+
 """"""""""""""""""
 " Theme tunning
 """"""""""""""""""
