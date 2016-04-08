@@ -39,7 +39,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'burnettk/vim-angular'
 Plugin 'scrooloose/syntastic'
 Plugin 'dag/vim2hs'
@@ -93,6 +94,9 @@ nmap <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>j <Plug>(easymotion-j)
 nmap <leader>k <Plug>(easymotion-k)
+
+" JSX
+let g:jsx_ext_required = 0
 
 """"""""""""""""
 " Misc settings
