@@ -198,12 +198,6 @@ nnoremap * *N
 " Avoid showing command history for q: (use <c-f> instead)
 nnoremap q: <nop>
 
-" Split pane navigation
-nnoremap <S-h> <C-w>h
-nnoremap <S-l> <C-w>l
-nnoremap <S-j> <C-w>j
-nnoremap <S-k> <C-w>k
-
 " Toggle background
 nnoremap <leader>bl :set background=light<cr>
 nnoremap <leader>bd :set background=dark<cr>
