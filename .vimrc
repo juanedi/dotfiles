@@ -52,6 +52,7 @@ Plugin 'rhysd/vim-crystal'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'juanedi/predawn.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
