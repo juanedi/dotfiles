@@ -34,6 +34,7 @@ Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'FooSoft/vim-argwrap'
 
 " Language support
 Plugin 'tpope/vim-rails'
@@ -100,6 +101,9 @@ nmap <leader>k <Plug>(easymotion-k)
 
 " JSX
 let g:jsx_ext_required = 0
+
+"vim-argwrap
+nnoremap <silent> <leader>a :ArgWrap<CR>
 
 """"""""""""""""
 " Misc settings
