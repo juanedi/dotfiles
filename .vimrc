@@ -96,8 +96,7 @@ let g:EasyMotion_smartcase = 1
 nmap <leader>s <Plug>(easymotion-bd-f2)
 nmap <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>w <Plug>(easymotion-bd-w)
-nmap <leader>j <Plug>(easymotion-j)
-nmap <leader>k <Plug>(easymotion-k)
+nmap <leader>l <Plug>(easymotion-bd-jk)
 
 " JSX
 let g:jsx_ext_required = 0
@@ -184,8 +183,8 @@ nnoremap <leader>nn :set relativenumber!<cr>
 nnoremap <leader>d yy:Commentary<cr>p
 
 " Moving to beginning/end of line
-nnoremap H ^
-nnoremap L $
+nnoremap <c-h> ^
+nnoremap <c-l> $
 
 " Switch to normal mode
 inoremap jk <esc>
@@ -207,6 +206,15 @@ nnoremap q: <nop>
 " Toggle background
 nnoremap <leader>bl :set background=light<cr>
 nnoremap <leader>bd :set background=dark<cr>
+
+" Split navigation
+nnoremap <s-j> <c-w>j
+nnoremap <s-k> <c-w>k
+nnoremap <s-h> <c-w>h
+nnoremap <s-l> <c-w>l
+
+" alternative mapping for joining lines
+nnoremap <leader>jl <s-j>
 
 """"""""""""""""""
 " Theme tunning
