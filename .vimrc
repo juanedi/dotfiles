@@ -157,6 +157,9 @@ set visualbell
 " store .swp files at home directory
 set directory=~/tmp//,.,/var/tmp//,/tmp//
 
+" enable mouse
+set mouse=a
+
 """""""""""""""""
 " Misc mappings
 """""""""""""""""
