@@ -162,7 +162,8 @@ set directory=~/tmp//,.,/var/tmp//,/tmp//
 """""""""""""""""
 
 " shortcuts
-nnoremap <leader>h :noh<cr>
+nmap <CR> :noh<CR>
+
 " I don't know why these two with the <plug> don't work with 'nore'
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
