@@ -220,6 +220,8 @@ nnoremap <s-l> <c-w>l
 " alternative mapping for joining lines
 nnoremap <leader>jl <s-j>
 
+nnoremap <leader>r <c-l>
+
 """"""""""""""""""
 " Theme tunning
 """"""""""""""""""
