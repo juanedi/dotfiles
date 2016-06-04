@@ -222,6 +222,8 @@ nnoremap <leader>jl <s-j>
 
 nnoremap <leader>r <c-l>
 
+nnoremap <c-w> :q<CR>
+
 """"""""""""""""""
 " Theme tunning
 """"""""""""""""""
