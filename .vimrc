@@ -160,6 +160,9 @@ set directory=~/tmp//,.,/var/tmp//,/tmp//
 " enable mouse
 set mouse=a
 
+" allow to delete old text in insert mode
+set backspace=indent,eol,start
+
 """""""""""""""""
 " Misc mappings
 """""""""""""""""
