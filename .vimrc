@@ -168,7 +168,7 @@ set backspace=indent,eol,start
 """""""""""""""""
 
 " shortcuts
-nmap <CR> :noh<CR>
+nmap <leader>h :noh<CR>
 
 " I don't know why these two with the <plug> don't work with 'nore'
 vmap v <plug>(expand_region_expand)
