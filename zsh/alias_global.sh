@@ -19,4 +19,6 @@ alias matchingfiles="cut -d ':' -f 1 | sort | uniq"
 alias cleantex='git status | grep -v modified | grep -e \.aux$ -e \.log$ -e \.out$ -e \.nav$ -e \.snm$ -e \.toc$  | cut -c 2- | xargs rm'
 alias be='bundle exec'
 
+alias v='view'
+
 alias zshconfig="$EDITOR ~/.zshrc"
