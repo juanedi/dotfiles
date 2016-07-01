@@ -78,7 +78,7 @@ let g:airline_section_b = '%{fnamemodify(getcwd(), ":t")}'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_working_path_mode=0
-nnoremap <leader>bs :CtrlPMRU<cr>
+nnoremap <leader><leader> :CtrlPMRU<cr>
 
 " vim-move
 let g:move_key_modifier = 'C'
