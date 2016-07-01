@@ -49,6 +49,7 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'rhysd/vim-crystal'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'keith/swift.vim'
 
 " Themes
 Plugin 'w0ng/vim-hybrid'
