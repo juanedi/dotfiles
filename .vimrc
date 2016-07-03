@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'                  " let Vundle manage Vundle, required
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rking/ag.vim'
 Plugin 'bling/vim-airline'
@@ -78,6 +78,8 @@ let g:airline_section_b = '%{fnamemodify(getcwd(), ":t")}'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_working_path_mode=0
+let g:ctrlp_map = ''
+nnoremap <c-P> :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader><leader> :CtrlPMRU<cr>
 
 " vim-move
