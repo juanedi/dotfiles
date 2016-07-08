@@ -230,6 +230,11 @@ nnoremap <leader>r <c-l>
 
 nnoremap <c-w> :q<CR>
 
+" go to notes
+nnoremap ,n :J notes<cr>:set background=light<cr>:NERDTreeToggle<cr>
+
+
+
 """"""""""""""""""
 " Theme tunning
 """"""""""""""""""
