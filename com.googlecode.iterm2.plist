@@ -952,7 +952,7 @@
 	<key>NSNavLastRootDirectory</key>
 	<string>~/code/dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -984,13 +984,11 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>271 199 606 456 0 0 1280 777 </string>
+	<string>269 281 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 138 1116 639 0 0 1280 777 </string>
+	<string>0 388 1116 639 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>155 0 1116 639 0 0 1280 777 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>95 27 1116 638 0 0 1280 777 </string>
+	<string>212 254 1131 639 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_0001264D-DA5F-4A28-8E76-DED1CEADD0DD</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_0001264D-DA5F-4A28-8E76-DED1CEADD0DD_selection</key>
@@ -2505,7 +2503,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.13850314915180206</real>
+			<real>0.079257587021624568</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -2528,46 +2526,12 @@
 			<string>/Users/jedi</string>
 		</dict>
 	</array>
-	<key>NoSyncDisablePromotions</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
-	<integer>0</integer>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
-	<integer>1</integer>
-	<key>NoSyncHaveShownPromoWithId_4</key>
-	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>CAE0F0B5-19BB-4217-AD78-77A7F0998740</string>
-	<key>NoSyncLastTipTime</key>
-	<real>486884842.21796203</real>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
+	<string>CF0E0EB0-5B5D-441D-82E3-35E35847C520</string>
 	<key>NoSyncPermissionToShowTip</key>
-	<true/>
-	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
-	<true/>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>486622816.84819603</real>
-	<key>NoSyncTimeOfLastPromo</key>
-	<real>477985528.30457598</real>
-	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>477985520.79038602</real>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-	</array>
+	<real>489640624.25682998</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2632,11 +2596,13 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=10</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=71</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-06-06T05:41:58Z</date>
+	<date>2016-07-11T13:52:42Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2681,7 +2647,11 @@
 	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.0</string>
+	<string>3.0.4</string>
 </dict>
 </plist>
