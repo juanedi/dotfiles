@@ -269,6 +269,9 @@
   (setq projectile-switch-project-action 'helm-projectile-find-file)
 
   (switch-to-buffer "*scratch*")
+
+  ; use ruby-mode for crystal until we have something better
+  (add-to-list 'auto-mode-alist '("\\.cr\\'" . ruby-mode))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
