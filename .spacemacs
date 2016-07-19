@@ -277,6 +277,12 @@
 
   ; fix for spanish accents on US-keyboads in OSX
   (setq-default mac-right-option-modifier nil)
+
+  ; move visual blocks up and down
+  (define-key evil-visual-state-map "J"
+    (concat ":m '>+1" (kbd "RET") "gv=gv"))
+  (define-key evil-visual-state-map "K"
+    (concat ":m '<-2" (kbd "RET") "gv=gv"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
