@@ -34,6 +34,7 @@
      clojure
      elm
      themes-megapack
+     yaml
 
      ; for elm layer
      (auto-completion :variables
@@ -272,6 +273,10 @@
 
   ; use ruby-mode for crystal until we have something better
   (add-to-list 'auto-mode-alist '("\\.cr\\'" . ruby-mode))
+  (setq ruby-insert-encoding-magic-comment nil)
+
+  ; fix for spanish accents on US-keyboads in OSX
+  (setq-default mac-right-option-modifier nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
