@@ -279,10 +279,12 @@
   (setq-default mac-right-option-modifier nil)
 
   ; move visual blocks up and down
-  (define-key evil-visual-state-map "J"
-    (concat ":m '>+1" (kbd "RET") "gv=gv"))
-  (define-key evil-visual-state-map "K"
-    (concat ":m '<-2" (kbd "RET") "gv=gv"))
+  (define-key evil-visual-state-map "J" (concat ":m '>+1" (kbd "RET") "gv=gv"))
+  (define-key evil-visual-state-map "K" (concat ":m '<-2" (kbd "RET") "gv=gv"))
+
+  ; default frame size
+  (add-to-list 'default-frame-alist (cons 'width 180))
+  (add-to-list 'default-frame-alist (cons 'height 50))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
