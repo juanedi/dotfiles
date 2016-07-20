@@ -24,7 +24,7 @@ values."
      emacs-lisp
      git
      markdown
-     ;; org
+     org
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -267,7 +267,6 @@ you should place your code here."
   ; Configuration function for user code.
 
   ; setup avy
-  (spacemacs/set-leader-keys "l" 'avy-goto-line)
   (define-key evil-normal-state-map (kbd "C-F") 'avy-goto-char-2)
   (setq-default
    avy-background t
@@ -305,6 +304,7 @@ you should place your code here."
   ; default frame size
   (add-to-list 'default-frame-alist (cons 'width 180))
   (add-to-list 'default-frame-alist (cons 'height 50))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
