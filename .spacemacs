@@ -305,6 +305,8 @@ you should place your code here."
   (add-to-list 'default-frame-alist (cons 'width 180))
   (add-to-list 'default-frame-alist (cons 'height 50))
 
+  (evil-ex-define-cmd "vsp" 'split-window-right-and-focus)
+  (evil-ex-define-cmd "sp" 'split-window-below-and-focus)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
