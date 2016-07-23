@@ -35,9 +35,11 @@ values."
      ;; ---- jedi
      osx
      clojure
+     elixir
      elm
      themes-megapack
      yaml
+     latex
 
      ; for elm layer
      (auto-completion :variables
