@@ -268,8 +268,9 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
-  ; setup avy
+  ; custom avy keybindings
   (define-key evil-normal-state-map (kbd "C-F") 'avy-goto-char-2)
+  (spacemacs/set-leader-keys "SPC" 'avy-goto-char-2)
 
   (setq-default
    avy-background t
