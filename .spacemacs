@@ -270,6 +270,7 @@ you should place your code here."
 
   ; setup avy
   (define-key evil-normal-state-map (kbd "C-F") 'avy-goto-char-2)
+
   (setq-default
    avy-background t
    avy-highlight-first t
@@ -309,6 +310,11 @@ you should place your code here."
 
   (evil-ex-define-cmd "vsp" 'split-window-right-and-focus)
   (evil-ex-define-cmd "sp" 'split-window-below-and-focus)
+
+  ;; scroll one line at a time (less "jumpy" than defaults)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+  ;; (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
