@@ -40,6 +40,7 @@ values."
      themes-megapack
      yaml
      latex
+     dockerfile
 
      ; for elm layer
      (auto-completion :variables
