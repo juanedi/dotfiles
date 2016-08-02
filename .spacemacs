@@ -299,6 +299,17 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.cr\\'" . ruby-mode))
   (setq ruby-insert-encoding-magic-comment nil)
 
+  (defun crystal-format ()
+    (when (string="cr" (file-name-extension buffer-file-name))
+      (let ((output-buffer "*crystal formatter*"))
+        (when (get-buffer output-buffer) (kill-buffer output-buffer))
+        (get-buffer-create output-buffer)
+        (let ((exit-status (call-process-shell-command (format "crystal tool format %s" buffer-file-name) nil output-buffer t)))
+          (if (eq 0 exit-status)
+            (revert-buffer t t)
+            (popwin:popup-buffer output-buffer))))))
+  (add-hook 'after-save-hook #'crystal-format)
+
   ; fix for spanish accents on US-keyboads in OSX
   (setq-default mac-right-option-modifier nil)
 
