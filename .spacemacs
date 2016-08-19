@@ -41,6 +41,8 @@ values."
      yaml
      latex
      dockerfile
+     erlang
+     html
 
      ; for elm layer
      (auto-completion :variables
