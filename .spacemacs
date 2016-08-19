@@ -56,7 +56,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      (crystal-mode :location (recipe :fetcher github :repo "dotmilk/emacs-crystal-mode"))
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -297,8 +299,6 @@ you should place your code here."
 
   (switch-to-buffer "*scratch*")
 
-  ; use ruby-mode for crystal until we have something better
-  (add-to-list 'auto-mode-alist '("\\.cr\\'" . ruby-mode))
   (setq ruby-insert-encoding-magic-comment nil)
 
   (defun crystal-format ()
