@@ -40,6 +40,7 @@ values."
      themes-megapack
      yaml
      latex
+     python
      dockerfile
      erlang
      html
