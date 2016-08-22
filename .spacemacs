@@ -59,6 +59,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       (crystal-mode :location (recipe :fetcher github :repo "dotmilk/emacs-crystal-mode"))
+                                      (mapserver-mode :location (recipe :fetcher github :repo "juanedi/emacs-mapserver-mode"))
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
