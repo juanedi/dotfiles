@@ -45,13 +45,13 @@ values."
      erlang
      html
 
-     ; for elm layer
-     (auto-completion :variables
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-enable-snippets-in-popup t)
-     ; for elm layer
-     (syntax-checking :variables
-                      syntax-checking-enable-tooltips nil)
+     ;; ; recommended for elm layer
+     ;; (auto-completion :variables
+     ;;                  auto-completion-enable-help-tooltip t
+     ;;                  auto-completion-enable-snippets-in-popup t)
+     ;; ; recommended for elm layer
+     ;; (syntax-checking :variables
+     ;;                  syntax-checking-enable-tooltips nil)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
