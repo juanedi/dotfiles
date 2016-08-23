@@ -304,7 +304,7 @@ you should place your code here."
   (setq ruby-insert-encoding-magic-comment nil)
 
   (defun crystal-format ()
-    (when (string="cr" (file-name-extension buffer-file-name))
+    (when (equal 'crystal-mode major-mode)
       (let ((output-buffer "*crystal formatter*"))
         (when (get-buffer output-buffer) (kill-buffer output-buffer))
         (get-buffer-create output-buffer)
