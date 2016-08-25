@@ -299,6 +299,7 @@ you should place your code here."
 
   (setq projectile-switch-project-action 'helm-projectile-find-file)
 
+  (spacemacs/toggle-vi-tilde-fringe-off)
   (switch-to-buffer "*scratch*")
 
   (setq ruby-insert-encoding-magic-comment nil)
