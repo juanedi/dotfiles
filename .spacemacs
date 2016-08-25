@@ -333,6 +333,9 @@ you should place your code here."
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
   ;; (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+  (setq js-indent-level 2)
+  (setq css-indent-offset 2)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
