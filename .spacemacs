@@ -19,7 +19,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     auto-completion
      better-defaults
      emacs-lisp
      git
@@ -45,10 +44,10 @@ values."
      erlang
      html
 
-     ;; ; recommended for elm layer
-     ;; (auto-completion :variables
-     ;;                  auto-completion-enable-help-tooltip t
-     ;;                  auto-completion-enable-snippets-in-popup t)
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-tab-key-behavior cycle
+                      auto-completion-enable-snippets-in-popup t)
      ;; ; recommended for elm layer
      ;; (syntax-checking :variables
      ;;                  syntax-checking-enable-tooltips nil)
@@ -336,6 +335,11 @@ you should place your code here."
 
   (setq js-indent-level 2)
   (setq css-indent-offset 2)
+
+  (global-company-mode)
+  (add-hook 'company-mode-hook
+            (lambda()
+              (global-set-key (kbd "S-SPC") 'hippie-expand)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
