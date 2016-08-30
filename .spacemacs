@@ -43,6 +43,7 @@ values."
      dockerfile
      erlang
      html
+     javascript
 
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
