@@ -276,7 +276,6 @@ you should place your code here."
   ; Configuration function for user code.
 
   ; custom avy keybindings
-  (define-key evil-normal-state-map (kbd "C-F") 'avy-goto-char-2)
   (spacemacs/set-leader-keys "SPC" 'avy-goto-char-2)
 
   (setq-default
