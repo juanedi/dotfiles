@@ -30,8 +30,6 @@ values."
      ;; spell-checking
      syntax-checking
      version-control
-
-     ;; ---- jedi
      osx
      clojure
      elixir
@@ -44,6 +42,7 @@ values."
      erlang
      html
      javascript
+     crystal ;; git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
 
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
@@ -58,7 +57,6 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      (crystal-mode :location (recipe :fetcher github :repo "dotmilk/emacs-crystal-mode"))
                                       (mapserver-mode :location (recipe :fetcher github :repo "juanedi/emacs-mapserver-mode"))
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -302,17 +300,6 @@ you should place your code here."
   (switch-to-buffer "*scratch*")
 
   (setq ruby-insert-encoding-magic-comment nil)
-
-  (defun crystal-format ()
-    (when (equal 'crystal-mode major-mode)
-      (let ((output-buffer "*crystal formatter*"))
-        (when (get-buffer output-buffer) (kill-buffer output-buffer))
-        (get-buffer-create output-buffer)
-        (let ((exit-status (call-process-shell-command (format "crystal tool format %s" buffer-file-name) nil output-buffer t)))
-          (if (eq 0 exit-status)
-            (revert-buffer t t)
-            (popwin:popup-buffer output-buffer))))))
-  (add-hook 'after-save-hook #'crystal-format)
 
   ; fix for spanish accents on US-keyboads in OSX
   (setq-default mac-right-option-modifier nil)
