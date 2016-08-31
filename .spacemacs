@@ -47,7 +47,7 @@ values."
 
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
-                      auto-completion-tab-key-behavior cycle
+                      auto-completion-tab-key-behavior 'cycle
                       auto-completion-enable-snippets-in-popup t)
      ;; ; recommended for elm layer
      ;; (syntax-checking :variables
