@@ -60,7 +60,9 @@ values."
                                       (mapserver-mode :location (recipe :fetcher github :repo "juanedi/emacs-mapserver-mode"))
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    vi-tilde-fringe
+                                    )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -296,7 +298,6 @@ you should place your code here."
 
   (setq projectile-switch-project-action 'helm-projectile-find-file)
 
-  (spacemacs/toggle-vi-tilde-fringe-off)
   (switch-to-buffer "*scratch*")
 
   (setq ruby-insert-encoding-magic-comment nil)
