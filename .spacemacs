@@ -291,6 +291,7 @@ you should place your code here."
 
    ; always open NeoTree focused on the current file
    neo-smart-open t
+   neo-theme 'nerd
   )
 
   (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
