@@ -292,6 +292,9 @@ you should place your code here."
    ; always open NeoTree focused on the current file
    neo-smart-open t
    neo-theme 'nerd
+
+   ;; use 'old style' osx full screen
+   ns-use-native-fullscreen nil
   )
 
   (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
