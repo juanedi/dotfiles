@@ -325,8 +325,9 @@ you should place your code here."
   ;; (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-  (setq js-indent-level 2)
-  (setq css-indent-offset 2)
+  (setq-default js-indent-level 2)
+  (setq-default js2-basic-offset 2)
+  (setq-default css-indent-offset 2)
 
   (global-company-mode)
   (add-hook 'company-mode-hook
