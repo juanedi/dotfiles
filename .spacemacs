@@ -279,36 +279,53 @@ you should place your code here."
   (spacemacs/set-leader-keys "SPC" 'avy-goto-char-2)
 
   (setq-default
+   ;; avy displat settings
    avy-background t
    avy-highlight-first t
-   )
 
-  (setq-default
+   ;; escape with JK
    evil-escape-key-sequence "jk"
 
-   ; follow symbolik links without asking for confirmation
+   ;; follow symbolik links without asking for confirmation
    vc-follow-symlinks nil
 
-   ; always open NeoTree focused on the current file
+   ;; always open neotree focused on the current file
    neo-smart-open t
+   ;; do not show folder icons
    neo-theme 'nerd
+   ;; do not show hidden files
    neo-show-hidden-files nil
 
    ;; use 'old style' osx full screen
    ns-use-native-fullscreen nil
+
+   ;; indentation
+   js-indent-level 2
+   js2-basic-offset 2
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2
+
+   ;; when switching to a project ask for which file to open
+   projectile-switch-project-action 'helm-projectile-find-file
+
+   ;; scroll one line at a time (less "jumpy" than defaults)
+   mouse-wheel-scroll-amount '(1 ((shift) . 1))
+   ;; don't accelerate scrolling
+   ;; (setq mouse-wheel-progressive-speed nil)
+   ;; scroll window under mouse
+   mouse-wheel-follow-mouse 't
+
+   ;; necessary for spanish accents
+   mac-right-option-modifier nil
   )
 
   (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
   (define-key evil-normal-state-map (kbd "C-L") (kbd "$"))
 
-  (setq projectile-switch-project-action 'helm-projectile-find-file)
-
-  (switch-to-buffer "*scratch*")
-
   (setq ruby-insert-encoding-magic-comment nil)
-
-  ; fix for spanish accents on US-keyboads in OSX
-  (setq-default mac-right-option-modifier nil)
 
   ; move visual blocks up and down
   (define-key evil-visual-state-map "J" (concat ":m '>+1" (kbd "RET") "gv=gv"))
@@ -321,25 +338,16 @@ you should place your code here."
   (evil-ex-define-cmd "vsp" 'split-window-right-and-focus)
   (evil-ex-define-cmd "sp" 'split-window-below-and-focus)
 
-  ;; scroll one line at a time (less "jumpy" than defaults)
-  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-  ;; (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-
-  (setq-default js-indent-level 2)
-  (setq-default js2-basic-offset 2)
-  (setq-default css-indent-offset 2)
-  (setq-default web-mode-markup-indent-offset 2
-                web-mode-css-indent-offset 2
-                web-mode-code-indent-offset 2
-                web-mode-attr-indent-offset 2)
-
+  ;; enable company for all file types
   (global-company-mode)
-  (add-hook 'company-mode-hook
-            (lambda()
-              (global-set-key (kbd "S-SPC") 'hippie-expand)))
+
+  ;; insert snippet with shift+space
+  (add-hook 'company-mode-hook (lambda() (global-set-key (kbd "S-SPC") 'hippie-expand)))
 
   (add-hook 'neotree-mode-hook (lambda () (text-scale-set -0.5)))
+
+  ;; open scratch buffer on startup
+  (switch-to-buffer "*scratch*")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
