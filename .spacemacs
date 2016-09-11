@@ -308,8 +308,11 @@ you should place your code here."
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2
 
-   ;; when switching to a project ask for which file to open
-   projectile-switch-project-action 'helm-projectile-find-file
+   ;; when switching to a project open file tree and display blank buffer
+   projectile-switch-project-action (lambda ()
+                                      (spacemacs/new-empty-buffer)
+                                      (neotree-show)
+                                      (select-window-1))
 
    ;; scroll one line at a time (less "jumpy" than defaults)
    mouse-wheel-scroll-amount '(1 ((shift) . 1))
