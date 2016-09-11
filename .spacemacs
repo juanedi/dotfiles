@@ -292,6 +292,7 @@ you should place your code here."
    ; always open NeoTree focused on the current file
    neo-smart-open t
    neo-theme 'nerd
+   neo-show-hidden-files nil
 
    ;; use 'old style' osx full screen
    ns-use-native-fullscreen nil
@@ -333,6 +334,8 @@ you should place your code here."
   (add-hook 'company-mode-hook
             (lambda()
               (global-set-key (kbd "S-SPC") 'hippie-expand)))
+
+  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -0.5)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
