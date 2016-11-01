@@ -356,6 +356,13 @@ you should place your code here."
 
   ;; open scratch buffer on startup
   (switch-to-buffer "*scratch*")
+
+  (setq mac-command-modifier 'super)
+  (define-key evil-insert-state-map (kbd "s-s") (lambda () (interactive)
+                                                  (progn
+                                                    (evil-escape)
+                                                    (save-buffer))))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
