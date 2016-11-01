@@ -19,6 +19,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
+     ruby
      better-defaults
      emacs-lisp
      git
@@ -38,11 +40,12 @@ values."
      yaml
      latex
      python
-     dockerfile
      erlang
      html
      javascript
      crystal ;; git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
+     haskell
+     docker
 
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
