@@ -326,6 +326,8 @@ you should place your code here."
 
    ;; necessary for spanish accents
    mac-right-option-modifier nil
+
+   elm-format-on-save t
   )
 
   (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
