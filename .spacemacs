@@ -363,6 +363,11 @@ you should place your code here."
                                                     (evil-escape)
                                                     (save-buffer))))
 
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
