@@ -284,6 +284,7 @@ you should place your code here."
   (spacemacs/set-leader-keys "SPC" 'avy-goto-char-2)
 
   (setq-default
+   evil-normal-state-cursor 'hbar
    ;; avy displat settings
    avy-background t
    avy-highlight-first t
