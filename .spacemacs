@@ -66,6 +66,7 @@ values."
    dotspacemacs-additional-packages '(
                                       (mapserver-mode :location (recipe :fetcher github :repo "juanedi/emacs-mapserver-mode"))
                                       atom-one-dark-theme
+                                      all-the-icons
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -284,6 +285,16 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
+  ;; customize neotree look
+  (defface neo-link-face
+    '((((background dark)) (:foreground "#abb2bf"))
+      (t                   (:foreground "Black")))
+    "*Face used for open file/dir in neotree buffer."
+    :group 'neotree :group 'font-lock-highlighting-faces)
+  (defvar neo-dir-link-face 'neo-link-face)
+  (defvar neo-file-link-face 'neo-link-face)
+
+
   ; custom avy keybindings
   (spacemacs/set-leader-keys "SPC" 'avy-goto-char-2)
 
@@ -302,7 +313,7 @@ you should place your code here."
    ;; always open neotree focused on the current file
    neo-smart-open t
    ;; do not show folder icons
-   neo-theme 'nerd
+   neo-theme 'icons
    ;; do not show hidden files
    neo-show-hidden-files nil
 
