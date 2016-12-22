@@ -354,6 +354,9 @@ you should place your code here."
 
    elm-format-on-save t
    elm-sort-imports-on-save t
+
+   ;; fix maximized frames not taking whole screen in OSX
+   frame-resize-pixelwise t
   )
 
   (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
