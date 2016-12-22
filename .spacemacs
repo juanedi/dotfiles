@@ -304,6 +304,9 @@ you should place your code here."
    avy-background t
    avy-highlight-first t
 
+   ;; remove wave separator (color don't look good)
+   powerline-default-separator 'bar
+
    ;; escape with JK
    evil-escape-key-sequence "jk"
 
