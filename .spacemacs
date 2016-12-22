@@ -274,6 +274,10 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ; Initialization function for user code.
+  (setq-default
+   ;; do not warn if setting variables in .zshrc instead of .zshenv
+   exec-path-from-shell-check-startup-files nil
+   )
   )
 
 (defun dotspacemacs/user-config ()
