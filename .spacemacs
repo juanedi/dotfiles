@@ -296,7 +296,7 @@ you should place your code here."
 
 
   ; custom avy keybindings
-  (spacemacs/set-leader-keys "SPC" 'avy-goto-char-2)
+  (spacemacs/set-leader-keys "SPC" 'helm-projectile-switch-to-buffer)
 
   (setq-default
    evil-normal-state-cursor 'hbar
