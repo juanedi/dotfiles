@@ -396,6 +396,7 @@ you should place your code here."
                                                   (progn
                                                     (evil-escape)
                                                     (save-buffer))))
+  (global-centered-cursor-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
