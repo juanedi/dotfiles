@@ -323,6 +323,8 @@ you should place your code here."
    neo-theme 'icons
    ;; do not show hidden files
    neo-show-hidden-files nil
+   ;; hide "press ? for help"
+   neo-banner-message nil
 
    ;; use 'old style' osx full screen
    ns-use-native-fullscreen nil
