@@ -359,6 +359,9 @@ you should place your code here."
 
    ;; fix maximized frames not taking whole screen in OSX
    frame-resize-pixelwise t
+
+   ;; display git gutter on left fringe
+   git-gutter-fr+-side 'left-fringe
   )
 
   (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
