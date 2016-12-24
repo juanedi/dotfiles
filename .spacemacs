@@ -369,10 +369,6 @@ you should place your code here."
 
   (setq ruby-insert-encoding-magic-comment nil)
 
-  ; move visual blocks up and down
-  (define-key evil-visual-state-map "J" (concat ":m '>+1" (kbd "RET") "gv=gv"))
-  (define-key evil-visual-state-map "K" (concat ":m '<-2" (kbd "RET") "gv=gv"))
-
   ; default frame size
   (add-to-list 'default-frame-alist (cons 'width 180))
   (add-to-list 'default-frame-alist (cons 'height 50))
