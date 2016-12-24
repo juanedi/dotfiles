@@ -289,29 +289,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
-  ;; Neotree customization
-
-  ;; colors
-  (defface neo-link-face
-    '((((background dark)) (:foreground "#abb2bf"))
-      (t                   (:foreground "Black")))
-    "*Face used for open file/dir in neotree buffer."
-    :group 'neotree :group 'font-lock-highlighting-faces)
-  (defvar neo-dir-link-face 'neo-link-face)
-  (defvar neo-file-link-face 'neo-link-face)
-  ;; font size
-  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -0.5)))
-
-  (setq-default
-   ;; always open neotree focused on the current file
-   neo-smart-open t
-   ;; do not show folder icons
-   neo-theme 'icons
-   ;; do not show hidden files
-   neo-show-hidden-files nil
-   ;; hide "press ? for help"
-   neo-banner-message nil
-   )
+  (setup-neotree)
+  (setup-indentation)
 
   (spacemacs/set-leader-keys "SPC" 'helm-projectile-switch-to-buffer)
 
@@ -333,15 +312,6 @@ you should place your code here."
 
    ;; use 'old style' osx full screen
    ns-use-native-fullscreen nil
-
-   ;; indentation
-   js-indent-level 2
-   js2-basic-offset 2
-   css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-attr-indent-offset 2
 
    ;; when switching to a project open file tree and display blank buffer
    projectile-switch-project-action (lambda ()
@@ -397,6 +367,41 @@ you should place your code here."
                                                     (save-buffer))))
   (global-centered-cursor-mode)
   )
+
+(defun setup-neotree ()
+  ;; colors
+  (defface neo-link-face
+    '((((background dark)) (:foreground "#abb2bf"))
+      (t                   (:foreground "Black")))
+    "*Face used for open file/dir in neotree buffer."
+    :group 'neotree :group 'font-lock-highlighting-faces)
+  (defvar neo-dir-link-face 'neo-link-face)
+  (defvar neo-file-link-face 'neo-link-face)
+
+  ;; font size
+  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -0.5)))
+
+  (setq-default
+   ;; always open neotree focused on the current file
+   neo-smart-open t
+   ;; do not show folder icons
+   neo-theme 'icons
+   ;; do not show hidden files
+   neo-show-hidden-files nil
+   ;; hide "press ? for help"
+   neo-banner-message nil
+   ))
+
+(defun setup-indentation ()
+  (setq-default
+   js-indent-level 2
+   js2-basic-offset 2
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2
+   ))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
