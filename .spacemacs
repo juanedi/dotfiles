@@ -289,7 +289,9 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
-  ;; customize neotree look
+  ;; Neotree customization
+
+  ;; colors
   (defface neo-link-face
     '((((background dark)) (:foreground "#abb2bf"))
       (t                   (:foreground "Black")))
@@ -297,13 +299,25 @@ you should place your code here."
     :group 'neotree :group 'font-lock-highlighting-faces)
   (defvar neo-dir-link-face 'neo-link-face)
   (defvar neo-file-link-face 'neo-link-face)
+  ;; font size
+  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -0.5)))
 
+  (setq-default
+   ;; always open neotree focused on the current file
+   neo-smart-open t
+   ;; do not show folder icons
+   neo-theme 'icons
+   ;; do not show hidden files
+   neo-show-hidden-files nil
+   ;; hide "press ? for help"
+   neo-banner-message nil
+   )
 
-  ; custom avy keybindings
   (spacemacs/set-leader-keys "SPC" 'helm-projectile-switch-to-buffer)
 
   (setq-default
    evil-normal-state-cursor 'hbar
+
    ;; avy displat settings
    avy-background t
    avy-highlight-first t
@@ -316,15 +330,6 @@ you should place your code here."
 
    ;; follow symbolik links without asking for confirmation
    vc-follow-symlinks nil
-
-   ;; always open neotree focused on the current file
-   neo-smart-open t
-   ;; do not show folder icons
-   neo-theme 'icons
-   ;; do not show hidden files
-   neo-show-hidden-files nil
-   ;; hide "press ? for help"
-   neo-banner-message nil
 
    ;; use 'old style' osx full screen
    ns-use-native-fullscreen nil
@@ -381,8 +386,6 @@ you should place your code here."
 
   ;; insert snippet with shift+space
   (add-hook 'company-mode-hook (lambda() (global-set-key (kbd "S-SPC") 'hippie-expand)))
-
-  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -0.5)))
 
   ;; open scratch buffer on startup
   (switch-to-buffer "*scratch*")
