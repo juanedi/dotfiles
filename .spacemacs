@@ -294,6 +294,15 @@ you should place your code here."
 
   (spacemacs/set-leader-keys "SPC" 'helm-projectile-switch-to-buffer)
 
+  ;; when switching to a project open file tree and display blank buffer
+  (setq-default projectile-switch-project-action
+                (lambda ()
+                  (spacemacs/new-empty-buffer)
+                  (neotree-show)
+                  (select-window-1)))
+  ;; missing: this closes projectile on all windows
+  ;; (add-hook 'projectile-before-switch-project-hook (lambda () (neotree-hide)))
+
   (setq-default
    evil-normal-state-cursor 'hbar
 
@@ -312,12 +321,6 @@ you should place your code here."
 
    ;; use 'old style' osx full screen
    ns-use-native-fullscreen nil
-
-   ;; when switching to a project open file tree and display blank buffer
-   projectile-switch-project-action (lambda ()
-                                      (spacemacs/new-empty-buffer)
-                                      (neotree-show)
-                                      (select-window-1))
 
    ;; scroll one line at a time (less "jumpy" than defaults)
    mouse-wheel-scroll-amount '(1 ((shift) . 1))
@@ -343,10 +346,6 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "C-L") (kbd "$"))
 
   (setq ruby-insert-encoding-magic-comment nil)
-
-  ; default frame size
-  (add-to-list 'default-frame-alist (cons 'width 180))
-  (add-to-list 'default-frame-alist (cons 'height 50))
 
   (evil-ex-define-cmd "vsp" 'split-window-right-and-focus)
   (evil-ex-define-cmd "sp" 'split-window-below-and-focus)
