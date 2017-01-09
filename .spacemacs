@@ -340,6 +340,9 @@ you should place your code here."
 
    ;; display git gutter on left fringe
    git-gutter-fr+-side 'left-fringe
+
+   ;; don't warn when missing semicolons in js2-mode
+   js2-strict-missing-semi-warning nil
   )
 
   (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
