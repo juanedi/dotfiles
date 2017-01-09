@@ -392,6 +392,8 @@ you should place your code here."
    neo-show-hidden-files nil
    ;; hide "press ? for help"
    neo-banner-message nil
+   ;; accidentally pressing the escape sequence leaves neotree in a weird state
+   evil-escape-excluded-major-modes '(neotree-mode)
    ))
 
 (defun setup-indentation ()
