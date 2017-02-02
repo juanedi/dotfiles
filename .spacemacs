@@ -135,7 +135,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Monaco"
-                               :size 12
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -376,7 +376,7 @@ you should place your code here."
   (defvar neo-file-link-face 'neo-link-face)
 
   ;; font size
-  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -0.5)))
+  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -1.5)))
 
   (setq-default
    ;; always open neotree focused on the current file
