@@ -379,6 +379,9 @@ you should place your code here."
   ;; font size
   (add-hook 'neotree-mode-hook (lambda () (text-scale-set -1.5)))
 
+  ;; hide stuff
+  (add-hook 'neotree-mode-hook (lambda () (add-to-list 'neo-hidden-regexp-list "^elm-stuff$")))
+
   (setq-default
    ;; always open neotree focused on the current file
    neo-smart-open t
