@@ -290,15 +290,6 @@ you should place your code here."
 
   (spacemacs/set-leader-keys "SPC" 'helm-projectile-switch-to-buffer)
 
-  ;; when switching to a project open file tree and display blank buffer
-  (setq-default projectile-switch-project-action
-                (lambda ()
-                  (spacemacs/new-empty-buffer)
-                  (neotree-show)
-                  (select-window-1)))
-  ;; missing: this closes projectile on all windows
-  ;; (add-hook 'projectile-before-switch-project-hook (lambda () (neotree-hide)))
-
   (setq-default
    evil-normal-state-cursor 'hbar
 
