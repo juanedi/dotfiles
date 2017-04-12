@@ -382,6 +382,9 @@ you should place your code here."
   ;; hide stuff
   (add-hook 'neotree-mode-hook (lambda () (add-to-list 'neo-hidden-regexp-list "^elm-stuff$")))
 
+  ;; having neotree open breaks layout switching
+  (add-hook 'persp-before-switch-functions (lambda (&rest _args) (neotree-hide)))
+
   (setq-default
    ;; always open neotree focused on the current file
    neo-smart-open t
