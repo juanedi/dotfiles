@@ -336,6 +336,7 @@ you should place your code here."
   ; Configuration function for user code.
 
   (jedi/setup-neotree)
+  (jedi/setup-projectile)
   (jedi/setup-indentation)
   (jedi/setup-avy)
   (jedi/setup-named-macros)
@@ -424,17 +425,6 @@ you should place your code here."
   ;; having neotree open breaks layout switching
   (add-hook 'persp-before-switch-functions (lambda (&rest _args) (neotree-hide)))
 
-  ;; on project switch change neotree root and display an empty buffer
-  ;; for some reason, without selecting window-1 the file chosen in
-  ;; projectile appears in a new split window
-  (setq projectile-switch-project-action
-        (lambda ()
-          (spacemacs/new-empty-buffer)
-          (neotree-projectile-action)
-          (winum-select-window-1)
-          (projectile-find-file)
-          ))
-
   (setq-default
    ;; always open neotree focused on the current file
    neo-smart-open t
@@ -447,6 +437,19 @@ you should place your code here."
    ;; accidentally pressing the escape sequence leaves neotree in a weird state
    evil-escape-excluded-major-modes '(neotree-mode)
    ))
+
+(defun jedi/setup-projectile ()
+  ;; on project switch change neotree root and display an empty buffer
+  ;; for some reason, without selecting window-1 the file chosen in
+  ;; projectile appears in a new split window
+  (setq projectile-switch-project-action
+        (lambda ()
+          (spacemacs/new-empty-buffer)
+          (neotree-projectile-action)
+          (winum-select-window-1)
+          (projectile-find-file)
+          ))
+  )
 
 (defun jedi/setup-indentation ()
   (setq-default
@@ -474,6 +477,12 @@ you should place your code here."
 
   ;; C: split line at comma
   (evil-set-register ?c [?f ?, ?l ?s return escape ?l]))
+
+(defun jedi/add-project ()
+  (interactive)
+  (call-interactively 'projectile-add-known-project)
+  (projectile-save-known-projects))
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
