@@ -339,13 +339,11 @@ you should place your code here."
   (setup-indentation)
 
   (spacemacs/set-leader-keys "SPC" 'helm-projectile-switch-to-buffer)
+  (setup-avy)
+  (setup-named-macros)
 
   (setq-default
    evil-normal-state-cursor 'hbar
-
-   ;; avy displat settings
-   avy-background t
-   avy-highlight-first t
 
    ;; remove wave separator (color don't look good)
    powerline-default-separator 'bar
@@ -449,6 +447,22 @@ you should place your code here."
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2
    ))
+
+(defun setup-avy ()
+  ;; Swap these shortcuts (I use the char-2 version a lot more)
+  (spacemacs/set-leader-keys "j j" 'evil-avy-goto-char-2)
+  (spacemacs/set-leader-keys "j J" 'evil-avy-goto-char)
+
+  (setq-default
+   avy-background nil
+   avy-highlight-first t
+   ))
+
+(defun setup-named-macros ()
+  ;; http://stackoverflow.com/questions/22817120/how-can-i-save-evil-mode-vim-style-macros-to-my-init-el
+
+  ;; C: split line at comma
+  (evil-set-register ?c [?f ?, ?l ?s return escape ?l]))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
