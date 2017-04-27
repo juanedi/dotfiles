@@ -337,8 +337,6 @@ you should place your code here."
 
   (setup-neotree)
   (setup-indentation)
-
-  (spacemacs/set-leader-keys "SPC" 'helm-projectile-switch-to-buffer)
   (setup-avy)
   (setup-named-macros)
 
