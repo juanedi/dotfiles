@@ -422,6 +422,17 @@ you should place your code here."
   ;; having neotree open breaks layout switching
   (add-hook 'persp-before-switch-functions (lambda (&rest _args) (neotree-hide)))
 
+  ;; on project switch change neotree root and display an empty buffer
+  ;; for some reason, without selecting window-1 the file chosen in
+  ;; projectile appears in a new split window
+  (setq projectile-switch-project-action
+        (lambda ()
+          (spacemacs/new-empty-buffer)
+          (neotree-projectile-action)
+          (winum-select-window-1)
+          (projectile-find-file)
+          ))
+
   (setq-default
    ;; always open neotree focused on the current file
    neo-smart-open t
