@@ -335,10 +335,10 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
-  (setup-neotree)
-  (setup-indentation)
-  (setup-avy)
-  (setup-named-macros)
+  (jedi/setup-neotree)
+  (jedi/setup-indentation)
+  (jedi/setup-avy)
+  (jedi/setup-named-macros)
 
   (setq-default
    evil-normal-state-cursor 'hbar
@@ -396,6 +396,8 @@ you should place your code here."
   (switch-to-buffer "*scratch*")
 
   (setq mac-command-modifier 'super)
+
+  ;; CMD+S saves file and exits insert mode
   (define-key evil-insert-state-map (kbd "s-s") (lambda () (interactive)
                                                   (progn
                                                     (evil-escape)
@@ -403,7 +405,7 @@ you should place your code here."
   (global-centered-cursor-mode)
   )
 
-(defun setup-neotree ()
+(defun jedi/setup-neotree ()
   ;; colors
   (defface neo-link-face
     '((((background dark)) (:foreground "#abb2bf"))
@@ -446,7 +448,7 @@ you should place your code here."
    evil-escape-excluded-major-modes '(neotree-mode)
    ))
 
-(defun setup-indentation ()
+(defun jedi/setup-indentation ()
   (setq-default
    js-indent-level 2
    js2-basic-offset 2
@@ -457,7 +459,7 @@ you should place your code here."
    web-mode-attr-indent-offset 2
    ))
 
-(defun setup-avy ()
+(defun jedi/setup-avy ()
   ;; Swap these shortcuts (I use the char-2 version a lot more)
   (spacemacs/set-leader-keys "j j" 'evil-avy-goto-char-2)
   (spacemacs/set-leader-keys "j J" 'evil-avy-goto-char)
@@ -467,7 +469,7 @@ you should place your code here."
    avy-highlight-first t
    ))
 
-(defun setup-named-macros ()
+(defun jedi/setup-named-macros ()
   ;; http://stackoverflow.com/questions/22817120/how-can-i-save-evil-mode-vim-style-macros-to-my-init-el
 
   ;; C: split line at comma
