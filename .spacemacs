@@ -439,6 +439,9 @@ you should place your code here."
    ))
 
 (defun jedi/setup-projectile ()
+  ;; shortcut to open project file in other window
+  (spacemacs/set-leader-keys "p F" 'projectile-find-file-other-window)
+
   ;; on project switch change neotree root and display an empty buffer
   ;; for some reason, without selecting window-1 the file chosen in
   ;; projectile appears in a new split window
