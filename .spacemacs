@@ -417,7 +417,7 @@ you should place your code here."
   (defvar neo-file-link-face 'neo-link-face)
 
   ;; font size
-  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -1.5)))
+  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -1)))
 
   ;; hide stuff
   (add-hook 'neotree-mode-hook (lambda () (add-to-list 'neo-hidden-regexp-list "^elm-stuff$")))
