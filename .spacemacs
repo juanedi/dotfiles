@@ -63,6 +63,7 @@ values."
      crystal ;; git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
      haskell
      docker
+     react
 
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
@@ -340,6 +341,7 @@ you should place your code here."
   (jedi/setup-indentation)
   (jedi/setup-avy)
   (jedi/setup-named-macros)
+  (jedi//setup-react-mode)
 
   (setq-default
    evil-normal-state-cursor 'hbar
@@ -404,6 +406,7 @@ you should place your code here."
                                                     (evil-escape)
                                                     (save-buffer))))
   (global-centered-cursor-mode)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   )
 
 (defun jedi/setup-neotree ()
@@ -481,11 +484,36 @@ you should place your code here."
   ;; C: split line at comma
   (evil-set-register ?c [?f ?, ?l ?s return escape ?l]))
 
+(defun jedi//setup-react-mode ()
+  (add-hook 'react-mode-hook #'jedi//detect-eslint-executable)
+  (add-hook 'after-save-hook #'jedi/eslint-fix))
+
 (defun jedi/add-project ()
   (interactive)
   (call-interactively 'projectile-add-known-project)
   (projectile-save-known-projects))
 
+(defun jedi//detect-eslint-executable ()
+  (let* ((root (locate-dominating-file
+                (or (buffer-file-name) default-directory)
+                "node_modules"))
+         (local-eslint-d (expand-file-name "node_modules/.bin/eslint_d" root))
+         (local-eslint   (expand-file-name "node_modules/.bin/eslint" root))
+         (global-eslint  (executable-find "eslint"))
+
+         (eslint (seq-find 'file-executable-p (list local-eslint-d
+                                                    local-eslint
+                                                    global-eslint))))
+    (setq-local eslint-executable eslint)))
+
+(defun jedi/eslint-fix ()
+  (interactive)
+  (when (and (eq 'react-mode major-mode)
+             (not (eq eslint-executable nil)))
+    (let ((initial-point (point)))
+      (call-process eslint-executable nil nil nil "--fix" (buffer-file-name))
+      (revert-buffer t t)
+      (goto-char initial-point))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
