@@ -336,11 +336,11 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
-  (jedi/setup-neotree)
-  (jedi/setup-projectile)
-  (jedi/setup-indentation)
-  (jedi/setup-avy)
-  (jedi/setup-named-macros)
+  (jedi//setup-neotree)
+  (jedi//setup-projectile)
+  (jedi//setup-indentation)
+  (jedi//setup-avy)
+  (jedi//setup-named-macros)
   (jedi//setup-react-mode)
 
   (setq-default
@@ -409,7 +409,7 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   )
 
-(defun jedi/setup-neotree ()
+(defun jedi//setup-neotree ()
   ;; colors
   (defface neo-link-face
     '((((background dark)) (:foreground "#abb2bf"))
@@ -441,7 +441,7 @@ you should place your code here."
    evil-escape-excluded-major-modes '(neotree-mode)
    ))
 
-(defun jedi/setup-projectile ()
+(defun jedi//setup-projectile ()
   ;; shortcut to open project file in other window
   (spacemacs/set-leader-keys "p F" 'projectile-find-file-other-window)
 
@@ -457,7 +457,7 @@ you should place your code here."
           ))
   )
 
-(defun jedi/setup-indentation ()
+(defun jedi//setup-indentation ()
   (setq-default
    js-indent-level 2
    js2-basic-offset 2
@@ -468,7 +468,7 @@ you should place your code here."
    web-mode-attr-indent-offset 2
    ))
 
-(defun jedi/setup-avy ()
+(defun jedi//setup-avy ()
   ;; Swap these shortcuts (I use the char-2 version a lot more)
   (spacemacs/set-leader-keys "j j" 'evil-avy-goto-char-2)
   (spacemacs/set-leader-keys "j J" 'evil-avy-goto-char)
@@ -478,7 +478,7 @@ you should place your code here."
    avy-highlight-first t
    ))
 
-(defun jedi/setup-named-macros ()
+(defun jedi//setup-named-macros ()
   ;; http://stackoverflow.com/questions/22817120/how-can-i-save-evil-mode-vim-style-macros-to-my-init-el
 
   ;; C: split line at comma
