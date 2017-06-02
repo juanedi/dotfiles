@@ -428,6 +428,9 @@ you should place your code here."
   ;; having neotree open breaks layout switching
   (add-hook 'persp-before-switch-functions (lambda (&rest _args) (neotree-hide)))
 
+  ;; shortcut to highlight current file in (possibly currently open) neotree
+  (spacemacs/set-leader-keys "p T" 'jedi/neotree-find-in-project)
+
   (setq-default
    ;; always open neotree focused on the current file
    neo-smart-open t
@@ -492,6 +495,12 @@ you should place your code here."
   (interactive)
   (call-interactively 'projectile-add-known-project)
   (projectile-save-known-projects))
+
+(defun jedi/neotree-find-in-project ()
+  (interactive)
+  (if (neo-global--window-exists-p)
+      (neotree-hide))
+  (neotree-find-project-root))
 
 (defun jedi//detect-eslint-executable ()
   (let* ((root (locate-dominating-file
