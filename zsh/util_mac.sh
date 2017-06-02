@@ -4,12 +4,10 @@ alias o='open .'
 alias lstcp='lsof -i -n -P | grep TCP | grep LISTEN'
 alias sshconfig="$EDITOR $HOME/.ssh/config"
 alias dm='docker-machine'
-alias dc='docker-compose'
 alias tmux-clear='tmux ls | grep -v attached | cut -d : -f 1 | xargs -n1 tmux kill-session -t'
 
-function dsh {
-    docker-compose run $1 /bin/bash
-}
+alias dc='docker-compose'
+alias dc-run='docker-compose run --rm'
 
 function ssht {
   ssh $1 -t tmux
