@@ -497,6 +497,20 @@ you should place your code here."
   (call-interactively 'projectile-add-known-project)
   (projectile-save-known-projects))
 
+(defun jedi/new-note ()
+  "Read a filename and create an org mode note with a simple template."
+  (interactive)
+  (let* ((current-dir (file-name-as-directory default-directory))
+         (file-name (read-file-name "Filename:" current-dir))
+         (template "#+TITLE: "))
+    (when (and (not (eq file-name nil))
+               (not (string= "" file-name))
+               (file-readable-p (file-name-directory file-name)))
+      (write-region template nil file-name)
+      (find-file file-name)
+      (goto-char (point-max))
+      (evil-insert 1))))
+
 (defun jedi/neotree-find-in-project ()
   (interactive)
   (if (neo-global--window-exists-p)
