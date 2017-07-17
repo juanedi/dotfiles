@@ -448,6 +448,7 @@ you should place your code here."
 (defun jedi//setup-projectile ()
   ;; shortcut to open project file in other window
   (spacemacs/set-leader-keys "p F" 'projectile-find-file-other-window)
+  (spacemacs/set-leader-keys "p A" 'jedi/projectile-toogle-between-implementation-and-test-splitting)
 
   ;; on project switch change neotree root and display an empty buffer
   ;; for some reason, without selecting window-1 the file chosen in
@@ -511,6 +512,10 @@ you should place your code here."
       (goto-char (point-max))
       (evil-insert 1))))
 
+(defun jedi/projectile-toogle-between-implementation-and-test-splitting ()
+  (interactive)
+  (split-window-right-and-focus)
+  (projectile-toggle-between-implementation-and-test))
 (defun jedi/neotree-find-in-project ()
   (interactive)
   (if (neo-global--window-exists-p)
