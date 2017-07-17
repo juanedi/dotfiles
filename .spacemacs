@@ -512,10 +512,18 @@ you should place your code here."
       (goto-char (point-max))
       (evil-insert 1))))
 
+(defun jedi/backup-branch ()
+  (interactive)
+  (let* ((current-branch (magit-get-current-branch))
+         (backup-name (concat "backup-" current-branch)))
+    (if (stringp current-branch)
+      (magit-branch backup-name current-branch "-f"))))
+
 (defun jedi/projectile-toogle-between-implementation-and-test-splitting ()
   (interactive)
   (split-window-right-and-focus)
   (projectile-toggle-between-implementation-and-test))
+
 (defun jedi/neotree-find-in-project ()
   (interactive)
   (if (neo-global--window-exists-p)
