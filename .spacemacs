@@ -490,7 +490,7 @@ you should place your code here."
   (evil-set-register ?c [?f ?, ?l ?s return escape ?l]))
 
 (defun jedi//setup-react-mode ()
-  (add-hook 'react-mode-hook #'jedi//detect-eslint-executable)
+  (add-hook 'react-mode-hook #'jedi/detect-eslint-executable)
   (add-hook 'after-save-hook #'jedi/eslint-fix))
 
 (defun jedi/add-project ()
@@ -522,7 +522,7 @@ you should place your code here."
       (neotree-hide))
   (neotree-find-project-root))
 
-(defun jedi//detect-eslint-executable ()
+(defun jedi/detect-eslint-executable ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
                 "node_modules"))
@@ -530,9 +530,9 @@ you should place your code here."
          (local-eslint   (expand-file-name "node_modules/.bin/eslint" root))
          (global-eslint  (executable-find "eslint"))
 
-         (eslint (seq-find 'file-executable-p (list local-eslint-d
-                                                    local-eslint
-                                                    global-eslint))))
+         (eslint (seq-find 'file-executable-p (seq-filter 'stringp (list local-eslint-d
+                                                                         local-eslint
+                                                                         global-eslint)))))
     (setq-local eslint-executable eslint)))
 
 (defun jedi/eslint-fix ()
