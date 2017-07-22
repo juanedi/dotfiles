@@ -515,7 +515,7 @@ you should place your code here."
 (defun jedi/backup-branch ()
   (interactive)
   (let* ((current-branch (magit-get-current-branch))
-         (backup-name (concat "backup-" current-branch)))
+         (backup-name (concat "backup/" current-branch)))
     (if (stringp current-branch)
       (magit-branch backup-name current-branch "-f"))))
 
