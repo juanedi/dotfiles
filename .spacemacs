@@ -343,6 +343,7 @@ you should place your code here."
   (jedi//setup-avy)
   (jedi//setup-named-macros)
   (jedi//setup-react-mode)
+  (jedi//setup-timeclock)
 
   (setq-default
    evil-normal-state-cursor 'hbar
@@ -472,6 +473,37 @@ you should place your code here."
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2
    ))
+
+(defun jedi/timeclock-current-activity ()
+  (interactive)
+  (if (equal (car timeclock-last-event) "i")
+      (nth 2 timeclock-last-event)))
+
+(defun jedi/timeclock-in ()
+  (interactive)
+  (if (eq (jedi/timeclock-current-activity) nil)
+      (call-interactively 'timeclock-in)
+      (call-interactively 'timeclock-change)))
+
+(defun jedi/timeclock-out ()
+  (interactive)
+  (timeclock-out nil "" nil))
+
+(defun jedi/timeclock-status ()
+  (interactive)
+  (let* ((current-activity (jedi/timeclock-current-activity))
+         (worked-hours (timeclock-workday-elapsed-string)))
+    (if (eq current-activity nil)
+        (message (concat "Worked hours: " worked-hours))
+        (message (concat "Worked hours: " worked-hours "\nCurrent activity: " current-activity)))))
+
+(defun jedi//setup-timeclock ()
+  (require 'timeclock)
+  (spacemacs/set-leader-keys "o t i" 'jedi/timeclock-in)
+  (spacemacs/set-leader-keys "o t o" 'jedi/timeclock-out)
+  (spacemacs/set-leader-keys "o t t" 'jedi/timeclock-status)
+  (spacemacs/set-leader-keys "o t l" 'timeclock-visit-timelog)
+  (spacemacs/set-leader-keys "o t r" 'timeclock-reread-log))
 
 (defun jedi//setup-avy ()
   ;; Swap these shortcuts (I use the char-2 version a lot more)
