@@ -391,6 +391,8 @@ you should place your code here."
   (evil-ex-define-cmd "vsp" 'split-window-right-and-focus)
   (evil-ex-define-cmd "sp" 'split-window-below-and-focus)
 
+  (spacemacs/set-leader-keys "o e" 'eval-print-last-sexp)
+
   ;; enable company for all file types
   (global-company-mode)
 
