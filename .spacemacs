@@ -489,21 +489,52 @@ you should place your code here."
   (interactive)
   (timeclock-out nil "" nil))
 
-(defun jedi/timeclock-status ()
+(defun jedi//timeclock-entry-duration (entry)
+  (- (second (second entry))
+     (second (first entry))))
+
+(defun jedi//aggregate-entry-duration (mapping)
+  (let* ((activity-name (car mapping))
+         (activity-entries (cdr mapping))
+         (seconds (seq-reduce
+                   (lambda (r e) (+ r (jedi//timeclock-entry-duration e)))
+                   activity-entries
+                   0)))
+    (cons activity-name seconds)))
+
+(defun jedi//seconds-by-activity (day-string)
+  (let* ((today-entries (cddr (assoc day-string (timeclock-day-alist))))
+         (entries-by-activity (seq-group-by 'third today-entries)))
+    (seq-map 'jedi//aggregate-entry-duration entries-by-activity)))
+
+(defun jedi/timeclock-print-day-report ()
   (interactive)
-  (let* ((current-activity (jedi/timeclock-current-activity))
-         (worked-hours (timeclock-workday-elapsed-string)))
-    (if (eq current-activity nil)
-        (message (concat "Worked hours: " worked-hours))
-        (message (concat "Worked hours: " worked-hours "\nCurrent activity: " current-activity)))))
+  (let* ((_ (timeclock-reread-log))
+         (today (format-time-string "%Y/%m/%d"))
+         (today-summary (jedi//seconds-by-activity today))
+         (current-activity (jedi/timeclock-current-activity))
+         (format-entry (lambda (entry)
+                         (concat " - "
+                                 (timeclock-seconds-to-string (cdr entry)) " hs "
+                                 "on " (first entry)
+                                 (if (string-equal current-activity (first entry)) " (current)" "")))))
+    (message
+     (if (seq-empty-p today-summary)
+         "No activity has been recorded today yet"
+       (concat
+        "Report for " today "\n\n"
+        (s-join "\n" (seq-map format-entry today-summary))
+        "\n\n"
+        "Total worked time: " (timeclock-workday-elapsed-string) " hs")))))
 
 (defun jedi//setup-timeclock ()
   (require 'timeclock)
   (spacemacs/set-leader-keys "o t i" 'jedi/timeclock-in)
   (spacemacs/set-leader-keys "o t o" 'jedi/timeclock-out)
-  (spacemacs/set-leader-keys "o t t" 'jedi/timeclock-status)
   (spacemacs/set-leader-keys "o t l" 'timeclock-visit-timelog)
-  (spacemacs/set-leader-keys "o t r" 'timeclock-reread-log))
+  (spacemacs/set-leader-keys "o t t" 'jedi/timeclock-print-day-report)
+  (spacemacs/set-leader-keys "o t r" 'timeclock-reread-log)
+  )
 
 (defun jedi//setup-avy ()
   ;; Swap these shortcuts (I use the char-2 version a lot more)
