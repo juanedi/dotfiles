@@ -450,7 +450,6 @@ you should place your code here."
 
 (defun jedi//setup-projectile ()
   ;; shortcut to open project file in other window
-  (spacemacs/set-leader-keys "p F" 'projectile-find-file-other-window)
   (spacemacs/set-leader-keys "p A" 'jedi/projectile-toogle-between-implementation-and-test-splitting)
 
   ;; on project switch change neotree root and display an empty buffer
