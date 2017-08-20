@@ -560,19 +560,39 @@ you should place your code here."
   (call-interactively 'projectile-add-known-project)
   (projectile-save-known-projects))
 
-(defun jedi/new-note ()
-  "Read a filename and create an org mode note with a simple template."
-  (interactive)
+
+(defun jedi//new-note-from-template (template)
+  "Read a filename and create an org mode note with a template."
   (let* ((current-dir (file-name-as-directory default-directory))
-         (file-name (read-file-name "Filename:" current-dir))
-         (template "#+TITLE: "))
+         (file-name (read-file-name "Filename:" current-dir)))
     (when (and (not (eq file-name nil))
                (not (string= "" file-name))
                (file-readable-p (file-name-directory file-name)))
       (write-region template nil file-name)
       (find-file file-name)
-      (goto-char (point-max))
-      (evil-insert 1))))
+      (goto-line 1)
+      (evil-append-line 1))))
+
+(defun jedi/new-note ()
+  "Read a filename and create an org mode note with a simple template."
+  (interactive)
+  (jedi//new-note-from-template
+   (concat
+    "#+TITLE: \n"
+    "\n")))
+
+(defun jedi/new-note-story ()
+  "Read a filename and create an org mode note with a template for tracking PT stories context."
+  (interactive)
+  (jedi//new-note-from-template
+   (concat
+    "#+TITLE: \n"
+    "\n"
+    "* Story: [fill]\n"
+    "* PR:    [fill]\n"
+    "\n"
+    "* TODOs:\n"
+    "  - [ ] ")))
 
 (defun jedi/backup-branch ()
   (interactive)
