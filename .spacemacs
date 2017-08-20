@@ -490,15 +490,11 @@ you should place your code here."
   (interactive)
   (timeclock-out nil "" nil))
 
-(defun jedi//timeclock-entry-duration (entry)
-  (- (second (second entry))
-     (second (first entry))))
-
-(defun jedi//aggregate-entry-duration (mapping)
+(defun jedi//aggregate-entry-length (mapping)
   (let* ((activity-name (car mapping))
          (activity-entries (cdr mapping))
          (seconds (seq-reduce
-                   (lambda (r e) (+ r (jedi//timeclock-entry-duration e)))
+                   (lambda (r e) (+ r (timeclock-entry-length e)))
                    activity-entries
                    0)))
     (cons activity-name seconds)))
@@ -506,7 +502,7 @@ you should place your code here."
 (defun jedi//seconds-by-activity (day-string)
   (let* ((today-entries (cddr (assoc day-string (timeclock-day-alist))))
          (entries-by-activity (seq-group-by 'third today-entries)))
-    (seq-map 'jedi//aggregate-entry-duration entries-by-activity)))
+    (seq-map 'jedi//aggregate-entry-length entries-by-activity)))
 
 (defun jedi/timeclock-print-day-report ()
   (interactive)
