@@ -37,7 +37,10 @@ values."
      nginx
      vimscript
      csv
-     ruby
+     (ruby :variables
+           ruby-version-manager 'chruby
+           ruby-test-runner 'rspec
+           )
      better-defaults
      emacs-lisp
      git
