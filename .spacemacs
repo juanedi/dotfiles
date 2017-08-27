@@ -84,6 +84,7 @@ values."
                                       (mapserver-mode :location (recipe :fetcher github :repo "juanedi/emacs-mapserver-mode"))
                                       atom-one-dark-theme
                                       all-the-icons
+                                      drag-stuff
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -346,6 +347,7 @@ you should place your code here."
   (jedi//setup-named-macros)
   (jedi//setup-react-mode)
   (jedi//setup-timeclock)
+  (jedi//setup-drag-stuff)
 
   (setq-default
    evil-normal-state-cursor 'hbar
@@ -449,6 +451,11 @@ you should place your code here."
    ;; accidentally pressing the escape sequence leaves neotree in a weird state
    evil-escape-excluded-major-modes '(neotree-mode)
    ))
+(defun jedi//setup-drag-stuff ()
+  (require 'drag-stuff)
+  (define-key drag-stuff-mode-map (kbd "M-k") 'drag-stuff-up)
+  (define-key drag-stuff-mode-map (kbd "M-j") 'drag-stuff-down)
+  (drag-stuff-global-mode))
 
 (defun jedi//setup-projectile ()
   ;; shortcut to open project file in other window
