@@ -26,7 +26,7 @@ values."
    dotspacemacs-ask-for-lazy-installation t
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -68,6 +68,12 @@ values."
      docker
      react
 
+     ;; Personal configuration layers
+     ;; See https://github.com/juanedi/.spacemacs.d
+     misc-conf
+     timeclock-conf
+     org-notes
+
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-tab-key-behavior 'cycle
@@ -84,7 +90,6 @@ values."
                                       (mapserver-mode :location (recipe :fetcher github :repo "juanedi/emacs-mapserver-mode"))
                                       atom-one-dark-theme
                                       all-the-icons
-                                      drag-stuff
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -340,14 +345,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
-  (jedi//setup-neotree)
-  (jedi//setup-projectile)
   (jedi//setup-indentation)
-  (jedi//setup-avy)
-  (jedi//setup-named-macros)
   (jedi//setup-react-mode)
-  (jedi//setup-timeclock)
-  (jedi//setup-drag-stuff)
 
   (setq-default
    evil-normal-state-cursor 'hbar
@@ -387,91 +386,22 @@ you should place your code here."
    js2-strict-missing-semi-warning nil
   )
 
-  (define-key evil-normal-state-map (kbd "C-H") (kbd "^"))
-  (define-key evil-normal-state-map (kbd "C-L") (kbd "$"))
-
   (setq ruby-insert-encoding-magic-comment nil)
-
-  (evil-ex-define-cmd "vsp" 'split-window-right-and-focus)
-  (evil-ex-define-cmd "sp" 'split-window-below-and-focus)
-
-  (spacemacs/set-leader-keys "o e" 'eval-print-last-sexp)
 
   ;; enable company for all file types
   (global-company-mode)
-
-  ;; insert snippet with shift+space
-  (add-hook 'company-mode-hook (lambda() (global-set-key (kbd "S-SPC") 'hippie-expand)))
 
   ;; open scratch buffer on startup
   (switch-to-buffer "*scratch*")
 
   (setq mac-command-modifier 'super)
 
-  ;; CMD+S saves file and exits insert mode
-  (define-key evil-insert-state-map (kbd "s-s") (lambda () (interactive)
-                                                  (progn
-                                                    (evil-escape)
-                                                    (save-buffer))))
   (global-centered-cursor-mode)
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   )
 
-(defun jedi//setup-neotree ()
-  ;; colors
-  (defface neo-link-face
-    '((((background dark)) (:foreground "#abb2bf"))
-      (t                   (:foreground "Black")))
-    "*Face used for open file/dir in neotree buffer."
-    :group 'neotree :group 'font-lock-highlighting-faces)
-  (defvar neo-dir-link-face 'neo-link-face)
-  (defvar neo-file-link-face 'neo-link-face)
 
-  ;; font size
-  (add-hook 'neotree-mode-hook (lambda () (text-scale-set -1)))
 
-  ;; hide stuff
-  (add-hook 'neotree-mode-hook (lambda () (add-to-list 'neo-hidden-regexp-list "^elm-stuff$")))
-
-  ;; having neotree open breaks layout switching
-  (add-hook 'persp-before-switch-functions (lambda (&rest _args) (neotree-hide)))
-
-  ;; shortcut to highlight current file in (possibly currently open) neotree
-  (spacemacs/set-leader-keys "p T" 'jedi/neotree-find-in-project)
-
-  (setq-default
-   ;; always open neotree focused on the current file
-   neo-smart-open t
-   ;; do not show folder icons
-   neo-theme 'icons
-   ;; do not show hidden files
-   neo-show-hidden-files nil
-   ;; hide "press ? for help"
-   neo-banner-message nil
-   ;; accidentally pressing the escape sequence leaves neotree in a weird state
-   evil-escape-excluded-major-modes '(neotree-mode)
-   ))
-(defun jedi//setup-drag-stuff ()
-  (require 'drag-stuff)
-  (define-key drag-stuff-mode-map (kbd "M-k") 'drag-stuff-up)
-  (define-key drag-stuff-mode-map (kbd "M-j") 'drag-stuff-down)
-  (drag-stuff-global-mode))
-
-(defun jedi//setup-projectile ()
-  ;; shortcut to open project file in other window
-  (spacemacs/set-leader-keys "p A" 'jedi/projectile-toogle-between-implementation-and-test-splitting)
-
-  ;; on project switch change neotree root and display an empty buffer
-  ;; for some reason, without selecting window-1 the file chosen in
-  ;; projectile appears in a new split window
-  (setq projectile-switch-project-action
-        (lambda ()
-          (spacemacs/new-empty-buffer)
-          (neotree-projectile-action)
-          (winum-select-window-1)
-          (projectile-find-file)
-          ))
-  )
 
 (defun jedi//setup-indentation ()
   (setq-default
@@ -484,140 +414,9 @@ you should place your code here."
    web-mode-attr-indent-offset 2
    ))
 
-(defun jedi/timeclock-current-activity ()
-  (interactive)
-  (if (equal (car timeclock-last-event) "i")
-      (nth 2 timeclock-last-event)))
-
-(defun jedi/timeclock-in ()
-  (interactive)
-  (if (eq (jedi/timeclock-current-activity) nil)
-      (call-interactively 'timeclock-in)
-      (call-interactively 'timeclock-change)))
-
-(defun jedi/timeclock-out ()
-  (interactive)
-  (timeclock-out nil "" nil))
-
-(defun jedi//aggregate-entry-length (mapping)
-  (let* ((activity-name (car mapping))
-         (activity-entries (cdr mapping))
-         (seconds (seq-reduce
-                   (lambda (r e) (+ r (timeclock-entry-length e)))
-                   activity-entries
-                   0)))
-    (cons activity-name seconds)))
-
-(defun jedi//seconds-by-activity (day-string)
-  (let* ((today-entries (cddr (assoc day-string (timeclock-day-alist))))
-         (entries-by-activity (seq-group-by 'third today-entries)))
-    (seq-map 'jedi//aggregate-entry-length entries-by-activity)))
-
-(defun jedi/timeclock-print-day-report ()
-  (interactive)
-  (let* ((_ (timeclock-reread-log))
-         (today (format-time-string "%Y/%m/%d"))
-         (today-summary (jedi//seconds-by-activity today))
-         (current-activity (jedi/timeclock-current-activity))
-         (format-entry (lambda (entry)
-                         (concat " - "
-                                 (timeclock-seconds-to-string (cdr entry)) " hs "
-                                 "on " (first entry)
-                                 (if (string-equal current-activity (first entry)) " (current)" "")))))
-    (message
-     (if (seq-empty-p today-summary)
-         "No activity has been recorded today yet"
-       (concat
-        "Report for " today "\n\n"
-        (s-join "\n" (seq-map format-entry today-summary))
-        "\n\n"
-        "Total worked time: " (timeclock-workday-elapsed-string) " hs")))))
-
-(defun jedi//setup-timeclock ()
-  (require 'timeclock)
-  (spacemacs/set-leader-keys "o t i" 'jedi/timeclock-in)
-  (spacemacs/set-leader-keys "o t o" 'jedi/timeclock-out)
-  (spacemacs/set-leader-keys "o t l" 'timeclock-visit-timelog)
-  (spacemacs/set-leader-keys "o t t" 'jedi/timeclock-print-day-report)
-  (spacemacs/set-leader-keys "o t r" 'timeclock-reread-log)
-  )
-
-(defun jedi//setup-avy ()
-  ;; Swap these shortcuts (I use the char-2 version a lot more)
-  (spacemacs/set-leader-keys "j j" 'evil-avy-goto-char-2)
-  (spacemacs/set-leader-keys "j J" 'evil-avy-goto-char)
-
-  (setq-default
-   avy-background nil
-   avy-highlight-first t
-   ))
-
-(defun jedi//setup-named-macros ()
-  ;; http://stackoverflow.com/questions/22817120/how-can-i-save-evil-mode-vim-style-macros-to-my-init-el
-
-  ;; C: split line at comma
-  (evil-set-register ?c [?f ?, ?l ?s return escape ?l]))
-
 (defun jedi//setup-react-mode ()
   (add-hook 'react-mode-hook #'jedi/detect-eslint-executable)
   (add-hook 'after-save-hook #'jedi/eslint-fix))
-
-(defun jedi/add-project ()
-  (interactive)
-  (call-interactively 'projectile-add-known-project)
-  (projectile-save-known-projects))
-
-
-(defun jedi//new-note-from-template (template)
-  "Read a filename and create an org mode note with a template."
-  (let* ((current-dir (file-name-as-directory default-directory))
-         (file-name (read-file-name "Filename:" current-dir)))
-    (when (and (not (eq file-name nil))
-               (not (string= "" file-name))
-               (file-readable-p (file-name-directory file-name)))
-      (write-region template nil file-name)
-      (find-file file-name)
-      (goto-line 1)
-      (evil-append-line 1))))
-
-(defun jedi/new-note ()
-  "Read a filename and create an org mode note with a simple template."
-  (interactive)
-  (jedi//new-note-from-template
-   (concat
-    "#+TITLE: \n"
-    "\n")))
-
-(defun jedi/new-note-story ()
-  "Read a filename and create an org mode note with a template for tracking PT stories context."
-  (interactive)
-  (jedi//new-note-from-template
-   (concat
-    "#+TITLE: \n"
-    "\n"
-    "* Story: [fill]\n"
-    "* PR:    [fill]\n"
-    "\n"
-    "* TODOs:\n"
-    "  - [ ] ")))
-
-(defun jedi/backup-branch ()
-  (interactive)
-  (let* ((current-branch (magit-get-current-branch))
-         (backup-name (concat "backup/" current-branch)))
-    (if (stringp current-branch)
-      (magit-branch backup-name current-branch "-f"))))
-
-(defun jedi/projectile-toogle-between-implementation-and-test-splitting ()
-  (interactive)
-  (split-window-right-and-focus)
-  (projectile-toggle-between-implementation-and-test))
-
-(defun jedi/neotree-find-in-project ()
-  (interactive)
-  (if (neo-global--window-exists-p)
-      (neotree-hide))
-  (neotree-find-project-root))
 
 (defun jedi/detect-eslint-executable ()
   (let* ((root (locate-dominating-file
