@@ -31,16 +31,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     purescript
-     go
      sql
      nginx
-     vimscript
-     csv
-     (ruby :variables
-           ruby-version-manager 'chruby
-           ruby-test-runner 'rspec
-           )
      better-defaults
      emacs-lisp
      git
@@ -53,34 +45,21 @@ values."
      syntax-checking
      version-control
      osx
-     clojure
-     elixir
-     elm
      themes-megapack
-     yaml
-     latex
-     python
-     erlang
-     html
-     javascript
      crystal ;; git clone git@github.com:juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
-     haskell
      docker
-     react
 
      ;; Personal configuration layers
      ;; See https://github.com/juanedi/.spacemacs.d
      misc-conf
      timeclock-conf
+     langs
      org-notes
 
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-tab-key-behavior 'cycle
                       auto-completion-enable-snippets-in-popup t)
-     ;; ; recommended for elm layer
-     ;; (syntax-checking :variables
-     ;;                  syntax-checking-enable-tooltips nil)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -345,9 +324,6 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ; Configuration function for user code.
 
-  (jedi//setup-indentation)
-  (jedi//setup-react-mode)
-
   (setq-default
    evil-normal-state-cursor 'hbar
 
@@ -373,20 +349,12 @@ you should place your code here."
    ;; necessary for spanish accents
    mac-right-option-modifier nil
 
-   elm-format-on-save t
-   elm-sort-imports-on-save t
-
    ;; fix maximized frames not taking whole screen in OSX
    frame-resize-pixelwise t
 
    ;; display git gutter on left fringe
    git-gutter-fr+-side 'left-fringe
-
-   ;; don't warn when missing semicolons in js2-mode
-   js2-strict-missing-semi-warning nil
   )
-
-  (setq ruby-insert-encoding-magic-comment nil)
 
   ;; enable company for all file types
   (global-company-mode)
@@ -399,46 +367,6 @@ you should place your code here."
   (global-centered-cursor-mode)
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   )
-
-
-
-
-(defun jedi//setup-indentation ()
-  (setq-default
-   js-indent-level 2
-   js2-basic-offset 2
-   css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-attr-indent-offset 2
-   ))
-
-(defun jedi//setup-react-mode ()
-  (add-hook 'react-mode-hook #'jedi/detect-eslint-executable)
-  (add-hook 'after-save-hook #'jedi/eslint-fix))
-
-(defun jedi/detect-eslint-executable ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         (local-eslint-d (expand-file-name "node_modules/.bin/eslint_d" root))
-         (local-eslint   (expand-file-name "node_modules/.bin/eslint" root))
-         (global-eslint  (executable-find "eslint"))
-
-         (eslint (seq-find 'file-executable-p (seq-filter 'stringp (list local-eslint-d
-                                                                         local-eslint
-                                                                         global-eslint)))))
-    (setq-local eslint-executable eslint)))
-
-(defun jedi/eslint-fix ()
-  (interactive)
-  (when (and (eq 'react-mode major-mode)
-             (not (eq eslint-executable nil)))
-    (let ((initial-point (point)))
-      (call-process eslint-executable nil nil nil "--fix" (buffer-file-name))
-      (revert-buffer t t)
-      (goto-char initial-point))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
