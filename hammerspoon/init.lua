@@ -33,7 +33,19 @@ function cycleLayouts(generateTargets)
   win:setFrame(targets[next], 0)
 end
 
-hs.hotkey.bind(moveWindowHotkey, "C", function()
+function setLayout(generateTarget)
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+
+  local screen = win:screen()
+  local target = generateTarget(screen:frame())
+  win:setFrame(target, 0)
+end
+
+hs.hotkey.bind(
+  moveWindowHotkey,
+  "C",
+  function()
     cycleLayouts(function(screen)
         return {
           {
@@ -52,23 +64,24 @@ hs.hotkey.bind(moveWindowHotkey, "C", function()
     end)
 end)
 
-hs.hotkey.bind(moveWindowHotkey, "F", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.h = max.h
-    f.y = 0
-
-    f.w = max.w
-    f.x = 0
-
-    win:setFrame(f, 0)
+hs.hotkey.bind(
+  moveWindowHotkey,
+  "F",
+  function()
+    setLayout(function(screen)
+        return {
+          x = 0,
+          y = 0,
+          h = screen.h,
+          w = screen.w
+        }
+    end)
 end)
 
-hs.hotkey.bind(moveWindowHotkey, "left", function()
+hs.hotkey.bind(
+  moveWindowHotkey,
+  "left",
+  function()
     cycleLayouts(function(screen)
         return {
           {
@@ -93,7 +106,10 @@ hs.hotkey.bind(moveWindowHotkey, "left", function()
     end)
 end)
 
-hs.hotkey.bind(moveWindowHotkey, "right", function()
+hs.hotkey.bind(
+  moveWindowHotkey,
+  "right",
+  function()
     cycleLayouts(function(screen)
         return {
           {
@@ -118,7 +134,10 @@ hs.hotkey.bind(moveWindowHotkey, "right", function()
     end)
 end)
 
-hs.hotkey.bind(moveWindowHotkey, "up", function()
+hs.hotkey.bind(
+  moveWindowHotkey,
+  "up",
+  function()
     cycleLayouts(function(screen)
         return {
           {
@@ -143,7 +162,10 @@ hs.hotkey.bind(moveWindowHotkey, "up", function()
     end)
 end)
 
-hs.hotkey.bind(moveWindowHotkey, "down", function()
+hs.hotkey.bind(
+  moveWindowHotkey,
+  "down",
+  function()
     cycleLayouts(function(screen)
         return {
           {
