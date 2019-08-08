@@ -1,4 +1,4 @@
-local moveWindowHotkey = {"cmd", "alt", "ctrl"}
+local moveWindowHotkey = {"cmd", "alt"}
 
 function nextLayout(current, targets)
   local cmp = function(v1,v2)
