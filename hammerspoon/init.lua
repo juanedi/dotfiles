@@ -43,7 +43,7 @@ function setLayout(generateTarget)
 end
 
 hs.hotkey.bind(
-  moveWindowHotkey,
+  {"cmd", "alt"},
   "C",
   function()
     cycleLayouts(function(screen)
@@ -65,7 +65,7 @@ hs.hotkey.bind(
 end)
 
 hs.hotkey.bind(
-  moveWindowHotkey,
+  {"cmd", "alt"},
   "F",
   function()
     setLayout(function(screen)
@@ -79,7 +79,7 @@ hs.hotkey.bind(
 end)
 
 hs.hotkey.bind(
-  moveWindowHotkey,
+  {"cmd", "alt"},
   "left",
   function()
     cycleLayouts(function(screen)
@@ -107,7 +107,7 @@ hs.hotkey.bind(
 end)
 
 hs.hotkey.bind(
-  moveWindowHotkey,
+  {"cmd", "alt"},
   "right",
   function()
     cycleLayouts(function(screen)
@@ -135,7 +135,7 @@ hs.hotkey.bind(
 end)
 
 hs.hotkey.bind(
-  moveWindowHotkey,
+  {"cmd", "alt"},
   "up",
   function()
     cycleLayouts(function(screen)
@@ -163,7 +163,7 @@ hs.hotkey.bind(
 end)
 
 hs.hotkey.bind(
-  moveWindowHotkey,
+  {"cmd", "alt"},
   "down",
   function()
     cycleLayouts(function(screen)
@@ -190,9 +190,41 @@ hs.hotkey.bind(
     end)
 end)
 
+hs.hotkey.bind(
+  {"cmd", "alt"},
+  "return",
+  function()
+    local initialWindow = hs.window.focusedWindow()
+    local zoomInitiallyFocused = string.match(initialWindow:title(), "Zoom Meeting ID")
 
--- hs.hotkey.bind(moveWindowHotkey, "T", function()
---     ok,result = hs.applescript('tell Application "zoom.us" to Unmute Audio')
---     hs.alert.show(ok)
---     hs.alert.show(result)
--- end)
+    -- focus on zoom meeting if necessary
+    if (not zoomInitiallyFocused) then
+      local focused = hs.application.launchOrFocus("zoom.us")
+      if not focused then return nil end
+    end
+
+    local zoom = hs.appfinder.appFromName("zoom.us")
+    if not zoom then return nil end
+
+    -- toggle the mic
+    local unmutePath = {"Meeting", "Unmute Audio"}
+    local mutePath = {"Meeting", "Mute Audio"}
+    if zoom:findMenuItem(unmutePath) then
+      zoom:selectMenuItem(unmutePath)
+
+      if (not zoomInitiallyFocused) then
+        hs.alert.show("You're now unmuted!")
+      end
+    elseif zoom:findMenuItem(mutePath) then
+      zoom:selectMenuItem(mutePath)
+
+      if (not zoomInitiallyFocused) then
+        hs.alert.show("You're now muted!")
+      end
+    end
+
+    -- restore original window
+    if (not zoomInitiallyFocused) then
+      initialWindow:focus()
+    end
+end)
