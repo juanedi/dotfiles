@@ -1,5 +1,3 @@
-local moveWindowHotkey = {"cmd", "alt"}
-
 function nextLayout(current, targets)
   local cmp = function(v1,v2)
     return math.abs(v1 - v2) < 40
@@ -194,37 +192,19 @@ hs.hotkey.bind(
   {"cmd", "alt"},
   "return",
   function()
-    local initialWindow = hs.window.focusedWindow()
-    local zoomInitiallyFocused = string.match(initialWindow:title(), "Zoom Meeting ID")
+    local meetingWindow = hs.window.find("Zoom Meeting ID")
+    if not meetingWindow then return nil end
 
-    -- focus on zoom meeting if necessary
-    if (not zoomInitiallyFocused) then
-      local focused = hs.application.launchOrFocus("zoom.us")
-      if not focused then return nil end
-    end
+    local zoom = meetingWindow:application()
+    local meetingFocused = meetingWindow == hs.window.focusedWindow()
 
-    local zoom = hs.appfinder.appFromName("zoom.us")
-    if not zoom then return nil end
-
-    -- toggle the mic
-    local unmutePath = {"Meeting", "Unmute Audio"}
-    local mutePath = {"Meeting", "Mute Audio"}
-    if zoom:findMenuItem(unmutePath) then
-      zoom:selectMenuItem(unmutePath)
-
-      if (not zoomInitiallyFocused) then
+    if zoom:selectMenuItem({"Meeting", "Unmute Audio"}) then
+      if (not meetingFocused) then
         hs.alert.show("You're now unmuted!")
       end
-    elseif zoom:findMenuItem(mutePath) then
-      zoom:selectMenuItem(mutePath)
-
-      if (not zoomInitiallyFocused) then
+    elseif zoom:selectMenuItem({"Meeting", "Mute Audio"}) then
+      if (not meetingFocused) then
         hs.alert.show("You're now muted!")
       end
-    end
-
-    -- restore original window
-    if (not zoomInitiallyFocused) then
-      initialWindow:focus()
     end
 end)
