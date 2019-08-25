@@ -42,6 +42,35 @@ end
 
 hs.hotkey.bind(
   {"cmd", "alt"},
+  "O",
+  function()
+    local windows = hs.window.orderedWindows()
+
+    setLayout(function(screen)
+        return {
+          y = screen.y,
+          h = screen.h,
+          x = screen.x,
+          w = screen.w / 2
+        }
+    end)
+
+    windows[2]:focus()
+    setLayout(function(screen)
+        return {
+          y = screen.y,
+          h = screen.h,
+          x = screen.w / 2,
+          w = screen.w / 2
+        }
+    end)
+
+    -- restore focus to original window
+    windows[1]:focus()
+end)
+
+hs.hotkey.bind(
+  {"cmd", "alt"},
   "C",
   function()
     cycleLayouts(function(screen)
