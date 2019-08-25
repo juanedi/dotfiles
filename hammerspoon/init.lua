@@ -53,8 +53,20 @@ hs.hotkey.bind(
             w = screen.w / 2
           },
           {
+            y = screen.h / 4,
+            h = screen.h / 2,
+            x = screen.w / 6,
+            w = screen.w * 2 / 3
+          },
+          {
             y = screen.h / 6,
             h = screen.h * 2 / 3,
+            x = screen.w * 7 / 24,
+            w = screen.w * 10 / 24
+          },
+          {
+            y = 0,
+            h = screen.h,
             x = screen.w * 7 / 24,
             w = screen.w * 10 / 24
           }
