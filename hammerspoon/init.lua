@@ -230,6 +230,20 @@ hs.hotkey.bind(
 end)
 
 hs.hotkey.bind(
+  {"shift", "cmd", "alt"},
+  "left",
+  function()
+    hs.window.focusedWindow():moveOneScreenWest(false, true, 0)
+end)
+
+hs.hotkey.bind(
+  {"shift", "cmd", "alt"},
+  "right",
+  function()
+    hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
+end)
+
+hs.hotkey.bind(
   {"cmd", "alt"},
   "return",
   function()
