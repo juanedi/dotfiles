@@ -109,8 +109,8 @@ hs.hotkey.bind(
   function()
     setLayout(function(screen)
         return {
-          x = 0,
-          y = 0,
+          x = screen.x,
+          y = screen.y,
           h = screen.h,
           w = screen.w
         }
