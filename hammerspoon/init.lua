@@ -40,6 +40,48 @@ function setLayout(generateTarget)
   win:setFrame(target, 0)
 end
 
+function relocate_window_full_screen()
+  setLayout(function(screen)
+      return {
+        x = screen.x,
+        y = screen.y,
+        h = screen.h,
+        w = screen.w
+      }
+  end)
+end
+
+function relocate_window_center()
+  cycleLayouts(function(screen)
+      return {
+        -- {
+        --   y = screen.h / 4,
+        --   h = screen.h / 2,
+        --   x = screen.w / 4,
+        --   w = screen.w / 2
+        -- },
+        {
+          y = screen.h / 4,
+          h = screen.h / 2,
+          x = screen.w / 6,
+          w = screen.w * 2 / 3
+        },
+        {
+          y = screen.h / 6,
+          h = screen.h * 2 / 3,
+          x = screen.w * 7 / 24,
+          w = screen.w * 10 / 24
+        },
+        {
+          y = 0,
+          h = screen.h,
+          x = screen.w * 7 / 24,
+          w = screen.w * 10 / 24
+        }
+      }
+  end)
+end
+
 function relocate_window_left()
   cycleLayouts(function(screen)
       return {
@@ -158,97 +200,27 @@ function mute_zoom()
   end
 end
 
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "O",
-  function()
-    local windows = hs.window.orderedWindows()
-
-    setLayout(function(screen)
-        return {
-          y = screen.y,
-          h = screen.h,
-          x = screen.x,
-          w = screen.w / 2
-        }
-    end)
-
-    windows[2]:focus()
-    setLayout(function(screen)
-        return {
-          y = screen.y,
-          h = screen.h,
-          x = screen.w / 2,
-          w = screen.w / 2
-        }
-    end)
-
-    -- restore focus to original window
-    windows[1]:focus()
-end)
-
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "C",
-  function()
-    cycleLayouts(function(screen)
-        return {
-          {
-            y = screen.h / 4,
-            h = screen.h / 2,
-            x = screen.w / 4,
-            w = screen.w / 2
-          },
-          {
-            y = screen.h / 4,
-            h = screen.h / 2,
-            x = screen.w / 6,
-            w = screen.w * 2 / 3
-          },
-          {
-            y = screen.h / 6,
-            h = screen.h * 2 / 3,
-            x = screen.w * 7 / 24,
-            w = screen.w * 10 / 24
-          },
-          {
-            y = 0,
-            h = screen.h,
-            x = screen.w * 7 / 24,
-            w = screen.w * 10 / 24
-          }
-        }
-    end)
-end)
-
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "F",
-  function()
-    setLayout(function(screen)
-        return {
-          x = screen.x,
-          y = screen.y,
-          h = screen.h,
-          w = screen.w
-        }
-    end)
-end)
-
 hs.urlevent.bind(
   "relocate_window",
   function(eventName, params)
-    if params["direction"] == "left" then
+    if params["position"] == "left" then
       relocate_window_left()
-    elseif params["direction"] == "right" then
+    elseif params["position"] == "right" then
       relocate_window_right()
-    elseif params["direction"] == "down" then
+    elseif params["position"] == "down" then
       relocate_window_down()
-    elseif params["direction"] == "up" then
+    elseif params["position"] == "up" then
       relocate_window_up()
+    elseif params["position"] == "center" then
+      relocate_window_center()
+    elseif params["position"] == "full" then
+      relocate_window_full_screen()
     end
 end)
 
+
+hs.hotkey.bind({"cmd", "alt"}, "C", relocate_window_center)
+hs.hotkey.bind({"cmd", "alt"}, "F", relocate_window_full_screen)
 hs.hotkey.bind({"cmd", "alt"}, "left", relocate_window_left)
 hs.hotkey.bind({"cmd", "alt"}, "right", relocate_window_right)
 hs.hotkey.bind({"cmd", "alt"}, "up", relocate_window_up)

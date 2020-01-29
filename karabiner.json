@@ -28,7 +28,7 @@
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -g hammerspoon://relocate_window?direction=left"
+                                      "shell_command": "open -g hammerspoon://relocate_window?position=left"
                                     }
                                 ],
                                 "type": "basic"
@@ -44,7 +44,7 @@
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -g hammerspoon://relocate_window?direction=right"
+                                      "shell_command": "open -g hammerspoon://relocate_window?position=right"
                                     }
                                 ],
                                 "type": "basic"
@@ -60,7 +60,7 @@
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -g hammerspoon://relocate_window?direction=up"
+                                      "shell_command": "open -g hammerspoon://relocate_window?position=up"
                                     }
                                 ],
                                 "type": "basic"
@@ -76,7 +76,39 @@
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -g hammerspoon://relocate_window?direction=down"
+                                      "shell_command": "open -g hammerspoon://relocate_window?position=down"
+                                    }
+                                ],
+                                "type": "basic"
+                        },
+                        {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                      "shell_command": "open -g hammerspoon://relocate_window?position=full"
+                                    }
+                                ],
+                                "type": "basic"
+                        },
+                        {
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                      "shell_command": "open -g hammerspoon://relocate_window?position=center"
                                     }
                                 ],
                                 "type": "basic"
