@@ -40,6 +40,106 @@ function setLayout(generateTarget)
   win:setFrame(target, 0)
 end
 
+function relocate_window_left()
+  cycleLayouts(function(screen)
+      return {
+        {
+          y = screen.y,
+          h = screen.h,
+          x = screen.x,
+          w = screen.w / 2
+        },
+        {
+          y = screen.y,
+          h = screen.h,
+          x = screen.x,
+          w = screen.w / 3
+        },
+        {
+          y = screen.y,
+          h = screen.h,
+          x = screen.x,
+          w = screen.w * 2 / 3
+        }
+      }
+  end)
+end
+
+function relocate_window_right()
+  cycleLayouts(function(screen)
+      return {
+        {
+          y = screen.y,
+          h = screen.h,
+          x = screen.w / 2,
+          w = screen.w / 2
+        },
+        {
+          y = screen.y,
+          h = screen.h,
+          x = screen.w * 2 / 3,
+          w = screen.w / 3
+        },
+        {
+          y = screen.y,
+          h = screen.h,
+          x = screen.w * 1 / 3,
+          w = screen.w * 2 / 3
+        }
+      }
+  end)
+end
+
+function relocate_window_up()
+  cycleLayouts(function(screen)
+      return {
+        {
+          y = screen.y,
+          h = screen.h / 2,
+          x = screen.x,
+          w = screen.w
+        },
+        {
+          y = screen.y,
+          h = screen.h / 3,
+          x = screen.x,
+          w = screen.w
+        },
+        {
+          y = screen.y,
+          h = screen.h * 2 / 3,
+          x = screen.x,
+          w = screen.w
+        }
+      }
+  end)
+end
+
+function relocate_window_down()
+  cycleLayouts(function(screen)
+      return {
+        {
+          y = screen.h / 2,
+          h = screen.h / 2,
+          x = screen.x,
+          w = screen.w
+        },
+        {
+          y = screen.h * 2 / 3,
+          h = screen.h / 3,
+          x = screen.x,
+          w = screen.w
+        },
+        {
+          y = screen.h / 3,
+          h = screen.h * 2 / 3,
+          x = screen.x,
+          w = screen.w
+        }
+      }
+  end)
+end
+
 function mute_zoom()
   local meetingWindow = hs.window.find("Zoom Meeting ID")
   if not meetingWindow then return nil end
@@ -57,7 +157,6 @@ function mute_zoom()
     end
   end
 end
-
 
 hs.hotkey.bind(
   {"cmd", "alt"},
@@ -136,117 +235,24 @@ hs.hotkey.bind(
     end)
 end)
 
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "left",
-  function()
-    cycleLayouts(function(screen)
-        return {
-          {
-            y = screen.y,
-            h = screen.h,
-            x = screen.x,
-            w = screen.w / 2
-          },
-          {
-            y = screen.y,
-            h = screen.h,
-            x = screen.x,
-            w = screen.w / 3
-          },
-          {
-            y = screen.y,
-            h = screen.h,
-            x = screen.x,
-            w = screen.w * 2 / 3
-          }
-        }
-    end)
+hs.urlevent.bind(
+  "relocate_window",
+  function(eventName, params)
+    if params["direction"] == "left" then
+      relocate_window_left()
+    elseif params["direction"] == "right" then
+      relocate_window_right()
+    elseif params["direction"] == "down" then
+      relocate_window_down()
+    elseif params["direction"] == "up" then
+      relocate_window_up()
+    end
 end)
 
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "right",
-  function()
-    cycleLayouts(function(screen)
-        return {
-          {
-            y = screen.y,
-            h = screen.h,
-            x = screen.w / 2,
-            w = screen.w / 2
-          },
-          {
-            y = screen.y,
-            h = screen.h,
-            x = screen.w * 2 / 3,
-            w = screen.w / 3
-          },
-          {
-            y = screen.y,
-            h = screen.h,
-            x = screen.w * 1 / 3,
-            w = screen.w * 2 / 3
-          }
-        }
-    end)
-end)
-
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "up",
-  function()
-    cycleLayouts(function(screen)
-        return {
-          {
-            y = screen.y,
-            h = screen.h / 2,
-            x = screen.x,
-            w = screen.w
-          },
-          {
-            y = screen.y,
-            h = screen.h / 3,
-            x = screen.x,
-            w = screen.w
-          },
-          {
-            y = screen.y,
-            h = screen.h * 2 / 3,
-            x = screen.x,
-            w = screen.w
-          }
-        }
-    end)
-end)
-
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "down",
-  function()
-    cycleLayouts(function(screen)
-        return {
-          {
-            y = screen.h / 2,
-            h = screen.h / 2,
-            x = screen.x,
-            w = screen.w
-          },
-          {
-            y = screen.h * 2 / 3,
-            h = screen.h / 3,
-            x = screen.x,
-            w = screen.w
-          },
-          {
-            y = screen.h / 3,
-            h = screen.h * 2 / 3,
-            x = screen.x,
-            w = screen.w
-          }
-        }
-    end)
-end)
+hs.hotkey.bind({"cmd", "alt"}, "left", relocate_window_left)
+hs.hotkey.bind({"cmd", "alt"}, "right", relocate_window_right)
+hs.hotkey.bind({"cmd", "alt"}, "up", relocate_window_up)
+hs.hotkey.bind({"cmd", "alt"}, "down", relocate_window_down)
 
 hs.urlevent.bind(
   "move_screen",
@@ -260,12 +266,6 @@ hs.urlevent.bind(
     elseif params["direction"] == "up" then
       hs.window.focusedWindow():moveOneScreenNorth(false, true, 0)
     end
-end)
-
-hs.urlevent.bind(
-  "mute_zoom",
-  function(eventName, params)
-    mute_zoom()
 end)
 
 hs.hotkey.bind(
@@ -283,3 +283,9 @@ hs.hotkey.bind(
 end)
 
 hs.hotkey.bind({"cmd", "alt"}, "return", mute_zoom)
+
+hs.urlevent.bind(
+  "mute_zoom",
+  function(eventName, params)
+    mute_zoom()
+end)
