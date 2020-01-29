@@ -15,17 +15,14 @@
                 },
                 "rules": [
                     {
-                      "description": "fn + arrow keys > control current window screen",
+                      "description": "fn + shift + arrow keys > control current window screen",
                       "manipulators": [
                         {
                                 "from": {
                                     "key_code": "left_arrow",
                                     "modifiers": {
                                         "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                          "fn", "shift"
                                         ]
                                     }
                                 },
@@ -41,10 +38,7 @@
                                     "key_code": "right_arrow",
                                     "modifiers": {
                                         "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                          "fn", "shift"
                                         ]
                                     }
                                 },
@@ -60,10 +54,7 @@
                                     "key_code": "up_arrow",
                                     "modifiers": {
                                         "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                          "fn", "shift"
                                         ]
                                     }
                                 },
@@ -79,10 +70,7 @@
                                     "key_code": "down_arrow",
                                     "modifiers": {
                                         "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                          "fn", "shift"
                                         ]
                                     }
                                 },
