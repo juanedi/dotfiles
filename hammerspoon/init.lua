@@ -229,6 +229,20 @@ hs.hotkey.bind(
     end)
 end)
 
+hs.urlevent.bind(
+  "move_screen",
+  function(eventName, params)
+    if params["direction"] == "left" then
+      hs.window.focusedWindow():moveOneScreenWest(false, true, 0)
+    elseif params["direction"] == "right" then
+        hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
+    elseif params["direction"] == "down" then
+        hs.window.focusedWindow():moveOneScreenSouth(false, true, 0)
+    elseif params["direction"] == "up" then
+      hs.window.focusedWindow():moveOneScreenNorth(false, true, 0)
+    end
+end)
+
 hs.hotkey.bind(
   {"shift", "cmd", "alt"},
   "left",
