@@ -40,6 +40,25 @@ function setLayout(generateTarget)
   win:setFrame(target, 0)
 end
 
+function mute_zoom()
+  local meetingWindow = hs.window.find("Zoom Meeting ID")
+  if not meetingWindow then return nil end
+
+  local zoom = meetingWindow:application()
+  local meetingFocused = meetingWindow == hs.window.focusedWindow()
+
+  if zoom:selectMenuItem({"Meeting", "Unmute Audio"}) then
+    if (not meetingFocused) then
+      hs.alert.show("You're now unmuted!")
+    end
+  elseif zoom:selectMenuItem({"Meeting", "Mute Audio"}) then
+    if (not meetingFocused) then
+      hs.alert.show("You're now muted!")
+    end
+  end
+end
+
+
 hs.hotkey.bind(
   {"cmd", "alt"},
   "O",
@@ -235,12 +254,18 @@ hs.urlevent.bind(
     if params["direction"] == "left" then
       hs.window.focusedWindow():moveOneScreenWest(false, true, 0)
     elseif params["direction"] == "right" then
-        hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
+      hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
     elseif params["direction"] == "down" then
-        hs.window.focusedWindow():moveOneScreenSouth(false, true, 0)
+      hs.window.focusedWindow():moveOneScreenSouth(false, true, 0)
     elseif params["direction"] == "up" then
       hs.window.focusedWindow():moveOneScreenNorth(false, true, 0)
     end
+end)
+
+hs.urlevent.bind(
+  "mute_zoom",
+  function(eventName, params)
+    mute_zoom()
 end)
 
 hs.hotkey.bind(
@@ -257,23 +282,4 @@ hs.hotkey.bind(
     hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
 end)
 
-hs.hotkey.bind(
-  {"cmd", "alt"},
-  "return",
-  function()
-    local meetingWindow = hs.window.find("Zoom Meeting ID")
-    if not meetingWindow then return nil end
-
-    local zoom = meetingWindow:application()
-    local meetingFocused = meetingWindow == hs.window.focusedWindow()
-
-    if zoom:selectMenuItem({"Meeting", "Unmute Audio"}) then
-      if (not meetingFocused) then
-        hs.alert.show("You're now unmuted!")
-      end
-    elseif zoom:selectMenuItem({"Meeting", "Mute Audio"}) then
-      if (not meetingFocused) then
-        hs.alert.show("You're now muted!")
-      end
-    end
-end)
+hs.hotkey.bind({"cmd", "alt"}, "return", mute_zoom)
