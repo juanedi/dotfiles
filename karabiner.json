@@ -15,11 +15,11 @@
         },
         "rules": [
           {
-            "description": "fn + arrow keys > relocate window within current screen",
+            "description": "fn + WASD keys > relocate window within current screen",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "left_arrow",
+                  "key_code": "a",
                   "modifiers": {
                     "mandatory": [
                       "fn"
@@ -35,7 +35,7 @@
               },
               {
                 "from": {
-                  "key_code": "right_arrow",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": [
                       "fn"
@@ -51,7 +51,7 @@
               },
               {
                 "from": {
-                  "key_code": "up_arrow",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
                       "fn"
@@ -67,7 +67,7 @@
               },
               {
                 "from": {
-                  "key_code": "down_arrow",
+                  "key_code": "s",
                   "modifiers": {
                     "mandatory": [
                       "fn"
@@ -116,11 +116,11 @@
             ]
           },
           {
-            "description": "fn + shift + arrow keys > control current window screen",
+            "description": "fn + shift + WASD > control current window screen",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "left_arrow",
+                  "key_code": "a",
                   "modifiers": {
                     "mandatory": [
                       "fn",
@@ -137,7 +137,7 @@
               },
               {
                 "from": {
-                  "key_code": "right_arrow",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": [
                       "fn",
@@ -154,7 +154,7 @@
               },
               {
                 "from": {
-                  "key_code": "up_arrow",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
                       "fn",
@@ -171,7 +171,7 @@
               },
               {
                 "from": {
-                  "key_code": "down_arrow",
+                  "key_code": "s",
                   "modifiers": {
                     "mandatory": [
                       "fn",
