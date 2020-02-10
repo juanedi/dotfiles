@@ -19,6 +19,7 @@
     pkgs.git
     pkgs.ncdu
     pkgs.tmux
+    pkgs.tree
   ];
 
   imports = [
