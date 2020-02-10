@@ -23,6 +23,7 @@
       "**.ignore.*"
       ".envrc"
       ".python-version"
+      ".dir-locals.el"
     ];
   };
 }
