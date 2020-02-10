@@ -17,6 +17,7 @@
   home.packages = [
     pkgs.tmux
     pkgs.ncdu
+    pkgs.direnv
   ];
 
   imports = [
