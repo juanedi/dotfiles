@@ -15,12 +15,14 @@
   home.stateVersion = "19.09";
 
   home.packages = [
-    pkgs.tmux
-    pkgs.ncdu
     pkgs.direnv
+    pkgs.git
+    pkgs.ncdu
+    pkgs.tmux
   ];
 
   imports = [
+    ./programs/git.nix
     ./programs/tmux.nix
   ];
 }
