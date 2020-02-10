@@ -63,12 +63,11 @@
       set -g status-left " "
       set -g status-right ""
 
-      setw -g window-status-current-style "dim"
-      setw -g window-status-style "bg=green,fg=black,reverse"
-
       # window status
-      setw -g window-status-format "#{bg=white}#{fg=black} #W "
-      setw -g window-status-current-format "#{bg=black}#{fg=white} #W "
+      setw -g window-status-current-style "bg=black,fg=white"
+      setw -g window-status-style "bg=white,fg=black"
+      setw -g window-status-format " #W "
+      setw -g window-status-current-format " #W "
 
       # message text
       set-option -g message-style "bg=white,fg=black"
