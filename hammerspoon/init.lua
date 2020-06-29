@@ -54,29 +54,33 @@ end
 function relocate_window_center()
   cycleLayouts(function(screen)
       return {
-        -- {
-        --   y = screen.h / 4,
-        --   h = screen.h / 2,
-        --   x = screen.w / 4,
-        --   w = screen.w / 2
-        -- },
         {
-          y = screen.h / 4,
-          h = screen.h / 2,
+          -- two thirds wide, full height
+          y = 0,
+          h = screen.h,
           x = screen.w / 6,
           w = screen.w * 2 / 3
         },
         {
+          -- two thirds wide, 3/6 height vertically centered
+          y = screen.h * 1 / 8,
+          h = screen.h * 3 / 4,
+          x = screen.w * 1 / 6,
+          w = screen.w * 2 / 3
+        },
+        {
+          -- small, portrait
           y = screen.h / 6,
           h = screen.h * 2 / 3,
           x = screen.w * 7 / 24,
           w = screen.w * 10 / 24
         },
         {
-          y = 0,
-          h = screen.h,
-          x = screen.w * 7 / 24,
-          w = screen.w * 10 / 24
+          -- small, landscape
+          y = screen.h / 4,
+          h = screen.h / 2,
+          x = screen.w / 6,
+          w = screen.w * 2 / 3
         }
       }
   end)
