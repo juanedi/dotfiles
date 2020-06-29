@@ -187,7 +187,7 @@ function relocate_window_down()
 end
 
 function mute_zoom()
-  local meetingWindow = hs.window.find("Zoom Meeting ID")
+  local meetingWindow = hs.window.find("Zoom")
   if not meetingWindow then return nil end
 
   local zoom = meetingWindow:application()
