@@ -265,3 +265,9 @@ hs.urlevent.bind(
   function(eventName, params)
     mute_zoom()
 end)
+
+hs.urlevent.bind(
+  "open-soundsource",
+  function(eventName, params)
+    hs.application.launchOrFocus("SoundSource")
+end)
