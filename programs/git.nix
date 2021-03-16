@@ -1,9 +1,13 @@
 { pkgs, ... }:
 
-{
+let
+  pkgs-stable = import <nixpkgs-stable> {};
+in {
   programs.git = {
     enable = true;
     lfs.enable = true;
+
+    package = pkgs-stable.git;
 
     aliases = {
       co = "checkout";
@@ -22,6 +26,7 @@
       "**.ignore"
       "**.ignore.*"
       ".envrc"
+      ".direnv"
       ".python-version"
       ".dir-locals.el"
     ];

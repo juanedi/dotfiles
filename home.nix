@@ -20,11 +20,14 @@
   home.stateVersion = "21.03";
 
   home.packages = [
+    pkgs.ag
+    pkgs.autojump
     pkgs.direnv
-    pkgs.git
+    pkgs.fzf
     pkgs.ncdu
     pkgs.tmux
     pkgs.tree
+    pkgs.wget
   ];
 
   imports = [
