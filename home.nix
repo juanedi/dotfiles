@@ -1,13 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # Set up nix-direnv
-  programs.direnv.enable = true;
-  programs.direnv.enableNixDirenvIntegration = true;
-
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "jedi";
@@ -23,16 +16,26 @@
   # changes in each release.
   home.stateVersion = "21.03";
 
+  # Programs that require no additional configuration
   home.packages = [
     pkgs.ag
     pkgs.autojump
-    pkgs.direnv
     pkgs.fzf
     pkgs.ncdu
     pkgs.tree
     pkgs.wget
   ];
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
+  # Set up nix-direnv
+  programs.direnv = {
+    enable = true;
+    enableNixDirenvIntegration = true;
+  };
+
+  # Other programs with more lengthy configuration
   imports = [
     ./programs/git.nix
     ./programs/tmux.nix
