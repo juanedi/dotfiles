@@ -25,7 +25,6 @@
     pkgs.direnv
     pkgs.fzf
     pkgs.ncdu
-    pkgs.tmux
     pkgs.tree
     pkgs.wget
   ];
