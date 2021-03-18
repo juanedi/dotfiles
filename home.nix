@@ -121,4 +121,10 @@ in {
       (builtins.readFile ./zsh/prompt.zsh)
     ];
   };
+
+  # symlink config files for other programs not managed by nix
+  home.file = {
+    ".hammerspoon/init.lua" = { source = ./hammerspoon/init.lua; };
+    ".config/karabiner/karabiner.json" = { source = ./karabiner.json; };
+  };
 }
