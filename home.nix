@@ -37,11 +37,6 @@ in {
     enableNixDirenvIntegration = true;
   };
 
-  # Other programs with more lengthy configuration
-  imports = [
-    ./programs/tmux.nix
-  ];
-
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -69,5 +64,16 @@ in {
       ".python-version"
       ".dir-locals.el"
     ];
+  };
+
+  programs.tmux = {
+    enable = true;
+    terminal = "screen-256color";
+    shortcut = "f";
+    baseIndex = 1;
+    keyMode = "vi";
+    historyLimit = 5000;
+    customPaneNavigationAndResize = false;
+    extraConfig = builtins.readFile ./tmux.conf;
   };
 }
