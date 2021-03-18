@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+  pkgs-stable = import <nixpkgs-stable> {};
+in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "jedi";
@@ -37,7 +39,35 @@
 
   # Other programs with more lengthy configuration
   imports = [
-    ./programs/git.nix
     ./programs/tmux.nix
   ];
+
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+
+    package = pkgs-stable.git;
+
+    aliases = {
+      co = "checkout";
+      st = "status";
+      ci = "commit";
+      br = "branch";
+      f = "fetch";
+      cp = "cherry-pick";
+      diffs = "diff --staged";
+      logr = "log --reverse";
+      l1 = "log -1 -p";
+    };
+
+    ignores = [
+      "**.swp"
+      "**.ignore"
+      "**.ignore.*"
+      ".envrc"
+      ".direnv"
+      ".python-version"
+      ".dir-locals.el"
+    ];
+  };
 }
