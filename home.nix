@@ -95,6 +95,7 @@ in {
       trim  = "sed \"s/^ *//g;s/ *$//g\"";
       eps   = "ps aux | grep -i";
       lstcp = "lsof -i -n -P | grep TCP | grep LISTEN";
+      gst   = "git status";
     };
 
     oh-my-zsh = {
