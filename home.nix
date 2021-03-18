@@ -89,7 +89,12 @@ in {
     enable = true;
 
     shellAliases = {
-      hm = "home-manager";
+      hm    = "home-manager";
+      hgrep = "history | grep -i";
+      be    = "bundle exec";
+      trim  = "sed \"s/^ *//g;s/ *$//g\"";
+      eps   = "ps aux | grep -i";
+      lstcp = "lsof -i -n -P | grep TCP | grep LISTEN";
     };
 
     oh-my-zsh = {
