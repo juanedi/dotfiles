@@ -2,6 +2,7 @@
 
 let
   sources = import ./nix/sources.nix;
+  niv = import sources.niv { };
   pkgs = import sources.nixpkgs { };
   pkgs-unstable = import sources.nixpkgs-unstable {};
 in {
@@ -22,6 +23,7 @@ in {
 
   # Programs that require no additional configuration
   home.packages = [
+    niv.niv
     pkgs.ag
     pkgs.autojump
     pkgs.fzf
