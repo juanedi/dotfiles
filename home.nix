@@ -26,6 +26,7 @@ in {
     niv.niv
     pkgs.ag
     pkgs.autojump
+    pkgs.cloc
     pkgs.fzf
     pkgs.ncdu
     pkgs.tree
