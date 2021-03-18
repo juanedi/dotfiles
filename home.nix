@@ -99,7 +99,7 @@ in {
 
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";
+      theme = "geoffgarside";
     };
 
     sessionVariables = {
@@ -111,8 +111,13 @@ in {
      (builtins.readFile ./zsh/tmux-integration.zsh)
     ];
 
-    initExtra = "
-      source ~/.nix-profile/share/autojump/autojump.zsh
-    ";
+    initExtra = builtins.concatStringsSep "\n" [
+      "source ~/.nix-profile/share/autojump/autojump.zsh"
+
+      # TODO: these customizations are pretty hacky and rely on the base theme
+      # being set to geoffgarside. find a more robust way to change the prompt
+      # (maybe create a custom theme?).
+      (builtins.readFile ./zsh/prompt.zsh)
+    ];
   };
 }
