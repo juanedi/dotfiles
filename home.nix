@@ -39,6 +39,7 @@ in {
   # Set up nix-direnv
   programs.direnv = {
     enable = true;
+    enableZshIntegration = true;
     enableNixDirenvIntegration = true;
   };
 
@@ -82,5 +83,31 @@ in {
     historyLimit = 5000;
     customPaneNavigationAndResize = false;
     extraConfig = builtins.readFile ./tmux.conf;
+  };
+
+  programs.zsh = {
+    enable = true;
+
+    shellAliases = {
+      hm = "home-manager";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+    };
+
+    sessionVariables = {
+      DIRENV_LOG_FORMAT = "";
+    };
+
+    initExtraFirst = builtins.concatStringsSep "\n" [
+     ". ~/.nix-profile/etc/profile.d/nix.sh"
+     (builtins.readFile ./zsh/tmux-integration.zsh)
+    ];
+
+    initExtra = "
+      source ~/.nix-profile/share/autojump/autojump.zsh
+    ";
   };
 }
