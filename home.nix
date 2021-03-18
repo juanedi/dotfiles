@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 let
-  pkgs-stable = import <nixpkgs-stable> {};
+  sources = import ./nix/sources.nix;
+  pkgs = import sources.nixpkgs { };
+  pkgs-unstable = import sources.nixpkgs-unstable {};
 in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -39,9 +41,9 @@ in {
 
   programs.git = {
     enable = true;
-    lfs.enable = true;
+    package = pkgs.git;
 
-    package = pkgs-stable.git;
+    lfs.enable = true;
 
     aliases = {
       co = "checkout";
@@ -68,6 +70,8 @@ in {
 
   programs.tmux = {
     enable = true;
+    package = pkgs.tmux;
+
     terminal = "screen-256color";
     shortcut = "f";
     baseIndex = 1;
