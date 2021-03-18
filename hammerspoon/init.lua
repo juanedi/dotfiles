@@ -56,7 +56,7 @@ function relocate_window_center()
       return {
         {
           -- two thirds wide, full height
-          y = 0,
+          y = screen.y,
           h = screen.h,
           x = screen.w / 6,
           w = screen.w * 2 / 3
