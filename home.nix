@@ -27,8 +27,14 @@ in {
     pkgs.ag
     pkgs.autojump
     pkgs.cloc
+    pkgs.coreutils
+    pkgs.fd
+    pkgs.fontconfig
     pkgs.fzf
     pkgs.ncdu
+    pkgs.nixfmt
+    pkgs.ripgrep
+    pkgs.shellcheck
     pkgs.tree
     pkgs.wget
   ];
@@ -96,6 +102,7 @@ in {
       eps   = "ps aux | grep -i";
       lstcp = "lsof -i -n -P | grep TCP | grep LISTEN";
       gst   = "git status";
+      doom  = "~/.emacs.d/bin/doom";
     };
 
     oh-my-zsh = {
@@ -105,6 +112,7 @@ in {
 
     sessionVariables = {
       DIRENV_LOG_FORMAT = "";
+      DOOMDIR = "$HOME/.config/doom";
     };
 
     initExtraFirst = builtins.concatStringsSep "\n" [
