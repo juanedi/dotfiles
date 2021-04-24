@@ -24,8 +24,8 @@ function cycleLayouts(generateTargets)
   local f = win:frame()
 
   local screen = win:screen()
+  local targets = generateTargets(screen:frame())
 
-  local targets = generateTargets(screen:fullFrame())
   local next = nextLayout(f, targets)
 
   win:setFrame(targets[next], 0)
@@ -58,28 +58,28 @@ function relocate_window_center()
           -- two thirds wide, full height
           y = screen.y,
           h = screen.h,
-          x = screen.w / 6,
+          x = screen.x + screen.w / 6,
           w = screen.w * 2 / 3
         },
         {
           -- two thirds wide, 3/6 height vertically centered
-          y = screen.h * 1 / 8,
+          y = screen.y + screen.h * 1 / 8,
           h = screen.h * 3 / 4,
-          x = screen.w * 1 / 6,
+          x = screen.x + screen.w * 1 / 6,
           w = screen.w * 2 / 3
         },
         {
           -- small, portrait
-          y = screen.h / 6,
+          y = screen.y + screen.h / 6,
           h = screen.h * 2 / 3,
-          x = screen.w * 7 / 24,
+          x = screen.x + screen.w * 7 / 24,
           w = screen.w * 10 / 24
         },
         {
           -- small, landscape
-          y = screen.h / 4,
+          y = screen.y + screen.h / 4,
           h = screen.h / 2,
-          x = screen.w / 6,
+          x = screen.x + screen.w / 6,
           w = screen.w * 2 / 3
         }
       }
@@ -117,19 +117,19 @@ function relocate_window_right()
         {
           y = screen.y,
           h = screen.h,
-          x = screen.w / 2,
+          x = screen.x + screen.w / 2,
           w = screen.w / 2
         },
         {
           y = screen.y,
           h = screen.h,
-          x = screen.w * 2 / 3,
+          x = screen.x + screen.w * 2 / 3,
           w = screen.w / 3
         },
         {
           y = screen.y,
           h = screen.h,
-          x = screen.w * 1 / 3,
+          x = screen.x + screen.w * 1 / 3,
           w = screen.w * 2 / 3
         }
       }
@@ -165,19 +165,19 @@ function relocate_window_down()
   cycleLayouts(function(screen)
       return {
         {
-          y = screen.h / 2,
+          y = screen.y + screen.h / 2,
           h = screen.h / 2,
           x = screen.x,
           w = screen.w
         },
         {
-          y = screen.h * 2 / 3,
+          y = screen.y + screen.h * 2 / 3,
           h = screen.h / 3,
           x = screen.x,
           w = screen.w
         },
         {
-          y = screen.h / 3,
+          y = screen.y + screen.h / 3,
           h = screen.h * 2 / 3,
           x = screen.x,
           w = screen.w
