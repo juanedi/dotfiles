@@ -8,7 +8,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="]"
 direnv_prompt_info () {
     if [ $DIRENV_DIFF ]
     then
-        echo "[direnv]"
+        echo "[envrc]"
     fi
 }
 
