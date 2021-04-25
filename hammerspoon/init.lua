@@ -30,26 +30,15 @@ hs.urlevent.bind(
   "move_screen",
   function(eventName, params)
     if params["direction"] == "left" then
-      hs.window.focusedWindow():moveOneScreenWest(false, true, 0)
+      window_manager.moveToMonitorOnTheLeft()
     elseif params["direction"] == "right" then
-      hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
+      window_manager.moveToMonitorOnTheRight()
     elseif params["direction"] == "down" then
-      hs.window.focusedWindow():moveOneScreenSouth(false, true, 0)
+      window_manager.moveToMonitorBelow()
     elseif params["direction"] == "up" then
-      hs.window.focusedWindow():moveOneScreenNorth(false, true, 0)
+      window_manager.moveToMonitorAbove()
     end
 end)
 
-hs.hotkey.bind(
-  {"shift", "cmd", "alt"},
-  "left",
-  function()
-    hs.window.focusedWindow():moveOneScreenWest(false, true, 0)
-end)
-
-hs.hotkey.bind(
-  {"shift", "cmd", "alt"},
-  "right",
-  function()
-    hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
-end)
+hs.hotkey.bind({"shift", "cmd", "alt"}, "left", window_manager.moveToMonitorOnTheLeft)
+hs.hotkey.bind({"shift", "cmd", "alt"}, "right", window_manager.moveToMonitorOnTheRight)

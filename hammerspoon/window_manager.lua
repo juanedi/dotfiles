@@ -193,4 +193,20 @@ function window_manager.snapWindowToBottom()
   end)
 end
 
+function window_manager.moveToMonitorOnTheLeft()
+  hs.window.focusedWindow():moveOneScreenWest(false, true, 0)
+end
+
+function window_manager.moveToMonitorOnTheRight()
+  hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
+end
+
+function window_manager.moveToMonitorAbove()
+  hs.window.focusedWindow():moveOneScreenNorth(false, true, 0)
+end
+
+function window_manager.moveToMonitorBelow()
+  hs.window.focusedWindow():moveOneScreenSouth(false, true, 0)
+end
+
 return window_manager
