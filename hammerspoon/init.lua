@@ -1,5 +1,23 @@
 local window_manager = require("window_manager")
 
+--------------------------------------------
+-- WINDOW MANAGER BINDINGS
+--------------------------------------------
+
+-- key bindings
+
+hs.hotkey.bind({"cmd", "alt"}, "C", window_manager.snapWindowToCenter)
+hs.hotkey.bind({"cmd", "alt"}, "F", window_manager.relocate_window_full_screen)
+hs.hotkey.bind({"cmd", "alt"}, "left", window_manager.snapWindowToLeft)
+hs.hotkey.bind({"cmd", "alt"}, "right", window_manager.snapWindowToRight)
+hs.hotkey.bind({"cmd", "alt"}, "up", window_manager.snapWindowToTop)
+hs.hotkey.bind({"cmd", "alt"}, "down", window_manager.snapWindowToBottom)
+
+hs.hotkey.bind({"shift", "cmd", "alt"}, "left", window_manager.moveToMonitorOnTheLeft)
+hs.hotkey.bind({"shift", "cmd", "alt"}, "right", window_manager.moveToMonitorOnTheRight)
+
+-- URL bindings, used by karabiner to map fn key
+
 hs.urlevent.bind(
   "relocate_window",
   function(eventName, params)
@@ -18,14 +36,6 @@ hs.urlevent.bind(
     end
 end)
 
-
-hs.hotkey.bind({"cmd", "alt"}, "C", window_manager.snapWindowToCenter)
-hs.hotkey.bind({"cmd", "alt"}, "F", window_manager.relocate_window_full_screen)
-hs.hotkey.bind({"cmd", "alt"}, "left", window_manager.snapWindowToLeft)
-hs.hotkey.bind({"cmd", "alt"}, "right", window_manager.snapWindowToRight)
-hs.hotkey.bind({"cmd", "alt"}, "up", window_manager.snapWindowToTop)
-hs.hotkey.bind({"cmd", "alt"}, "down", window_manager.snapWindowToBottom)
-
 hs.urlevent.bind(
   "move_screen",
   function(eventName, params)
@@ -39,6 +49,3 @@ hs.urlevent.bind(
       window_manager.moveToMonitorAbove()
     end
 end)
-
-hs.hotkey.bind({"shift", "cmd", "alt"}, "left", window_manager.moveToMonitorOnTheLeft)
-hs.hotkey.bind({"shift", "cmd", "alt"}, "right", window_manager.moveToMonitorOnTheRight)
