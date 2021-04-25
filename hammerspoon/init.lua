@@ -1,23 +1,5 @@
 local window_manager = require("window_manager")
 
-function mute_zoom()
-  local meetingWindow = hs.window.find("Zoom")
-  if not meetingWindow then return nil end
-
-  local zoom = meetingWindow:application()
-  local meetingFocused = meetingWindow == hs.window.focusedWindow()
-
-  if zoom:selectMenuItem({"Meeting", "Unmute Audio"}) then
-    if (not meetingFocused) then
-      hs.alert.show("You're now unmuted!")
-    end
-  elseif zoom:selectMenuItem({"Meeting", "Mute Audio"}) then
-    if (not meetingFocused) then
-      hs.alert.show("You're now muted!")
-    end
-  end
-end
-
 hs.urlevent.bind(
   "relocate_window",
   function(eventName, params)
@@ -70,18 +52,4 @@ hs.hotkey.bind(
   "right",
   function()
     hs.window.focusedWindow():moveOneScreenEast(false, true, 0)
-end)
-
-hs.hotkey.bind({"cmd", "alt"}, "return", mute_zoom)
-
-hs.urlevent.bind(
-  "mute_zoom",
-  function(eventName, params)
-    mute_zoom()
-end)
-
-hs.urlevent.bind(
-  "open-soundsource",
-  function(eventName, params)
-    hs.application.launchOrFocus("SoundSource")
 end)

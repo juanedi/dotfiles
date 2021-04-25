@@ -189,30 +189,6 @@
             ]
           },
           {
-            "description": "fn + M > mute zoom",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": [
-                      "fn"
-                    ],
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g hammerspoon://mute_zoom"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "fn + i/j/k/l' > arrow keys",
             "manipulators": [
               {
