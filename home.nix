@@ -107,7 +107,8 @@ in {
 
     oh-my-zsh = {
       enable = true;
-      theme = "geoffgarside";
+      theme = "be_nice";
+      custom = "$HOME/.oh-my-zsh-custom";
     };
 
     sessionVariables = {
@@ -122,11 +123,6 @@ in {
 
     initExtra = builtins.concatStringsSep "\n" [
       "source ~/.nix-profile/share/autojump/autojump.zsh"
-
-      # TODO: these customizations are pretty hacky and rely on the base theme
-      # being set to geoffgarside. find a more robust way to change the prompt
-      # (maybe create a custom theme?).
-      (builtins.readFile ./zsh/prompt.zsh)
     ];
   };
 
@@ -134,5 +130,6 @@ in {
   home.file = {
     ".hammerspoon" = { source = ./hammerspoon; };
     ".config/karabiner/karabiner.json" = { source = ./karabiner.json; };
+    ".oh-my-zsh-custom/themes/be_nice.zsh-theme" = { source = ./zsh/be_nice.zsh-theme; };
   };
 }
