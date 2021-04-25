@@ -49,3 +49,31 @@ hs.urlevent.bind(
       window_manager.moveToMonitorAbove()
     end
 end)
+
+--------------------------------------------
+-- APPLICATION CONTROL
+--------------------------------------------
+
+hs.hotkey.bind({"cmd", "shift"}, "A", function()
+    hs.application.launchOrFocus("Slack")
+end)
+
+hs.hotkey.bind({"cmd", "shift"}, "D", function()
+    hs.application.launchOrFocus("TickTick")
+end)
+
+hs.hotkey.bind({"cmd", "shift"}, "E", function()
+    hs.application.launchOrFocus("Emacs")
+end)
+
+hs.hotkey.bind({"cmd", "shift"}, "G", function()
+    hs.application.launchOrFocus("Telegram")
+end)
+
+hs.hotkey.bind({"cmd", "shift"}, "W", function()
+    hs.application.launchOrFocus("Google Chrome")
+end)
+
+hs.hotkey.bind({"cmd", "shift"}, "X", function()
+    hs.application.launchOrFocus("iTerm")
+end)
