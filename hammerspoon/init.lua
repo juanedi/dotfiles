@@ -1,4 +1,7 @@
 local window_manager = require("window_manager")
+local sound_menubar = require("sound_menubar")
+
+sound_menubar:init()
 
 --------------------------------------------
 -- WINDOW MANAGER BINDINGS
