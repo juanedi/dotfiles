@@ -296,11 +296,11 @@
             ]
           },
           {
-            "description": "fn + t -> open /tmp",
+            "description": "fn + q -> switch audio output",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "t",
+                  "key_code": "q",
                   "modifiers": {
                     "mandatory": [
                       "fn"
@@ -312,7 +312,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a Finder /tmp"
+                    "shell_command": "open -g hammerspoon://sound_control_switch"
                   }
                 ],
                 "type": "basic"
