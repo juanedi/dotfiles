@@ -7,6 +7,7 @@ device_display_names["Audioengine 2+  "] = "A2+"
 device_display_names["CalDigit Thunderbolt 3 Audio"] = "TS3+"
 device_display_names["External Headphones"] = "Headphones"
 device_display_names["MacBook Pro Speakers"] = "MBP"
+device_display_names["Jabra Elite 65t"] = "JE-65t"
 
 local skipped_devices = {"DELL U2718Q"}
 
