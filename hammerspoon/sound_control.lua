@@ -1,8 +1,23 @@
 sound_control = {}
 
-device_display_names = {}
+local device_display_names = {}
 device_display_names["External Headphones"] = "Headphones"
 device_display_names["MacBook Pro Speakers"] = "Macbook"
+
+local iconAscii = [[ASCII:
+· · · · · · · · · · · ·
+· · · · · · · · 3 · · ·
+· · · · · · · 3 · 3 · ·
+· · · · · · 3 · . . 3 ·
+· · · · · · · 3 · 3 · ·
+· · · · . · 1 . 3 · · ·
+· · · 2 · 1 . · · · · ·
+· · 2 · 2 . · · · · · ·
+· 2 · · · 2 · · · · · ·
+· · 2 . 2 · · · · · · ·
+· . · 2 · · · · · · · ·
+· · · · · · · · · · · ·
+]]
 
 function sound_control.nextOutput()
   local devices = hs.audiodevice.allOutputDevices()
@@ -30,6 +45,7 @@ function sound_control:init_menubar()
   hs.audiodevice.watcher.setCallback(updateMenu)
   hs.audiodevice.watcher.start()
 
+  self.menu:setIcon(hs.image.imageFromASCII(iconAscii))
   self.menu:setClickCallback(sound_control.nextOutput)
 end
 
