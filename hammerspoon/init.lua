@@ -1,8 +1,12 @@
 local window_manager = require("window_manager")
-local sound_menubar = require("sound_menubar")
+local sound_control = require("sound_control")
 
-sound_menubar:init()
-hs.hotkey.bind({"cmd", "alt"}, "A", sound_menubar.nextOutput)
+--------------------------------------------
+-- SOUND CONTROL
+--------------------------------------------
+
+sound_control:init_menubar()
+hs.hotkey.bind({"cmd", "alt"}, "A", sound_control.nextOutput)
 
 --------------------------------------------
 -- WINDOW MANAGER BINDINGS

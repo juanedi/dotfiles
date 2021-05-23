@@ -1,6 +1,6 @@
-sound_menubar = {}
+sound_control = {}
 
-function sound_menubar.nextOutput()
+function sound_control.nextOutput()
   local devices = hs.audiodevice.allOutputDevices()
   local current_device = hs.audiodevice.current().uid
 
@@ -19,7 +19,7 @@ function sound_menubar.nextOutput()
   next_device:setDefaultOutputDevice()
 end
 
-function sound_menubar:init()
+function sound_control:init_menubar()
   self.menu = hs.menubar.new()
   updateMenu('')
 
@@ -29,7 +29,7 @@ end
 
 function updateMenu(arg)
   local currentOutput = hs.audiodevice.current()
-  sound_menubar.menu:setTitle(currentOutput.name)
+  sound_control.menu:setTitle(currentOutput.name)
 end
 
-return sound_menubar
+return sound_control
