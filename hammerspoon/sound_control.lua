@@ -1,8 +1,10 @@
 sound_control = {}
 
 local device_display_names = {}
+device_display_names["Audioengine 2+  "] = "A2+"
+device_display_names["CalDigit Thunderbolt 3 Audio"] = "TS3+"
 device_display_names["External Headphones"] = "Headphones"
-device_display_names["MacBook Pro Speakers"] = "Macbook"
+device_display_names["MacBook Pro Speakers"] = "MBP"
 
 local iconAscii = [[ASCII:
 · · · · · · · · · · · ·
