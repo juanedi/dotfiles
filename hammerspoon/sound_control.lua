@@ -59,7 +59,7 @@ function sound_control:init_menubar()
   self.menu:setClickCallback(sound_control.nextOutput)
 end
 
-function updateMenu(arg)
+function updateMenu()
   local currentOutput = hs.audiodevice.current()
   local new_title = device_display_names[currentOutput.name] or currentOutput.name
   sound_control.menu:setTitle(new_title)
