@@ -6,7 +6,7 @@ local sound_control = require("sound_control")
 --------------------------------------------
 
 sound_control:init_menubar()
-hs.hotkey.bind({"cmd", "alt"}, "O", sound_control.nextOutput)
+hs.hotkey.bind({"cmd", "alt"}, "Q", sound_control.nextOutput)
 
 --------------------------------------------
 -- WINDOW MANAGER BINDINGS
