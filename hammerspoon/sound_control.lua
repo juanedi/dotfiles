@@ -1,5 +1,9 @@
 sound_control = {}
 
+device_display_names = {}
+device_display_names["External Headphones"] = "Headphones"
+device_display_names["MacBook Pro Speakers"] = "Macbook"
+
 function sound_control.nextOutput()
   local devices = hs.audiodevice.allOutputDevices()
   local current_device = hs.audiodevice.current().uid
@@ -25,11 +29,14 @@ function sound_control:init_menubar()
 
   hs.audiodevice.watcher.setCallback(updateMenu)
   hs.audiodevice.watcher.start()
+
+  self.menu:setClickCallback(sound_control.nextOutput)
 end
 
 function updateMenu(arg)
   local currentOutput = hs.audiodevice.current()
-  sound_control.menu:setTitle(currentOutput.name)
+  local new_title = device_display_names[currentOutput.name] or currentOutput.name
+  sound_control.menu:setTitle(new_title)
 end
 
 return sound_control
