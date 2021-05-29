@@ -193,6 +193,17 @@ function window_manager.snapWindowToBottom()
   end)
 end
 
+function window_manager.moveMouseToNextScreen()
+  local next_screen = hs.mouse.getCurrentScreen():next()
+
+  local destination = {
+    x = next_screen:frame().w / 2,
+    y = next_screen:frame().h / 2
+  }
+
+  hs.mouse.setRelativePosition(destination, next_screen)
+end
+
 function window_manager.moveToMonitorOnTheLeft()
   hs.window.focusedWindow():moveOneScreenWest(false, true, 0)
 end

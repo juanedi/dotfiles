@@ -64,6 +64,12 @@ hs.urlevent.bind(
     end
 end)
 
+hs.urlevent.bind(
+  "move_mouse_to_next_screen",
+  function(eventName, params)
+    window_manager.moveMouseToNextScreen()
+end)
+
 --------------------------------------------
 -- APPLICATION CONTROL
 --------------------------------------------
