@@ -4,6 +4,7 @@ sound_control = {}
 
 local device_display_names = {
   ["Audioengine 2+  "] = "A2+",
+  ["Bose QC35 II"] = "QC35 II",
   ["CalDigit Thunderbolt 3 Audio"] = "TS3+",
   ["External Headphones"] = "Headphones",
   ["MacBook Pro Speakers"] = "MBP",

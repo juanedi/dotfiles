@@ -7,12 +7,7 @@ local sound_control = require("sound_control")
 
 sound_control:init_menubar()
 hs.hotkey.bind({"cmd", "alt"}, "Q", sound_control.nextOutput)
-
-hs.urlevent.bind(
-  "sound_control_switch",
-  function(eventName, params)
-    sound_control.nextOutput()
-end)
+hs.urlevent.bind("sound_control_switch", sound_control.nextOutput)
 
 --------------------------------------------
 -- WINDOW MANAGER BINDINGS
