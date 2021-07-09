@@ -30,7 +30,6 @@ in {
     pkgs.coreutils
     pkgs.fd
     pkgs.fontconfig
-    pkgs.fzf
     pkgs.ncdu
     pkgs.nixfmt
     pkgs.ripgrep
@@ -47,6 +46,11 @@ in {
     enable = true;
     enableZshIntegration = true;
     enableNixDirenvIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.git = {
