@@ -30,6 +30,7 @@ in {
     pkgs.coreutils
     pkgs.fd
     pkgs.fontconfig
+    pkgs.jq
     pkgs.ncdu
     pkgs.nixfmt
     pkgs.ripgrep
