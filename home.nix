@@ -30,9 +30,11 @@ in {
     pkgs.coreutils
     pkgs.fd
     pkgs.fontconfig
+    pkgs.idris2
     pkgs.jq
     pkgs.ncdu
     pkgs.nixfmt
+    pkgs.rlwrap
     pkgs.ripgrep
     pkgs.shellcheck
     pkgs.tree
@@ -108,6 +110,7 @@ in {
       lstcp = "lsof -i -n -P | grep TCP | grep LISTEN";
       gst   = "git status";
       doom  = "~/.emacs.d/bin/doom";
+      idr   = "rlwrap idris2";
     };
 
     oh-my-zsh = {
