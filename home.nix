@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 let
   sources = import ./nix/sources.nix;
@@ -33,12 +33,14 @@ in {
     pkgs.idris2
     pkgs.jq
     pkgs.ncdu
+    pkgs.nerdfonts
     pkgs.nixfmt
-    pkgs.rlwrap
     pkgs.ripgrep
+    pkgs.rlwrap
     pkgs.shellcheck
     pkgs.tree
     pkgs.wget
+    pkgs.yarn
   ];
 
   # Let Home Manager install and manage itself.
@@ -132,6 +134,20 @@ in {
     initExtra = builtins.concatStringsSep "\n" [
       "source ~/.nix-profile/share/autojump/autojump.zsh"
     ];
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      add_newline = false;
+      format = lib.concatStrings [
+        "$directory"
+        "$git_branch"
+        "$git_state"
+        "$character"
+      ];
+    };
   };
 
   # symlink config files for other programs not managed by nix
