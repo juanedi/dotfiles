@@ -15,6 +15,7 @@ hs.urlevent.bind("sound_control_switch", sound_control.nextOutput)
 
 -- key bindings
 
+hs.hotkey.bind({"cmd", "alt"}, "E", window_manager.moveMouseToNextScreen)
 hs.hotkey.bind({"cmd", "alt"}, "C", window_manager.snapWindowToCenter)
 hs.hotkey.bind({"cmd", "alt"}, "F", window_manager.relocate_window_full_screen)
 hs.hotkey.bind({"cmd", "alt"}, "left", window_manager.snapWindowToLeft)
@@ -24,6 +25,8 @@ hs.hotkey.bind({"cmd", "alt"}, "down", window_manager.snapWindowToBottom)
 
 hs.hotkey.bind({"shift", "cmd", "alt"}, "left", window_manager.moveToMonitorOnTheLeft)
 hs.hotkey.bind({"shift", "cmd", "alt"}, "right", window_manager.moveToMonitorOnTheRight)
+hs.hotkey.bind({"shift", "cmd", "alt"}, "down", window_manager.moveToMonitorBelow)
+hs.hotkey.bind({"shift", "cmd", "alt"}, "up", window_manager.moveToMonitorAbove)
 
 -- URL bindings, used by karabiner to map fn key
 
@@ -59,11 +62,7 @@ hs.urlevent.bind(
     end
 end)
 
-hs.urlevent.bind(
-  "move_mouse_to_next_screen",
-  function(eventName, params)
-    window_manager.moveMouseToNextScreen()
-end)
+hs.urlevent.bind("move_mouse_to_next_screen", window_manager.moveMouseToNextScreen)
 
 --------------------------------------------
 -- APPLICATION CONTROL

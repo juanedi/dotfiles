@@ -296,6 +296,30 @@
             ]
           },
           {
+            "description": "fn + e -> center mouse on next screen",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": [
+                      "fn"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -g hammerspoon://move_mouse_to_next_screen"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "fn + q -> switch audio output",
             "manipulators": [
               {
