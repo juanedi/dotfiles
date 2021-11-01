@@ -8,7 +8,8 @@ local device_display_names = {
   ["CalDigit Thunderbolt 3 Audio"] = "TS3+",
   ["External Headphones"] = "Headphones",
   ["MacBook Pro Speakers"] = "MBP",
-  ["Jabra Elite 65t"] = "JE-65t"
+  ["Jabra Elite 65t"] = "JE-65t",
+  ["Juan’s AirPods Pro"] = "Airpods"
 }
 
 local skipped_devices = {"DELL U2718Q"}
