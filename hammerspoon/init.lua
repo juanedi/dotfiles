@@ -84,6 +84,14 @@ hs.hotkey.bind({"cmd", "shift"}, "G", function()
     hs.application.launchOrFocus("Telegram")
 end)
 
+hs.hotkey.bind({"cmd", "shift"}, "J", function()
+    hs.application.launchOrFocus("Dash")
+end)
+
+hs.hotkey.bind({"cmd", "shift"}, "L", function()
+    hs.application.launchOrFocus("Linear")
+end)
+
 hs.hotkey.bind({"cmd", "shift"}, "W", function()
     hs.application.launchOrFocus("Google Chrome")
 end)
