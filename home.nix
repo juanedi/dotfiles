@@ -50,7 +50,7 @@ in {
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
-    enableNixDirenvIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.fzf = {
@@ -131,9 +131,7 @@ in {
      (builtins.readFile ./zsh/tmux-integration.zsh)
     ];
 
-    initExtra = builtins.concatStringsSep "\n" [
-      "source ~/.nix-profile/share/autojump/autojump.zsh"
-    ];
+    initExtra = builtins.readFile ./zsh/init-extra.zsh;
   };
 
   programs.starship = {
