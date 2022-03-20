@@ -12,7 +12,10 @@ local device_display_names = {
   ["Juan’s AirPods Pro"] = "Airpods"
 }
 
-local skipped_devices = {"DELL U2718Q"}
+local skipped_devices = {
+  "DELL U2718Q",
+  "ZoomAudioDevice"
+}
 
 local iconAscii = [[ASCII:
 · · · · · · · · · G # G
