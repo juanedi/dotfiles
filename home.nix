@@ -127,7 +127,8 @@ in {
     };
 
     initExtraFirst = builtins.concatStringsSep "\n" [
-     ". ~/.nix-profile/etc/profile.d/nix.sh"
+     # uncomment if using a single-user nix installation
+     # ". ~/.nix-profile/etc/profile.d/nix.sh"
      (builtins.readFile ./zsh/tmux-integration.zsh)
     ];
 
