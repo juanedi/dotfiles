@@ -4,7 +4,7 @@ let
   sources = import ./nix/sources.nix;
   niv = import sources.niv { };
   pkgs = import sources.nixpkgs { };
-  pkgs-unstable = import sources.nixpkgs-unstable {};
+  pkgs-darwin = import sources.nixpkgs { localSystem = "x86_64-darwin"; };
 in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -26,6 +26,7 @@ in {
     niv.niv
     pkgs.ag
     pkgs.autojump
+    pkgs-darwin.cachix
     pkgs.cloc
     pkgs.coreutils
     pkgs.fd
