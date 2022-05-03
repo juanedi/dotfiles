@@ -31,14 +31,13 @@ in {
     pkgs.coreutils
     pkgs.fd
     pkgs.fontconfig
-    pkgs.idris2
     pkgs.jq
     pkgs.ncdu
     pkgs.nerdfonts
-    pkgs.nixfmt
+    pkgs-darwin.nixfmt
     pkgs.ripgrep
     pkgs.rlwrap
-    pkgs.shellcheck
+    pkgs-darwin.shellcheck
     pkgs.tree
     pkgs.wget
     pkgs.yarn
