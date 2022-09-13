@@ -85,6 +85,10 @@ in {
       ".python-version"
       ".dir-locals.el"
     ];
+
+    extraConfig = {
+      github.user = "juanedi";
+    };
   };
 
   programs.tmux = {
