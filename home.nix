@@ -31,6 +31,7 @@ in {
     pkgs.coreutils
     pkgs.fd
     pkgs.fontconfig
+    pkgs.gnupg
     pkgs.jq
     pkgs.ncdu
     pkgs.nerdfonts
