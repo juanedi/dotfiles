@@ -5,6 +5,7 @@ let
   niv = import sources.niv { };
   pkgs = import sources.nixpkgs { };
   pkgs-darwin = import sources.nixpkgs { localSystem = "x86_64-darwin"; };
+  devenv = import sources.devenv;
 in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -23,6 +24,7 @@ in {
 
   # Programs that require no additional configuration
   home.packages = [
+    (import devenv.outPath).outputs.packages.aarch64-darwin.devenv
     niv.niv
     pkgs.ag
     pkgs.autojump

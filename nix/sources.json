@@ -1,4 +1,17 @@
 {
+    "devenv": {
+        "branch": "main",
+        "description": "Fast, Declarative, Reproducible, and Composable Developer Environments",
+        "homepage": "https://devenv.sh",
+        "owner": "cachix",
+        "repo": "devenv",
+        "rev": "51b34e6cdee510dde784ba6da418a16b2bfbc125",
+        "sha256": "1smslgry6x9r63f1956389dj9h86r1cv8bs8bzgbx3dfvdins9ax",
+        "type": "tarball",
+        "url": "https://github.com/cachix/devenv/archive/51b34e6cdee510dde784ba6da418a16b2bfbc125.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "version": "v0.3"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
