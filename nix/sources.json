@@ -5,12 +5,12 @@
         "homepage": "https://devenv.sh",
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "51b34e6cdee510dde784ba6da418a16b2bfbc125",
-        "sha256": "1smslgry6x9r63f1956389dj9h86r1cv8bs8bzgbx3dfvdins9ax",
+        "rev": "d04d8af13b196b0ff96d032ac5392b0a8f970fd4",
+        "sha256": "05s60igz30v6swv2f96b6sm1xdmah1krkid29gm022a18vlxib79",
         "type": "tarball",
-        "url": "https://github.com/cachix/devenv/archive/51b34e6cdee510dde784ba6da418a16b2bfbc125.tar.gz",
+        "url": "https://github.com/cachix/devenv/archive/d04d8af13b196b0ff96d032ac5392b0a8f970fd4.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "version": "v0.3"
+        "version": "v0.4"
     },
     "niv": {
         "branch": "master",
