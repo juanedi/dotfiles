@@ -97,5 +97,5 @@ hs.hotkey.bind({"cmd", "shift"}, "W", function()
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "X", function()
-    hs.application.launchOrFocus("iTerm")
+    hs.application.launchOrFocus("Kitty")
 end)
