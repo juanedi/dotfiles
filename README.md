@@ -9,6 +9,7 @@ My config files!
 1. (Optional) Install programs not managed by nix:
     - [Hammerspoon](https://www.hammerspoon.org/)
     - [Karabiner Elements](https://karabiner-elements.pqrs.org/)
+    - [Kitty](https://sw.kovidgoyal.net/kitty/)
     - NOTE: the config for these will be automatically linked by home-manager, but you stil lhave to install them manually
 1. Link home.nix into a place home-manager will find it: `ln -s ./home.nix  ~/.config/nixpkgs/home.nix` (from the repo's root)
 1. Run `home-manager switch` to activate the setup
