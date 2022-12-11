@@ -21,8 +21,10 @@ tmux-create-session() {
     fi
 }
 
-if [ -z "$TMUX" ]; then
-    # enter tmux!
+# use tmux if:
+#   - we are not already inside a TMUX session (checking TMUX var)
+#   - no .notmux file has exists
+if [[ ! -f "$HOME/.notmux" && -z "$TMUX" ]]; then
     # either attach to well-known session or create a new one
     tmux-create-session &> /dev/null
 
