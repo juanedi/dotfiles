@@ -42,6 +42,7 @@ in {
     pkgs.rlwrap
     pkgs-darwin.shellcheck
     pkgs.tree
+    pkgs.watch
     pkgs.wget
     pkgs.yarn
   ];
