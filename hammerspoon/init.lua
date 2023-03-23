@@ -99,3 +99,7 @@ end)
 hs.hotkey.bind({"cmd", "shift"}, "X", function()
     hs.application.launchOrFocus("Kitty")
 end)
+
+hs.hotkey.bind({"cmd", "shift"}, "F", function()
+    hs.application.launchOrFocus("Cron")
+end)
