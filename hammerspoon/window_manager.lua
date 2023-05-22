@@ -62,6 +62,13 @@ function window_manager.snapWindowToCenter()
   cycleLayouts(function(screen)
       return {
         {
+          -- one half wide, full height
+          y = screen.y,
+          h = screen.h,
+          x = screen.x + screen.w / 4,
+          w = screen.w / 2
+        },
+        {
           -- two thirds wide, full height
           y = screen.y,
           h = screen.h,
