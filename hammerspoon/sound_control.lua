@@ -13,6 +13,7 @@ local device_display_names = {
 }
 
 local skipped_devices = {
+  "LG HDR 4K",
   "DELL U2718Q",
   "ZoomAudioDevice"
 }
