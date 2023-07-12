@@ -119,7 +119,7 @@ in {
       eps   = "ps aux | grep -i";
       lstcp = "lsof -i -n -P | grep TCP | grep LISTEN";
       gst   = "git status";
-      doom  = "~/.emacs.d/bin/doom";
+      doom  = "~/.config/emacs/bin/doom";
       idr   = "rlwrap idris2";
     };
 
