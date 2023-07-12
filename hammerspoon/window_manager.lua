@@ -95,6 +95,13 @@ function window_manager.snapWindowToCenter()
           h = screen.h / 2,
           x = screen.x + screen.w / 6,
           w = screen.w * 2 / 3
+        },
+        {
+          -- full width, one half height
+          y = screen.y + screen.h / 4,
+          h = screen.h / 2,
+          x = screen.x,
+          w = screen.w
         }
       }
   end)
