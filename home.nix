@@ -34,6 +34,7 @@ in {
     pkgs.fd
     pkgs.fontconfig
     pkgs.gnupg
+    pkgs.imagemagick
     pkgs.jq
     pkgs.ncdu
     pkgs.nerdfonts
