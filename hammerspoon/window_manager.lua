@@ -69,11 +69,11 @@ function window_manager.snapWindowToCenter()
           w = screen.w / 2
         },
         {
-          -- two thirds wide, full height
+          -- 4/5 wide, full height
           y = screen.y,
           h = screen.h,
-          x = screen.x + screen.w / 6,
-          w = screen.w * 2 / 3
+          x = screen.x + screen.w / 10,
+          w = screen.w * 4 / 5
         },
         {
           -- two thirds wide, 3/6 height vertically centered
