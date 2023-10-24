@@ -42,6 +42,7 @@ in {
     pkgs.ripgrep
     pkgs.rlwrap
     pkgs-darwin.shellcheck
+    pkgs.texlive.combined.scheme-full
     pkgs.tree
     pkgs.watch
     pkgs.wget
