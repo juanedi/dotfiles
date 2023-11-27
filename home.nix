@@ -5,7 +5,9 @@ let
   devenv = import sources.devenv;
   niv = import sources.niv { };
   pkgs = import sources.nixpkgs { };
+  pkgs-23 = import sources.nixpkgs23 { };
   pkgs-darwin = import sources.nixpkgs { localSystem = "x86_64-darwin"; };
+  pkgs-unstable = import sources.nixpkgs-unstable { };
 in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -47,6 +49,7 @@ in {
     pkgs.watch
     pkgs.wget
     pkgs.yarn
+    pkgs-unstable.zellij
   ];
 
   # Let Home Manager install and manage itself.
@@ -140,6 +143,7 @@ in {
      # uncomment if using a single-user nix installation
      # ". ~/.nix-profile/etc/profile.d/nix.sh"
      (builtins.readFile ./zsh/tmux-integration.zsh)
+     (builtins.readFile ./zsh/zellij-integration.zsh)
     ];
 
     initExtra = builtins.readFile ./zsh/init-extra.zsh;
