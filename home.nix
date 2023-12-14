@@ -35,6 +35,7 @@ in {
     pkgs.coreutils
     pkgs.fd
     pkgs.fontconfig
+    pkgs.gcc
     pkgs.gnupg
     pkgs.imagemagick
     pkgs.jq
