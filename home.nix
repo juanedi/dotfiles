@@ -126,6 +126,7 @@ in {
       gst   = "git status";
       doom  = "~/.config/emacs/bin/doom";
       idr   = "rlwrap idris2";
+      z     = "zellij";
     };
 
     oh-my-zsh = {
