@@ -103,3 +103,30 @@ end)
 hs.hotkey.bind({"cmd", "shift"}, "F", function()
     hs.application.launchOrFocus("Cron")
 end)
+
+--------------------------------------------
+-- MISC
+--------------------------------------------
+
+-- Automatically format some links when pasting into rich text inputs.
+-- Stolen from https://github.com/waj <3
+linkFormats = {
+  {"https://github.com/.+/.+/pull/(%d+)", "#%s"},
+  {"https://linear.app/.+/issue/(.+)/.+", "%s"}
+}
+
+hs.hotkey.bind({"cmd", "alt"}, "v", nil, function()
+  local text = hs.pasteboard.getContents()
+  for _, format in pairs(linkFormats) do
+    local s, e, m = text:find(format[1])
+    if s ~= nil then
+      local tmp = hs.pasteboard.readAllData()
+      local plain = string.format(format[2], m)
+      local html = string.format("<a href=\"%s\">%s</a>", text, plain)
+      hs.pasteboard.writeDataForUTI(nil, "public.utf8-plain-text", plain)
+      hs.pasteboard.writeDataForUTI(nil, "public.html", html, true)
+      hs.eventtap.keyStroke({"cmd"}, "v")
+      hs.pasteboard.writeAllData(tmp)
+    end
+  end
+end)
