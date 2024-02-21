@@ -42,6 +42,7 @@ in {
     pkgs.ncdu
     pkgs.nerdfonts
     pkgs-darwin.nixfmt
+    pkgs-23.python310Packages.pygments
     pkgs.ripgrep
     pkgs.rlwrap
     pkgs-darwin.shellcheck
