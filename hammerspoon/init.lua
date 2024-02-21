@@ -101,7 +101,7 @@ hs.hotkey.bind({"cmd", "shift"}, "X", function()
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "F", function()
-    hs.application.launchOrFocus("Cron")
+    hs.application.launchOrFocus("Notion Calendar")
 end)
 
 --------------------------------------------
