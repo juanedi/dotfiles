@@ -33,6 +33,7 @@ in {
     pkgs-darwin.cachix
     pkgs.cloc
     pkgs.coreutils
+    pkgs-unstable.elmPackages.elm-language-server
     pkgs.fd
     pkgs.fontconfig
     pkgs.gcc
