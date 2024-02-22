@@ -87,6 +87,7 @@ in {
       diffs = "diff --staged";
       logr = "log --reverse";
       l1 = "log -1 -p";
+      t = "mktex";
     };
 
     ignores = [
@@ -149,6 +150,7 @@ in {
      # ". ~/.nix-profile/etc/profile.d/nix.sh"
      (builtins.readFile ./zsh/tmux-integration.zsh)
      (builtins.readFile ./zsh/zellij-integration.zsh)
+     (builtins.readFile ./zsh/pdflatex-helpers.zsh)
     ];
 
     initExtra = builtins.readFile ./zsh/init-extra.zsh;
