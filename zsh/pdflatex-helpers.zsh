@@ -27,3 +27,27 @@ function mktex {
         pdflatex --interaction nonstopmode --shell-escape --jobname="$filename" "$1" && cleantex "$filename"
     fi
 }
+
+
+function fix-tex-accents {
+    if [[ $# -ne 1 ]]; then
+        echo "Usage: fix-tex-accents <file.tex>"
+        return 1
+    fi
+
+    local file="$1"
+    local temp_file="${file}.tmp"
+
+    # Replace accented characters
+    sed -e 's/\\'\''a/á/g' \
+        -e 's/\\'\''e/é/g' \
+        -e 's/\\'\''i/í/g' \
+        -e 's/\\'\''o/ó/g' \
+        -e 's/\\'\''u/ú/g' \
+        "$file" > "$temp_file"
+
+    # Overwrite the original file with the modified content
+    mv "$temp_file" "$file"
+
+    echo "Accents replaced successfully."
+}
