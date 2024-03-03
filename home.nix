@@ -44,6 +44,7 @@ in {
     pkgs.nerdfonts
     pkgs-23.nodejs
     pkgs-darwin.nixfmt
+    pkgs-23.pandoc
     pkgs-23.python310Packages.pygments
     pkgs.ripgrep
     pkgs.rlwrap
