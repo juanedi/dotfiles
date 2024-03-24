@@ -4,7 +4,7 @@ let
   sources = import ./nix/sources.nix;
   devenv = import sources.devenv;
   niv = import sources.niv { };
-  pkgs-23 = import sources.nixpkgs23 { };
+  pkgs = import sources.nixpkgs23 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };
 
   # TODO: upgrade all these!
@@ -40,15 +40,15 @@ in {
     pkgs-21.fontconfig
     pkgs-21.gcc
     pkgs-21.gnupg
-    pkgs-23.graphviz
+    pkgs.graphviz
     pkgs-21.imagemagick
     pkgs-21.jq
     pkgs-21.ncdu
     pkgs-21.nerdfonts
-    pkgs-23.nodejs
+    pkgs.nodejs
     pkgs-21-darwin.nixfmt
-    pkgs-23.pandoc
-    pkgs-23.python310Packages.pygments
+    pkgs.pandoc
+    pkgs.python310Packages.pygments
     pkgs-21.ripgrep
     pkgs-21.rlwrap
     pkgs-21-darwin.shellcheck
@@ -57,7 +57,7 @@ in {
     pkgs-21.watch
     pkgs-21.wget
     pkgs-21.yarn
-    pkgs-23.zellij
+    pkgs.zellij
   ];
 
   # Let Home Manager install and manage itself.
