@@ -24,7 +24,7 @@
         "url": "https://github.com/nmattia/niv/archive/82e5cd1ad3c387863f0545d7591512e76ab0fc41.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "nixpkgs": {
+    "nixpkgs21": {
         "branch": "release-21.05",
         "description": "Nix Packages collection",
         "homepage": "",

@@ -4,10 +4,12 @@ let
   sources = import ./nix/sources.nix;
   devenv = import sources.devenv;
   niv = import sources.niv { };
-  pkgs = import sources.nixpkgs { };
   pkgs-23 = import sources.nixpkgs23 { };
-  pkgs-darwin = import sources.nixpkgs { localSystem = "x86_64-darwin"; };
   pkgs-unstable = import sources.nixpkgs-unstable { };
+
+  # TODO: upgrade all these!
+  pkgs-21 = import sources.nixpkgs21 { };
+  pkgs-21-darwin = import sources.nixpkgs21 { localSystem = "x86_64-darwin"; };
 in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -28,33 +30,33 @@ in {
   home.packages = [
     devenv.default
     niv.niv
-    pkgs.ag
-    pkgs.autojump
-    pkgs-darwin.cachix
-    pkgs.cloc
-    pkgs.coreutils
+    pkgs-21.ag
+    pkgs-21.autojump
+    pkgs-21-darwin.cachix
+    pkgs-21.cloc
+    pkgs-21.coreutils
     pkgs-unstable.elmPackages.elm-language-server
-    pkgs.fd
-    pkgs.fontconfig
-    pkgs.gcc
-    pkgs.gnupg
+    pkgs-21.fd
+    pkgs-21.fontconfig
+    pkgs-21.gcc
+    pkgs-21.gnupg
     pkgs-23.graphviz
-    pkgs.imagemagick
-    pkgs.jq
-    pkgs.ncdu
-    pkgs.nerdfonts
+    pkgs-21.imagemagick
+    pkgs-21.jq
+    pkgs-21.ncdu
+    pkgs-21.nerdfonts
     pkgs-23.nodejs
-    pkgs-darwin.nixfmt
+    pkgs-21-darwin.nixfmt
     pkgs-23.pandoc
     pkgs-23.python310Packages.pygments
-    pkgs.ripgrep
-    pkgs.rlwrap
-    pkgs-darwin.shellcheck
-    pkgs.texlive.combined.scheme-full
-    pkgs.tree
-    pkgs.watch
-    pkgs.wget
-    pkgs.yarn
+    pkgs-21.ripgrep
+    pkgs-21.rlwrap
+    pkgs-21-darwin.shellcheck
+    pkgs-21.texlive.combined.scheme-full
+    pkgs-21.tree
+    pkgs-21.watch
+    pkgs-21.wget
+    pkgs-21.yarn
     pkgs-23.zellij
   ];
 
@@ -75,7 +77,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs.git;
+    package = pkgs-21.git;
 
     lfs.enable = true;
 
@@ -109,7 +111,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
+    package = pkgs-21.tmux;
 
     terminal = "screen-256color";
     shortcut = "f";
