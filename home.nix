@@ -38,6 +38,7 @@ in {
     pkgs.fontconfig
     pkgs.gcc
     pkgs.gnupg
+    pkgs-23.graphviz
     pkgs.imagemagick
     pkgs.jq
     pkgs.ncdu
