@@ -30,33 +30,33 @@ in {
   home.packages = [
     devenv.default
     niv.niv
-    pkgs-21.ag
     pkgs-21.autojump
     pkgs-21-darwin.cachix
-    pkgs-21.cloc
+    pkgs.cloc
     pkgs-21.coreutils
     pkgs-unstable.elmPackages.elm-language-server
-    pkgs-21.fd
-    pkgs-21.fontconfig
+    pkgs.fd
+    pkgs.fontconfig
     pkgs-21.gcc
     pkgs-21.gnupg
     pkgs.graphviz
-    pkgs-21.imagemagick
-    pkgs-21.jq
-    pkgs-21.ncdu
+    pkgs.imagemagick
+    pkgs.jq
+    pkgs.ncdu
     pkgs-21.nerdfonts
     pkgs.nodejs
     pkgs-21-darwin.nixfmt
     pkgs.pandoc
     pkgs.python310Packages.pygments
-    pkgs-21.ripgrep
-    pkgs-21.rlwrap
+    pkgs.ripgrep
+    pkgs.rlwrap
     pkgs-21-darwin.shellcheck
+    pkgs.silver-searcher
     pkgs-21.texlive.combined.scheme-full
-    pkgs-21.tree
-    pkgs-21.watch
-    pkgs-21.wget
-    pkgs-21.yarn
+    pkgs.tree
+    pkgs.watch
+    pkgs.wget
+    pkgs.yarn
     pkgs.zellij
   ];
 
