@@ -77,7 +77,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs-21.git;
+    package = pkgs.git;
 
     lfs.enable = true;
 
