@@ -4,12 +4,14 @@ let
   sources = import ./nix/sources.nix;
   devenv = import sources.devenv;
   niv = import sources.niv { };
-  pkgs-unstable = import sources.nixpkgs-unstable { };
 
   # TODO: upgrade all these!
   pkgs-21 = import sources.nixpkgs21 { };
   pkgs-21-darwin = import sources.nixpkgs21 { localSystem = "x86_64-darwin"; };
   pkgs-23-05 = import sources.nixpkgs23 { };
+
+  pkgs = import sources.nixpkgs2311 { };
+  pkgs-unstable = import sources.nixpkgs-unstable { };
 in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
