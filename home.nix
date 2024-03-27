@@ -6,8 +6,7 @@ let
   niv = import sources.niv { };
 
   # TODO: upgrade all these!
-  pkgs-21 = import sources.nixpkgs21 { };
-  pkgs-21-darwin = import sources.nixpkgs21 { localSystem = "x86_64-darwin"; };
+  pkgs-21-05 = import sources.nixpkgs21 { };
   pkgs-23-05 = import sources.nixpkgs23 { };
 
   pkgs = import sources.nixpkgs2311 { };
@@ -54,7 +53,7 @@ in {
     pkgs.rlwrap
     pkgs.shellcheck
     pkgs.silver-searcher
-    pkgs-21.texlive.combined.scheme-full
+    pkgs-21-05.texlive.combined.scheme-full
     pkgs.tree
     pkgs.watch
     pkgs.wget
