@@ -50,7 +50,7 @@ in {
     pkgs.python310Packages.pygments
     pkgs.ripgrep
     pkgs.rlwrap
-    pkgs-21-darwin.shellcheck
+    pkgs.shellcheck
     pkgs.silver-searcher
     pkgs-21.texlive.combined.scheme-full
     pkgs.tree
