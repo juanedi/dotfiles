@@ -30,20 +30,20 @@ in {
   home.packages = [
     devenv.default
     niv.niv
-    pkgs-21.autojump
+    pkgs.autojump
     pkgs-21-darwin.cachix
     pkgs.cloc
-    pkgs-21.coreutils
+    pkgs.coreutils
     pkgs-unstable.elmPackages.elm-language-server
     pkgs.fd
     pkgs.fontconfig
-    pkgs-21.gcc
-    pkgs-21.gnupg
+    pkgs.gcc
+    pkgs.gnupg
     pkgs.graphviz
     pkgs.imagemagick
     pkgs.jq
     pkgs.ncdu
-    pkgs-21.nerdfonts
+    pkgs.nerdfonts
     pkgs.nodejs
     pkgs-21-darwin.nixfmt
     pkgs.pandoc
