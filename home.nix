@@ -32,33 +32,33 @@ in {
   home.packages = [
     devenv.default
     niv.niv
-    pkgs-23-05.autojump
-    pkgs-23-05.cachix
-    pkgs-23-05.cloc
-    pkgs-23-05.coreutils
+    pkgs.autojump
+    pkgs.cachix
+    pkgs.cloc
+    pkgs.coreutils
     pkgs-unstable.elmPackages.elm-language-server
-    pkgs-23-05.fd
-    pkgs-23-05.fontconfig
-    pkgs-23-05.gcc
-    pkgs-23-05.gnupg
-    pkgs-23-05.graphviz
-    pkgs-23-05.imagemagick
-    pkgs-23-05.jq
-    pkgs-23-05.ncdu
-    pkgs-23-05.nerdfonts
-    pkgs-23-05.nodejs
-    pkgs-23-05.nixfmt
-    pkgs-23-05.pandoc
-    pkgs-23-05.python310Packages.pygments
-    pkgs-23-05.ripgrep
-    pkgs-23-05.rlwrap
-    pkgs-23-05.shellcheck
-    pkgs-23-05.silver-searcher
+    pkgs.fd
+    pkgs.fontconfig
+    pkgs.gcc
+    pkgs.gnupg
+    pkgs.graphviz
+    pkgs.imagemagick
+    pkgs.jq
+    pkgs-23-05.ncdu # failed to build in 23.11
+    pkgs.nerdfonts
+    pkgs.nodejs
+    pkgs.nixfmt
+    pkgs.pandoc
+    pkgs.python310Packages.pygments
+    pkgs.ripgrep
+    pkgs.rlwrap
+    pkgs.shellcheck
+    pkgs.silver-searcher
     pkgs-21.texlive.combined.scheme-full
-    pkgs-23-05.tree
-    pkgs-23-05.watch
-    pkgs-23-05.wget
-    pkgs-23-05.yarn
+    pkgs.tree
+    pkgs.watch
+    pkgs.wget
+    pkgs.yarn
     pkgs-23-05.zellij
   ];
 
@@ -79,7 +79,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs-23-05.git;
+    package = pkgs.git;
 
     lfs.enable = true;
 
@@ -113,7 +113,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    package = pkgs-23-05.tmux;
+    package = pkgs.tmux;
 
     terminal = "screen-256color";
     shortcut = "f";
