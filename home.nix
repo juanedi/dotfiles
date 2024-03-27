@@ -4,12 +4,12 @@ let
   sources = import ./nix/sources.nix;
   devenv = import sources.devenv;
   niv = import sources.niv { };
-  pkgs = import sources.nixpkgs23 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };
 
   # TODO: upgrade all these!
   pkgs-21 = import sources.nixpkgs21 { };
   pkgs-21-darwin = import sources.nixpkgs21 { localSystem = "x86_64-darwin"; };
+  pkgs-23-05 = import sources.nixpkgs23 { };
 in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -30,34 +30,34 @@ in {
   home.packages = [
     devenv.default
     niv.niv
-    pkgs.autojump
-    pkgs.cachix
-    pkgs.cloc
-    pkgs.coreutils
+    pkgs-23-05.autojump
+    pkgs-23-05.cachix
+    pkgs-23-05.cloc
+    pkgs-23-05.coreutils
     pkgs-unstable.elmPackages.elm-language-server
-    pkgs.fd
-    pkgs.fontconfig
-    pkgs.gcc
-    pkgs.gnupg
-    pkgs.graphviz
-    pkgs.imagemagick
-    pkgs.jq
-    pkgs.ncdu
-    pkgs.nerdfonts
-    pkgs.nodejs
-    pkgs.nixfmt
-    pkgs.pandoc
-    pkgs.python310Packages.pygments
-    pkgs.ripgrep
-    pkgs.rlwrap
-    pkgs.shellcheck
-    pkgs.silver-searcher
+    pkgs-23-05.fd
+    pkgs-23-05.fontconfig
+    pkgs-23-05.gcc
+    pkgs-23-05.gnupg
+    pkgs-23-05.graphviz
+    pkgs-23-05.imagemagick
+    pkgs-23-05.jq
+    pkgs-23-05.ncdu
+    pkgs-23-05.nerdfonts
+    pkgs-23-05.nodejs
+    pkgs-23-05.nixfmt
+    pkgs-23-05.pandoc
+    pkgs-23-05.python310Packages.pygments
+    pkgs-23-05.ripgrep
+    pkgs-23-05.rlwrap
+    pkgs-23-05.shellcheck
+    pkgs-23-05.silver-searcher
     pkgs-21.texlive.combined.scheme-full
-    pkgs.tree
-    pkgs.watch
-    pkgs.wget
-    pkgs.yarn
-    pkgs.zellij
+    pkgs-23-05.tree
+    pkgs-23-05.watch
+    pkgs-23-05.wget
+    pkgs-23-05.yarn
+    pkgs-23-05.zellij
   ];
 
   # Let Home Manager install and manage itself.
@@ -77,7 +77,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs.git;
+    package = pkgs-23-05.git;
 
     lfs.enable = true;
 
@@ -111,7 +111,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
+    package = pkgs-23-05.tmux;
 
     terminal = "screen-256color";
     shortcut = "f";
