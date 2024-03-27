@@ -45,7 +45,7 @@ in {
     pkgs.ncdu
     pkgs.nerdfonts
     pkgs.nodejs
-    pkgs-21-darwin.nixfmt
+    pkgs.nixfmt
     pkgs.pandoc
     pkgs.python310Packages.pygments
     pkgs.ripgrep
