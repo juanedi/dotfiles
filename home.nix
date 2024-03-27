@@ -111,7 +111,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    package = pkgs-21.tmux;
+    package = pkgs.tmux;
 
     terminal = "screen-256color";
     shortcut = "f";
