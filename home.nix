@@ -31,7 +31,7 @@ in {
     devenv.default
     niv.niv
     pkgs.autojump
-    pkgs-21-darwin.cachix
+    pkgs.cachix
     pkgs.cloc
     pkgs.coreutils
     pkgs-unstable.elmPackages.elm-language-server
