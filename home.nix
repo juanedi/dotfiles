@@ -6,7 +6,7 @@ let
   niv = import sources.niv { };
 
   # TODO: upgrade all these!
-  pkgs-23-05 = import sources.nixpkgs23 { };
+  pkgs-23-05 = import sources.nixpkgs2305 { };
 
   pkgs = import sources.nixpkgs2311 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };

@@ -36,7 +36,7 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/8ea1b898be379f6630ac4f4e4fa7f755291212b7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "nixpkgs23": {
+    "nixpkgs2305": {
         "branch": "release-23.05",
         "description": "Nix Packages collection & NixOS",
         "homepage": "",
