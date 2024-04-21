@@ -37,6 +37,7 @@ in {
     pkgs-unstable.elmPackages.elm-language-server
     pkgs.fd
     pkgs.fontconfig
+    pkgs.fswatch
     pkgs.gcc
     pkgs.gnupg
     pkgs.graphviz
@@ -52,6 +53,7 @@ in {
     pkgs.rlwrap
     pkgs.shellcheck
     pkgs.silver-searcher
+    pkgs.tectonic
     pkgs.texlive.combined.scheme-full
     pkgs.tree
     pkgs.watch
