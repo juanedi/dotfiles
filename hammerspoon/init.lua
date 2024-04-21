@@ -92,6 +92,10 @@ hs.hotkey.bind({"cmd", "shift"}, "L", function()
     hs.application.launchOrFocus("Linear")
 end)
 
+hs.hotkey.bind({"cmd", "shift"}, "K", function()
+    hs.application.launchOrFocus("Mattermost")
+end)
+
 hs.hotkey.bind({"cmd", "shift"}, "W", function()
     hs.application.launchOrFocus("Firefox")
 end)
