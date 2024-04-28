@@ -45,6 +45,7 @@ in {
     pkgs.jq
     pkgs-23-05.ncdu # failed to build in 23.11
     pkgs.nerdfonts
+    pkgs.neovim
     pkgs.nodejs
     pkgs.nixfmt
     pkgs.pandoc
