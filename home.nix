@@ -50,6 +50,7 @@ in {
     pkgs.nixfmt
     pkgs.pandoc
     pkgs.python310Packages.pygments
+    pkgs.retry
     pkgs.ripgrep
     pkgs.rlwrap
     pkgs.shellcheck
