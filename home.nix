@@ -33,6 +33,7 @@ in {
     pkgs.autojump
     pkgs.cachix
     pkgs.cloc
+    pkgs.cmake
     pkgs.coreutils
     pkgs-unstable.elmPackages.elm-language-server
     pkgs.fd
