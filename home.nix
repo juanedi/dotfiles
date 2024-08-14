@@ -7,8 +7,8 @@ let
 
   # TODO: upgrade all these!
   pkgs-23-05 = import sources.nixpkgs2305 { };
+  pkgs-23-11 = import sources.nixpkgs2311 { };
 
-  pkgs = import sources.nixpkgs2311 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };
 in {
   # Home Manager needs a bit of information about you and the
@@ -28,41 +28,41 @@ in {
 
   # Programs that require no additional configuration
   home.packages = [
-    devenv.default
+    pkgs-unstable.devenv
     niv.niv
-    pkgs.autojump
-    pkgs.cachix
-    pkgs.cloc
-    pkgs.cmake
-    pkgs.coreutils
+    pkgs-23-11.autojump
+    pkgs-23-11.cachix
+    pkgs-23-11.cloc
+    pkgs-23-11.cmake
+    pkgs-23-11.coreutils
     pkgs-unstable.elmPackages.elm-language-server
-    pkgs.fd
-    pkgs.fontconfig
-    pkgs.fswatch
-    pkgs.gcc
-    pkgs.gnupg
-    pkgs.graphviz
-    pkgs.imagemagick
-    pkgs.jq
+    pkgs-23-11.fd
+    pkgs-23-11.fontconfig
+    pkgs-23-11.fswatch
+    pkgs-23-11.gcc
+    pkgs-23-11.gnupg
+    pkgs-23-11.graphviz
+    pkgs-23-11.imagemagick
+    pkgs-23-11.jq
     pkgs-23-05.ncdu # failed to build in 23.11
-    pkgs.nerdfonts
-    pkgs.neovim
-    pkgs.nodejs
-    pkgs.nixfmt
-    pkgs.pandoc
-    pkgs.python310Packages.pygments
-    pkgs.retry
-    pkgs.ripgrep
-    pkgs.rlwrap
-    pkgs.shellcheck
-    pkgs.silver-searcher
-    pkgs.tectonic
-    pkgs.texlive.combined.scheme-full
-    pkgs.tree
-    pkgs.watch
-    pkgs.wget
-    pkgs.yarn
-    pkgs.zellij
+    pkgs-23-11.nerdfonts
+    pkgs-23-11.neovim
+    pkgs-23-11.nodejs
+    pkgs-23-11.nixfmt
+    pkgs-23-11.pandoc
+    pkgs-23-11.python310Packages.pygments
+    pkgs-23-11.retry
+    pkgs-23-11.ripgrep
+    pkgs-23-11.rlwrap
+    pkgs-23-11.shellcheck
+    pkgs-23-11.silver-searcher
+    pkgs-23-11.tectonic
+    pkgs-23-11.texlive.combined.scheme-full
+    pkgs-23-11.tree
+    pkgs-23-11.watch
+    pkgs-23-11.wget
+    pkgs-23-11.yarn
+    pkgs-23-11.zellij
   ];
 
   # Let Home Manager install and manage itself.
@@ -82,7 +82,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs.git;
+    package = pkgs-23-11.git;
 
     lfs.enable = true;
 
@@ -116,7 +116,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
+    package = pkgs-23-11.tmux;
 
     terminal = "screen-256color";
     shortcut = "f";
