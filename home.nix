@@ -9,6 +9,7 @@ let
   pkgs-23-05 = import sources.nixpkgs2305 { };
   pkgs-23-11 = import sources.nixpkgs2311 { };
 
+  pkgs = import sources.nixpkgs2405 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };
 in {
   # Home Manager needs a bit of information about you and the
