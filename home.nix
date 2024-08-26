@@ -63,7 +63,7 @@ in {
     pkgs-23-11.watch
     pkgs-23-11.wget
     pkgs-23-11.yarn
-    pkgs-23-11.zellij
+    pkgs.zellij
   ];
 
   # Let Home Manager install and manage itself.
