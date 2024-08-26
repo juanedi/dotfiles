@@ -6,7 +6,6 @@ let
   niv = import sources.niv { };
 
   # TODO: upgrade all these!
-  pkgs-23-05 = import sources.nixpkgs2305 { };
   pkgs-23-11 = import sources.nixpkgs2311 { };
 
   pkgs = import sources.nixpkgs2405 { };
@@ -45,7 +44,6 @@ in {
     pkgs-23-11.graphviz
     pkgs-23-11.imagemagick
     pkgs-23-11.jq
-    pkgs-23-05.ncdu # failed to build in 23.11
     pkgs-23-11.nerdfonts
     pkgs-23-11.neovim
     pkgs-23-11.nodejs
