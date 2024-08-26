@@ -36,7 +36,7 @@ in {
     pkgs-23-11.cloc
     pkgs-23-11.cmake
     pkgs-23-11.coreutils
-    pkgs-unstable.elmPackages.elm-language-server
+    pkgs.elmPackages.elm-language-server
     pkgs-23-11.fd
     pkgs-23-11.fontconfig
     pkgs-23-11.fswatch
