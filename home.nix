@@ -42,6 +42,7 @@ in {
     pkgs-23-11.gcc
     pkgs-23-11.gnupg
     pkgs-23-11.graphviz
+    pkgs-unstable.gnuplot
     pkgs-23-11.imagemagick
     pkgs-23-11.jq
     pkgs-23-11.nerdfonts
