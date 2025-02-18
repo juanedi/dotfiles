@@ -9,14 +9,19 @@
   {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
-      "space tab": "pane::AlternateFile"
+      "space tab": "pane::AlternateFile",
+      "space w v": "pane::SplitVertical",
+      "space w s": "pane::SplitHorizontal",
+      "space w d": "pane::CloseAllItems",
+      "space w h": "workspace::ActivatePaneLeft",
+      "space w l": "workspace::ActivatePaneRight",
+      "space w j": "workspace::ActivatePaneDown",
+      "space w k": "workspace::ActivatePaneUp"
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
       "ctrl-h": "vim::StartOfLineDownward",
       "ctrl-l": "vim::EndOfLine",
       "space s i": "outline::Toggle"
