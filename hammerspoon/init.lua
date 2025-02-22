@@ -97,7 +97,7 @@ hs.hotkey.bind({"cmd", "shift"}, "K", function()
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "W", function()
-    hs.application.launchOrFocus("Firefox")
+    hs.application.launchOrFocus("Google Chrome")
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "X", function()
