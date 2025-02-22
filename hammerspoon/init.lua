@@ -108,6 +108,10 @@ hs.hotkey.bind({"cmd", "shift"}, "F", function()
     hs.application.launchOrFocus("Notion Calendar")
 end)
 
+hs.hotkey.bind({"cmd", "shift"}, "M", function()
+    hs.application.launchOrFocus("Zed")
+end)
+
 --------------------------------------------
 -- MISC
 --------------------------------------------

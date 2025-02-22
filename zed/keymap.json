@@ -10,13 +10,14 @@
     "context": "Workspace",
     "bindings": {
       "space tab": "pane::AlternateFile",
-      "space w v": "pane::SplitVertical",
-      "space w s": "pane::SplitHorizontal",
+      "space w v": "pane::SplitRight",
+      "space w s": "pane::SplitDown",
       "space w d": "pane::CloseAllItems",
       "space w h": "workspace::ActivatePaneLeft",
       "space w l": "workspace::ActivatePaneRight",
       "space w j": "workspace::ActivatePaneDown",
-      "space w k": "workspace::ActivatePaneUp"
+      "space w k": "workspace::ActivatePaneUp",
+      "space p f": "file_finder::Toggle"
     }
   },
   {
