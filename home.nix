@@ -32,7 +32,7 @@ in {
     niv.niv
     pkgs-23-11.autojump
     pkgs-23-11.cachix
-    pkgs-23-11.cloc
+    pkgs.cloc
     pkgs-23-11.cmake
     pkgs-23-11.coreutils
     pkgs.elmPackages.elm-language-server
@@ -62,7 +62,7 @@ in {
     pkgs-23-11.watch
     pkgs-23-11.wget
     pkgs-23-11.yarn
-    pkgs.zellij
+    pkgs-unstable.zellij
   ];
 
   # Let Home Manager install and manage itself.
@@ -145,7 +145,7 @@ in {
 
     oh-my-zsh = {
       enable = true;
-      theme = "be_nice";
+      # theme = "be_nice";
       custom = "$HOME/.oh-my-zsh-custom";
     };
 
@@ -154,13 +154,13 @@ in {
       DOOMDIR = "$HOME/.config/doom";
     };
 
-    initExtraFirst = builtins.concatStringsSep "\n" [
-     # uncomment if using a single-user nix installation
-     # ". ~/.nix-profile/etc/profile.d/nix.sh"
-     (builtins.readFile ./zsh/tmux-integration.zsh)
-     (builtins.readFile ./zsh/zellij-integration.zsh)
-     (builtins.readFile ./zsh/pdflatex-helpers.zsh)
-    ];
+    # initExtraFirst = builtins.concatStringsSep "\n" [
+    #  # uncomment if using a single-user nix installation
+    #  # ". ~/.nix-profile/etc/profile.d/nix.sh"
+    #  (builtins.readFile ./zsh/tmux-integration.zsh)
+    #  (builtins.readFile ./zsh/zellij-integration.zsh)
+    #  (builtins.readFile ./zsh/pdflatex-helpers.zsh)
+    # ];
 
     initExtra = builtins.readFile ./zsh/init-extra.zsh;
   };
