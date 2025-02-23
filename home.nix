@@ -154,13 +154,13 @@ in {
       DOOMDIR = "$HOME/.config/doom";
     };
 
-    # initExtraFirst = builtins.concatStringsSep "\n" [
-    #  # uncomment if using a single-user nix installation
-    #  # ". ~/.nix-profile/etc/profile.d/nix.sh"
-    #  (builtins.readFile ./zsh/tmux-integration.zsh)
-    #  (builtins.readFile ./zsh/zellij-integration.zsh)
-    #  (builtins.readFile ./zsh/pdflatex-helpers.zsh)
-    # ];
+    initExtraFirst = builtins.concatStringsSep "\n" [
+     # uncomment if using a single-user nix installation
+     # ". ~/.nix-profile/etc/profile.d/nix.sh"
+     (builtins.readFile ./zsh/tmux-integration.zsh)
+     (builtins.readFile ./zsh/zellij-integration.zsh)
+     (builtins.readFile ./zsh/pdflatex-helpers.zsh)
+    ];
 
     initExtra = builtins.readFile ./zsh/init-extra.zsh;
   };
