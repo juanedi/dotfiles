@@ -8,7 +8,7 @@ let
   # TODO: upgrade all these!
   pkgs-23-11 = import sources.nixpkgs2311 { };
 
-  pkgs = import sources.nixpkgs2405 { };
+  pkgs = import sources.nixpkgs2411 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };
 in {
   # Home Manager needs a bit of information about you and the
