@@ -8,6 +8,25 @@
 [
   {
     "context": "Workspace",
+    "bindings": {}
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-h": "vim::StartOfLineDownward",
+      "ctrl-l": "vim::EndOfLine"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "cmd-s": ["workspace::SendKeystrokes", "escape cmd-s"]
+      // "cmd-s": ["vim::NormalBefore", "workspace::Save"]
+      // "cmd-s": ["workspace::SendKeystrokes", "esc cmd-s"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "space tab": "pane::AlternateFile",
       "space w v": "pane::SplitRight",
@@ -18,28 +37,13 @@
       "space w j": "workspace::ActivatePaneDown",
       "space w k": "workspace::ActivatePaneUp",
       "space p f": "file_finder::Toggle",
-      "space e f": "editor::GoToDiagnostic"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-h": "vim::StartOfLineDownward",
-      "ctrl-l": "vim::EndOfLine",
+      "space e f": "editor::GoToDiagnostic",
       "space s i": "outline::Toggle",
       // "space s h": ["workspace::SendKeystrokes", "* shift-n"]
       "space s h": ["workspace::SendKeystrokes", "*"],
       "space c d": "editor::GoToDefinition",
       "space i k": ["workspace::SendKeystrokes", "m m shift-o escape ` m"],
       "space i j": ["workspace::SendKeystrokes", "m m o escape ` m"]
-    }
-  },
-  {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      "cmd-s": ["workspace::SendKeystrokes", "escape cmd-s"]
-      // "cmd-s": ["vim::NormalBefore", "workspace::Save"]
-      // "cmd-s": ["workspace::SendKeystrokes", "esc cmd-s"]
     }
   }
 ]
