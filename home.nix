@@ -35,7 +35,10 @@ in {
     pkgs.cloc
     pkgs-23-11.cmake
     pkgs-23-11.coreutils
+    pkgs.elmPackages.elm
+    pkgs.elmPackages.elm-format
     pkgs.elmPackages.elm-language-server
+    pkgs.elmPackages.elm-review
     pkgs-23-11.fd
     pkgs-23-11.fontconfig
     pkgs-23-11.fswatch
