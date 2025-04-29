@@ -146,6 +146,7 @@ in {
       doom  = "~/.config/emacs/bin/doom";
       idr   = "rlwrap idris2";
       z     = "zellij";
+      tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
     };
 
     oh-my-zsh = {
