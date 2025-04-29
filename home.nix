@@ -53,7 +53,9 @@ in {
     pkgs-23-11.nodejs
     pkgs-23-11.nixfmt
     pkgs-23-11.pandoc
+    pkgs-23-11.python3
     pkgs-23-11.python310Packages.pygments
+    pkgs-23-11.pyright
     pkgs-23-11.retry
     pkgs-23-11.ripgrep
     pkgs-23-11.rlwrap
