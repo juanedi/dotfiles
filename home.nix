@@ -35,6 +35,7 @@ in {
     pkgs.cloc
     pkgs-23-11.cmake
     pkgs-23-11.coreutils
+    pkgs.drawio
     pkgs.elmPackages.elm
     pkgs.elmPackages.elm-format
     pkgs.elmPackages.elm-language-server
@@ -65,6 +66,7 @@ in {
     pkgs-23-11.texlive.combined.scheme-full
     pkgs-23-11.tree
     pkgs-23-11.watch
+    pkgs.watchexec
     pkgs-23-11.wget
     pkgs-23-11.yarn
     pkgs-unstable.zellij
