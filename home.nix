@@ -149,6 +149,7 @@ in {
       idr   = "rlwrap idris2";
       z     = "zellij";
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
+      sshk = "kitty +kitten ssh";
     };
 
     oh-my-zsh = {
