@@ -51,7 +51,7 @@ in {
     pkgs-23-11.jq
     pkgs-23-11.nerdfonts
     pkgs-23-11.neovim
-    pkgs-23-11.nodejs
+    pkgs-unstable.nodejs
     pkgs-23-11.nixfmt
     pkgs-23-11.pandoc
     pkgs-23-11.python3
