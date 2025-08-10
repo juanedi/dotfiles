@@ -63,7 +63,7 @@ in {
     pkgs-23-11.shellcheck
     pkgs-23-11.silver-searcher
     pkgs-23-11.tectonic
-    pkgs-23-11.texlive.combined.scheme-full
+    pkgs-unstable.texlive.combined.scheme-full
     pkgs-23-11.tree
     pkgs-23-11.watch
     pkgs.watchexec
