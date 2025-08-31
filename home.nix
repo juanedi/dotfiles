@@ -147,7 +147,7 @@ in {
       gst   = "git status";
       doom  = "~/.config/emacs/bin/doom";
       idr   = "rlwrap idris2";
-      z     = "zellij";
+      zed     = "open -a /Applications/Zed.app";
       tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
       sshk = "kitty +kitten ssh";
       claude-personal = "CLAUDE_CONFIG_DIR=~/.claude-personal ~/npm-installs/node_modules/@anthropic-ai/claude-code/cli.js";
