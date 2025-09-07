@@ -67,7 +67,6 @@ in {
     pkgs.watchexec
     pkgs.wget
     pkgs.yarn
-    pkgs.zellij
   ];
 
   # Let Home Manager install and manage itself.
@@ -167,7 +166,6 @@ in {
      # uncomment if using a single-user nix installation
      # ". ~/.nix-profile/etc/profile.d/nix.sh"
      (builtins.readFile ./zsh/tmux-integration.zsh)
-     (builtins.readFile ./zsh/zellij-integration.zsh)
      (builtins.readFile ./zsh/pdflatex-helpers.zsh)
     ];
 
