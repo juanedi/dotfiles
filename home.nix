@@ -26,7 +26,7 @@ in {
 
   # Programs that require no additional configuration
   home.packages = [
-    pkgs-unstable.devenv
+    pkgs.devenv
     niv.niv
     pkgs.autojump
     pkgs.cachix
@@ -44,12 +44,12 @@ in {
     pkgs.gcc
     pkgs.gnupg
     pkgs.graphviz
-    pkgs-unstable.gnuplot
+    pkgs.gnuplot
     pkgs.imagemagick
     pkgs.jq
     pkgs-24-11.nerdfonts
     pkgs.neovim
-    pkgs-unstable.nodejs
+    pkgs.nodejs
     pkgs.nixfmt
     pkgs.pandoc
     pkgs.python3
@@ -67,7 +67,7 @@ in {
     pkgs.watchexec
     pkgs.wget
     pkgs.yarn
-    pkgs-unstable.zellij
+    pkgs.zellij
   ];
 
   # Let Home Manager install and manage itself.
