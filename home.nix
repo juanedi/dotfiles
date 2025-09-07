@@ -30,45 +30,45 @@ in {
   home.packages = [
     pkgs-unstable.devenv
     niv.niv
-    pkgs-23-11.autojump
-    pkgs-23-11.cachix
+    pkgs.autojump
+    pkgs.cachix
     pkgs.cloc
-    pkgs-23-11.cmake
-    pkgs-23-11.coreutils
+    pkgs.cmake
+    pkgs.coreutils
     pkgs.drawio
     pkgs.elmPackages.elm
     pkgs.elmPackages.elm-format
     pkgs.elmPackages.elm-language-server
     pkgs.elmPackages.elm-review
-    pkgs-23-11.fd
-    pkgs-23-11.fontconfig
-    pkgs-23-11.fswatch
-    pkgs-23-11.gcc
-    pkgs-23-11.gnupg
-    pkgs-23-11.graphviz
+    pkgs.fd
+    pkgs.fontconfig
+    pkgs.fswatch
+    pkgs.gcc
+    pkgs.gnupg
+    pkgs.graphviz
     pkgs-unstable.gnuplot
-    pkgs-23-11.imagemagick
-    pkgs-23-11.jq
-    pkgs-23-11.nerdfonts
-    pkgs-23-11.neovim
+    pkgs.imagemagick
+    pkgs.jq
+    pkgs.nerdfonts
+    pkgs.neovim
     pkgs-unstable.nodejs
-    pkgs-23-11.nixfmt
-    pkgs-23-11.pandoc
-    pkgs-23-11.python3
-    pkgs-23-11.python310Packages.pygments
-    pkgs-23-11.pyright
-    pkgs-23-11.retry
-    pkgs-23-11.ripgrep
-    pkgs-23-11.rlwrap
-    pkgs-23-11.shellcheck
-    pkgs-23-11.silver-searcher
-    pkgs-23-11.tectonic
+    pkgs.nixfmt
+    pkgs.pandoc
+    pkgs.python3
+    pkgs.python310Packages.pygments
+    pkgs.pyright
+    pkgs.retry
+    pkgs.ripgrep
+    pkgs.rlwrap
+    pkgs.shellcheck
+    pkgs.silver-searcher
+    pkgs.tectonic
     pkgs-unstable.texlive.combined.scheme-full
-    pkgs-23-11.tree
-    pkgs-23-11.watch
+    pkgs.tree
+    pkgs.watch
     pkgs.watchexec
-    pkgs-23-11.wget
-    pkgs-23-11.yarn
+    pkgs.wget
+    pkgs.yarn
     pkgs-unstable.zellij
   ];
 
@@ -89,7 +89,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs-23-11.git;
+    package = pkgs.git;
 
     lfs.enable = true;
 
@@ -123,7 +123,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    package = pkgs-23-11.tmux;
+    package = pkgs.tmux;
 
     terminal = "screen-256color";
     shortcut = "f";
