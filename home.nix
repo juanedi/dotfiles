@@ -5,9 +5,6 @@ let
   devenv = import sources.devenv;
   niv = import sources.niv { };
 
-  # TODO: upgrade all these!
-  pkgs-23-11 = import sources.nixpkgs2311 { };
-
   pkgs = import sources.nixpkgs2411 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };
 in {
