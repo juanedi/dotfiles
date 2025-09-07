@@ -5,7 +5,8 @@ let
   devenv = import sources.devenv;
   niv = import sources.niv { };
 
-  pkgs = import sources.nixpkgs2411 { };
+  pkgs-24-11 = import sources.nixpkgs2411 { };
+  pkgs = import sources.nixpkgs2505 { };
   pkgs-unstable = import sources.nixpkgs-unstable { };
 in {
   # Home Manager needs a bit of information about you and the
@@ -27,45 +28,45 @@ in {
   home.packages = [
     pkgs-unstable.devenv
     niv.niv
-    pkgs.autojump
-    pkgs.cachix
-    pkgs.cloc
-    pkgs.cmake
-    pkgs.coreutils
-    pkgs.drawio
-    pkgs.elmPackages.elm
-    pkgs.elmPackages.elm-format
-    pkgs.elmPackages.elm-language-server
-    pkgs.elmPackages.elm-review
-    pkgs.fd
-    pkgs.fontconfig
-    pkgs.fswatch
-    pkgs.gcc
-    pkgs.gnupg
-    pkgs.graphviz
+    pkgs-24-11.autojump
+    pkgs-24-11.cachix
+    pkgs-24-11.cloc
+    pkgs-24-11.cmake
+    pkgs-24-11.coreutils
+    pkgs-24-11.drawio
+    pkgs-24-11.elmPackages.elm
+    pkgs-24-11.elmPackages.elm-format
+    pkgs-24-11.elmPackages.elm-language-server
+    pkgs-24-11.elmPackages.elm-review
+    pkgs-24-11.fd
+    pkgs-24-11.fontconfig
+    pkgs-24-11.fswatch
+    pkgs-24-11.gcc
+    pkgs-24-11.gnupg
+    pkgs-24-11.graphviz
     pkgs-unstable.gnuplot
-    pkgs.imagemagick
-    pkgs.jq
-    pkgs.nerdfonts
-    pkgs.neovim
+    pkgs-24-11.imagemagick
+    pkgs-24-11.jq
+    pkgs-24-11.nerdfonts
+    pkgs-24-11.neovim
     pkgs-unstable.nodejs
-    pkgs.nixfmt
-    pkgs.pandoc
-    pkgs.python3
-    pkgs.python310Packages.pygments
-    pkgs.pyright
-    pkgs.retry
-    pkgs.ripgrep
-    pkgs.rlwrap
-    pkgs.shellcheck
-    pkgs.silver-searcher
-    pkgs.tectonic
+    pkgs-24-11.nixfmt
+    pkgs-24-11.pandoc
+    pkgs-24-11.python3
+    pkgs-24-11.python310Packages.pygments
+    pkgs-24-11.pyright
+    pkgs-24-11.retry
+    pkgs-24-11.ripgrep
+    pkgs-24-11.rlwrap
+    pkgs-24-11.shellcheck
+    pkgs-24-11.silver-searcher
+    pkgs-24-11.tectonic
     pkgs-unstable.texlive.combined.scheme-full
-    pkgs.tree
-    pkgs.watch
-    pkgs.watchexec
-    pkgs.wget
-    pkgs.yarn
+    pkgs-24-11.tree
+    pkgs-24-11.watch
+    pkgs-24-11.watchexec
+    pkgs-24-11.wget
+    pkgs-24-11.yarn
     pkgs-unstable.zellij
   ];
 
@@ -86,7 +87,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs.git;
+    package = pkgs-24-11.git;
 
     lfs.enable = true;
 
@@ -120,7 +121,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
+    package = pkgs-24-11.tmux;
 
     terminal = "screen-256color";
     shortcut = "f";
