@@ -160,6 +160,7 @@ in {
     sessionVariables = {
       DIRENV_LOG_FORMAT = "";
       DOOMDIR = "$HOME/.config/doom";
+      EMACS = "/Applications/Emacs-29.4.app/Contents/MacOS/Emacs";
     };
 
     initExtraFirst = builtins.concatStringsSep "\n" [
