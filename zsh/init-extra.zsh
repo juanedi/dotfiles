@@ -4,3 +4,5 @@ if [[ -f ~/.zsh-init-local ]]
 then
     source ~/.zsh-init-local
 fi
+
+export PATH="$HOME/bin:$PATH"
