@@ -31,7 +31,6 @@ in {
     pkgs.autojump
     pkgs.cachix
     pkgs.cloc
-    pkgs.cmake
     pkgs.coreutils
     pkgs.drawio
     pkgs.elmPackages.elm
@@ -41,7 +40,6 @@ in {
     pkgs.fd
     pkgs.fontconfig
     pkgs.fswatch
-    pkgs.gcc
     pkgs.gnupg
     pkgs.graphviz
     pkgs.gnuplot
@@ -51,17 +49,12 @@ in {
     pkgs.neovim
     pkgs.nodejs
     pkgs.nixfmt
-    pkgs.pandoc
-    pkgs.python3
-    pkgs.python310Packages.pygments
     pkgs.pyright
     pkgs.retry
     pkgs.ripgrep
     pkgs.rlwrap
     pkgs.shellcheck
     pkgs.silver-searcher
-    pkgs.tectonic
-    pkgs.texlive.combined.scheme-full
     pkgs.tree
     pkgs.watch
     pkgs.watchexec
